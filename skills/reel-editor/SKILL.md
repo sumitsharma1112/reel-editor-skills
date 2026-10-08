@@ -36,6 +36,8 @@ Scripts live in `scripts/` next to this file. For designed motion graphics also 
 | Beat-synced montage from a folder of clips | `python scripts/beat_montage.py --clips clips/ --song song.mp3 --out reel.mp4` |
 | Copy cut timing from a Premiere XML | add `--xml Sequence_01.xml` |
 | Crimson Aerochrome grade | `python scripts/crimson_grade.py --in clip.mp4 --out red.mp4` |
+| Travel/cinematic title (20 styles) | `python scripts/title_kit.py --style caps_signature --text "HEMKUND SAHIB|Gurudwara" --bg photo.jpg --out title.jpg` |
+| Preview all title styles | `python scripts/title_kit.py --sheet --out sheet.jpg` (see `title_styles_preview.jpg`) |
 
 `--wm x,y,r` on strobe_sync inpaints an AI-video watermark (Veo/Gemini sparkle sits near
 x=600,y=1160 r=24 on 720x1280 clips). Check the corner crop first.
@@ -79,6 +81,14 @@ held hero shot. Avoid too many short slow-mo shots in a row.
   words. Put the word high enough (y~340) that it stays readable.
 - 3D sticker: cut-out + thick white outline + soft drop shadow + slight tilt.
 - Depth sandwich poster: background -> huge headline -> subject -> blurred foreground -> sticker.
+
+### Title lettering (travel / cinematic)
+Use `scripts/title_kit.py` (20 styles, fonts bundled in `fonts/`, mapping + rules in `fonts/fonts.md`).
+Pick by mood: grunge/brush caps for mountains, forts and waterfalls; clean scripts for beaches, tea
+gardens and calm places; serif caps for epic landscapes; bubbly for fun road trips; yellow caps + script
+crossing for thumbnails. Pattern: one hero word + one tiny kicker in its empty space, colour picked from
+the scene, title in the top third, subject below or in front of it. `render()` returns a transparent
+overlay, so animate it (pop, slow push, mask reveal) or composite behind a cutout.
 
 ### Text & motion
 - Popular pairings: heavy condensed caps (Anton/Bebas) + a script or brush accent

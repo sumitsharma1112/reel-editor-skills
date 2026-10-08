@@ -19,6 +19,7 @@ Scripts in `skills/reel-editor/scripts/`:
 - `strobe_sync.py`: alternate two shots every few frames, copying the cut pattern and song from a reference reel; extends the song on-beat.
 - `beat_montage.py`: cut a folder of clips onto the beats of a song (or a Premiere XML cut list).
 - `crimson_grade.py`: crimson Aerochrome colour grade.
+- `title_kit.py`: 20 travel/cinematic title lettering styles (Ladakh, Kerala Tales, Jodhpur Blue City...) with bundled free fonts. Preview: `skills/reel-editor/title_styles_preview.jpg`.
 - `common.py`: shared helpers (ffmpeg I/O, beat detection, on-beat audio loop).
 
 ## How to use
@@ -50,4 +51,4 @@ Needs Python 3.10+ and ffmpeg.
 
 ## License
 
-MIT
+Code: MIT. Fonts in `skills/reel-editor/fonts/` are Google Fonts under the SIL Open Font License.
