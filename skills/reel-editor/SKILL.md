@@ -109,6 +109,14 @@ write it in gold calligraphy at a temple. Rules learned:
   person (TRE  VI) or move it so only the bottom of the last letter is tucked behind.
 - Low-resolution phone photos (under ~600 px wide) look soft at 1080x1920; ask for the original.
 
+### Hook intro + follow outro (before/after reels)
+- Hook (about 3 s): flicker the RAW photos (blurred, darkened) behind the line "Apni travel photo ko /
+  BORING (grey, red strike-through) / se STUNNING (huge gradient slam + sparkles) / kaise banayein? 👇".
+  Then show each photo plain for a beat before its title appears, so every clip is its own before/after.
+- Outro (about 3.5 s): "Aise aur FONTS & STYLES ke liye" in the same gradients, then an animated blue
+  FOLLOW pill that a pointing hand presses: it turns into FOLLOWING with a confetti ring.
+- Script: `scripts/hook_intro_outro.py`.
+
 ### Text & motion
 - Popular pairings: heavy condensed caps (Anton/Bebas) + a script or brush accent
   (Yellowtail/Permanent Marker); white + one accent colour.
