@@ -40,6 +40,7 @@ Scripts live in `scripts/` next to this file. For designed motion graphics also 
 | Hindi word + English meaning title (16 styles) | `python scripts/deva_kit.py --style calligraphy_swash --text "भारत|INDIA" --out t.jpg` (see `hindi_styles_preview.jpg`) |
 | Word-by-word lyric captions over images ("sky is the canvas": huge red calligraphy on B&W + small white on colour) | `python scripts/lyric_captions.py --spec spec.json --audio song.mp4 --out reel.mp4` (spec format in the script docstring) |
 | Depth cover: title behind the subject's crown/head | `python scripts/depth_cover.py --img photo.png --title "अयि गिरि|नन्दिनि" --kicker "JAI MATA DI" --out cover.jpg` |
+| Scene-interactive place titles (on water, rising from sea, out of arches, behind person, gold Hindi, out of a mountain) | `scripts/travel_titles.py` (stills) + `scripts/travel_titles_anim.py` (4 s clips) |
 | Preview all title styles | `python scripts/title_kit.py --sheet --out sheet.jpg` (see `title_styles_preview.jpg`) |
 
 `--wm x,y,r` on strobe_sync inpaints an AI-video watermark (Veo/Gemini sparkle sits near
@@ -92,6 +93,21 @@ gardens and calm places; serif caps for epic landscapes; bubbly for fun road tri
 crossing for thumbnails. Pattern: one hero word + one tiny kicker in its empty space, colour picked from
 the scene, title in the top third, subject below or in front of it. `render()` returns a transparent
 overlay, so animate it (pop, slow push, mask reveal) or composite behind a cutout.
+
+### Scene-interactive place titles
+Make the word *belong* to the place: lay it on water (perspective warp + caustics + ripple), rise it out
+of the sea (waterline cut + rippled reflection + foam line), fly letters out of arches/doors and assemble
+the word, put it huge behind the person, slide it out from behind a mountain (ridge polygon mask), or
+write it in gold calligraphy at a temple. Rules learned:
+- Pick the colour from the scene, then push it: sunset gold→coral→magenta on a pastel sea, gold→burnt
+  orange with a dark outline on travertine, copper-green on an Austrian skyline, liquid gold with an
+  orange glow at night, ice white→glacier blue on cloudy mountains, pearl white on turquoise water.
+- Fonts with personality: Abril Fatface (lying on water, thick strokes survive the warp), Anton
+  (rising), Cinzel 900 (Roman), Big Shoulders Display 900 (huge condensed), Amita (Hindi gold),
+  Bebas Neue with wide tracking (mountain), plus a signature script or spaced Cinzel kicker.
+- Never let the person or a mountain hide the middle of the word; split the word around the
+  person (TRE  VI) or move it so only the bottom of the last letter is tucked behind.
+- Low-resolution phone photos (under ~600 px wide) look soft at 1080x1920; ask for the original.
 
 ### Text & motion
 - Popular pairings: heavy condensed caps (Anton/Bebas) + a script or brush accent

@@ -23,6 +23,7 @@ Scripts in `skills/reel-editor/scripts/`:
 - `deva_kit.py`: 16 Hindi (Devanagari) calligraphy title styles: swash tails, hairlines, headline bar, chalk, grunge, plus the English meaning line. Preview: `skills/reel-editor/hindi_styles_preview.jpg`.
 - `lyric_captions.py`: word-by-word song lyric captions over still images (huge red calligraphy on black & white + small white words on colour, with roman transliteration), timed to the vocals.
 - `depth_cover.py`: reel cover with a huge title behind the subject (rembg cut-out) and a small spaced kicker.
+- `travel_titles.py` / `travel_titles_anim.py`: place names that interact with the scene: lying on water, rising from the sea, flying out of arches, huge behind you, gold Hindi calligraphy, sliding out of a mountain. Stills and animated clips.
 - `common.py`: shared helpers (ffmpeg I/O, beat detection, on-beat audio loop).
 
 ## How to use
