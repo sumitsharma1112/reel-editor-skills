@@ -38,6 +38,8 @@ Scripts live in `scripts/` next to this file. For designed motion graphics also 
 | Crimson Aerochrome grade | `python scripts/crimson_grade.py --in clip.mp4 --out red.mp4` |
 | Travel/cinematic title (20 styles) | `python scripts/title_kit.py --style caps_signature --text "HEMKUND SAHIB|Gurudwara" --bg photo.jpg --out title.jpg` |
 | Hindi word + English meaning title (16 styles) | `python scripts/deva_kit.py --style calligraphy_swash --text "भारत|INDIA" --out t.jpg` (see `hindi_styles_preview.jpg`) |
+| Word-by-word lyric captions over images ("sky is the canvas": huge red calligraphy on B&W + small white on colour) | `python scripts/lyric_captions.py --spec spec.json --audio song.mp4 --out reel.mp4` (spec format in the script docstring) |
+| Depth cover: title behind the subject's crown/head | `python scripts/depth_cover.py --img photo.png --title "अयि गिरि|नन्दिनि" --kicker "JAI MATA DI" --out cover.jpg` |
 | Preview all title styles | `python scripts/title_kit.py --sheet --out sheet.jpg` (see `title_styles_preview.jpg`) |
 
 `--wm x,y,r` on strobe_sync inpaints an AI-video watermark (Veo/Gemini sparkle sits near
@@ -109,9 +111,35 @@ overlay, so animate it (pop, slow push, mask reveal) or composite behind a cutou
 - Loudness: normalise the mix to -14 LUFS (`loudnorm=I=-14`). Mute noisy source audio when the
   music carries the reel.
 
+### Lyric captions (song reels)
+- One word at a time, always in the sky area of each image. Each image gets a text anchor where the sky is.
+- Contrast system: key words HUGE in red (#E8121A) calligraphy, and the photo flips to black & white
+  under them (with a 2-frame flash and a 1.15 -> 1 slam). Connecting words are small white (Tiro Devanagari)
+  on the colour photo and fade up 24 px. Under each red word put a small spaced roman transliteration
+  (Cinzel, about 44 px) so non-Hindi readers can sing along.
+- Fonts by mood: Amita for flowing devotional words, Rozha One (+ swash) for line endings, Eczar for
+  power words (जय, महिषासुरमर्दिनि).
+- Match the image to the meaning of the word: the slaying scene on "Mardini", the devotee crowd on
+  "kutumbini", a crescent moon on Shiva words. End on the hero image blooming back to colour.
+- Timing: spread words across each lyric line by syllable count and snap to vocal onsets; let the
+  user give per-line times and correct individual words with `"t"`.
+- Clamp wide words inside the frame (max 880 px wide, 30 px margins) and check every red word in a
+  contact sheet, because long Sanskrit compounds overflow first.
+
 ### Covers
 Show the subject's face and the title clearly, keep it readable as a small grid thumbnail, and do
 not give away the punchline of a comedy reel.
+- For a song reel, the song's own name (e.g. "अयि गिरि नन्दिनि") sells better than a generic greeting:
+  put the song name huge and the greeting ("JAI MATA DI") small and spaced above it.
+- Depth: choose a photo with open sky above the subject; cut the subject out (rembg u2net) and paste only
+  its upper part (crown, weapon tip, head) over the last title line. Keep the text clear of the face,
+  otherwise the word becomes unreadable. Check the 3:4 grid crop.
+
+## Keep this repo updated
+Whenever you learn a new technique, font set, style or workflow for the user (from a reference they share or a
+new reel you build), add it to this repo in the same session: a reusable script in `scripts/` (tested on real
+input), a section in this SKILL.md, fonts in `fonts/` (OFL/free only), a line in README.md. Then commit and
+push to `main`. Never commit the user's personal photos, videos, songs or SFX.
 
 ## Captions (when asked "Caption")
 Plain text only: a 1-line hook, 2-4 short lines, a comment CTA, then 8-10 relevant hashtags.

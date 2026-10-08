@@ -21,6 +21,8 @@ Scripts in `skills/reel-editor/scripts/`:
 - `crimson_grade.py`: crimson Aerochrome colour grade.
 - `title_kit.py`: 20 travel/cinematic title lettering styles (Ladakh, Kerala Tales, Jodhpur Blue City...) with bundled free fonts. Preview: `skills/reel-editor/title_styles_preview.jpg`.
 - `deva_kit.py`: 16 Hindi (Devanagari) calligraphy title styles: swash tails, hairlines, headline bar, chalk, grunge, plus the English meaning line. Preview: `skills/reel-editor/hindi_styles_preview.jpg`.
+- `lyric_captions.py`: word-by-word song lyric captions over still images (huge red calligraphy on black & white + small white words on colour, with roman transliteration), timed to the vocals.
+- `depth_cover.py`: reel cover with a huge title behind the subject (rembg cut-out) and a small spaced kicker.
 - `common.py`: shared helpers (ffmpeg I/O, beat detection, on-beat audio loop).
 
 ## How to use
