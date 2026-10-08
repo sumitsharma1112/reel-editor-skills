@@ -37,6 +37,7 @@ Scripts live in `scripts/` next to this file. For designed motion graphics also 
 | Copy cut timing from a Premiere XML | add `--xml Sequence_01.xml` |
 | Crimson Aerochrome grade | `python scripts/crimson_grade.py --in clip.mp4 --out red.mp4` |
 | Travel/cinematic title (20 styles) | `python scripts/title_kit.py --style caps_signature --text "HEMKUND SAHIB|Gurudwara" --bg photo.jpg --out title.jpg` |
+| Hindi word + English meaning title (16 styles) | `python scripts/deva_kit.py --style calligraphy_swash --text "भारत|INDIA" --out t.jpg` (see `hindi_styles_preview.jpg`) |
 | Preview all title styles | `python scripts/title_kit.py --sheet --out sheet.jpg` (see `title_styles_preview.jpg`) |
 
 `--wm x,y,r` on strobe_sync inpaints an AI-video watermark (Veo/Gemini sparkle sits near

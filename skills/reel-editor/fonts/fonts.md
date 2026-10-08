@@ -45,3 +45,42 @@ They are close lookalikes of popular travel and cinematic title lettering.
    a soft shadow so white text stays readable.
 7. **Decor is minimal.** At most one decoration: a hand-drawn circle, sparkle strokes, a mountain
    icon line, or a couple of doodles for a thumbnail.
+
+# Hindi (Devanagari) title fonts (`scripts/deva_kit.py`)
+
+All fonts in `fonts/deva/` are Google Fonts under the OFL. Pillow needs raqm for correct shaping
+of matras and conjuncts.
+
+| Style | Reference look | Font + effect |
+|---|---|---|
+| grunge_danger | संकटभाव, torn white on a dark photo | Yatra One + grunge |
+| chalk | कलामयी, chalk on black | Kalam 700 + chalk texture |
+| heavy_calligraphy | मृदुल / जीत, very heavy | Eczar 800 |
+| rounded_mono | परिवर्तन / सृजन, rounded and friendly | Baloo 2 600/800 |
+| sharp_hairline | नवोन्मेष, magenta with a diagonal hairline | Eczar 800 + hairline |
+| thin_geometric_swash | गुलज़ार, thin line with a long left swash | Poppins 300 + bar + left swash |
+| calligraphy_swash | भारत / रंगाम, bold calligraphy with a tail | Rozha One + swash |
+| bold_hairline | अभिनंदन / विरासत, cream on red | Rozha One + hairline |
+| mono_bar | उत्तराखंड, thin monoline with a long headline bar | Gotu + bar extension |
+| rounded_swash | शब्दमाला | Baloo 2 + left swash + bar |
+| flowing_calligraphy | मोक्षप्राप्ती / अदाएँ / श्रृंगार / नज़ाकत, pen calligraphy | Amita 700 + swash |
+| flowing_light | अदाकारी | Amita 400 + bar |
+| textured_heavy | हिन्दी with flower ornaments | Eczar 800 + grain + ornaments |
+| jain_script | old manuscript look | Jaini Purva |
+| latin_shirorekha | Mangalmay / Qasira / Chintaron, English dressed like Hindi | Akshar 700 Latin + top bar at x-height + swash |
+| signature_outro | "Tha / IF YOU ENJOY MY CONTENT:" outro | Mrs Saint Delafield + spaced Montserrat caps |
+
+## Rules from these designs
+
+1. **Hindi hero word + English meaning.** One meaningful Hindi word (संकटभाव, परिवर्तन), with its English
+   meaning in small letter-spaced caps (Montserrat 500, about 40 px) centred under it.
+   This works well as a carousel or reel series: "Hindi words with beautiful meanings".
+2. **The photo explains the word.** परिवर्तन sits on an orange, नवोन्मेष on a plasma ball, कलामयी on
+   a pencil tip. White text on photos; on flat colour use cream #F6ECD6 with red #9B1A12 (either way round)
+   or dark brown on parchment.
+3. **Calligraphic flourishes carry the luxury feel.** Use a tapered swash tail from the last letter, a
+   thin diagonal hairline through one letter, or a headline bar (shirorekha) running past the word.
+   Use only one or two of these per word.
+4. **Texture matches the meaning.** Grunge for danger, chalk for art, grain or wood for heritage,
+   clean rounded strokes for soft and positive words.
+5. **Paper grain.** Flat backgrounds get a fine grain or parchment pattern so they never look digital-flat.

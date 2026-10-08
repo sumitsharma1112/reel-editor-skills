@@ -20,6 +20,7 @@ Scripts in `skills/reel-editor/scripts/`:
 - `beat_montage.py`: cut a folder of clips onto the beats of a song (or a Premiere XML cut list).
 - `crimson_grade.py`: crimson Aerochrome colour grade.
 - `title_kit.py`: 20 travel/cinematic title lettering styles (Ladakh, Kerala Tales, Jodhpur Blue City...) with bundled free fonts. Preview: `skills/reel-editor/title_styles_preview.jpg`.
+- `deva_kit.py`: 16 Hindi (Devanagari) calligraphy title styles: swash tails, hairlines, headline bar, chalk, grunge, plus the English meaning line. Preview: `skills/reel-editor/hindi_styles_preview.jpg`.
 - `common.py`: shared helpers (ffmpeg I/O, beat detection, on-beat audio loop).
 
 ## How to use
