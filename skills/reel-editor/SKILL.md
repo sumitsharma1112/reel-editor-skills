@@ -117,6 +117,17 @@ write it in gold calligraphy at a temple. Rules learned:
   FOLLOW pill that a pointing hand presses: it turns into FOLLOWING with a confetti ring.
 - Script: `scripts/hook_intro_outro.py`.
 
+### Cosmos intro (procedural, no stock footage)
+`scripts/cosmos_intro.py` renders a 5 s black & white space opener with sound: 3D warp-speed star streaks,
+a particle spiral galaxy (log-spiral arms, splatted + glow), a Gargantua-style black hole (tilted
+accretion disk with rotating streaks, lensed arc over the shadow, photon ring), fBm nebula and a rim-lit
+planet. Cuts accelerate (16 frames down to 2) and each cut gets a synthesized camera-shutter click
+(snap + mirror slap + thump), extra motor-drive clicks in the fast part, a rising rumble, and a final
+dive into the black hole with a sub-boom and a white flash that cuts into the reel. Tips: tone-map with
+1-exp(-1.6x) so bright scenes do not clip to grey; cap warp streak length or the screen turns grey;
+flash only on slower cuts (every cut flashing at 2-frame gaps becomes a grey strobe).
+Prepend with an ffmpeg concat filter (add `anullsrc` audio to a silent reel first).
+
 ### Text & motion
 - Popular pairings: heavy condensed caps (Anton/Bebas) + a script or brush accent
   (Yellowtail/Permanent Marker); white + one accent colour.
