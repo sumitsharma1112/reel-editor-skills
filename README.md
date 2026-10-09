@@ -26,6 +26,7 @@ Scripts in `skills/reel-editor/scripts/`:
 - `travel_titles.py` / `travel_titles_anim.py`: place names that interact with the scene: lying on water, rising from the sea, flying out of arches, huge behind you, gold Hindi calligraphy, sliding out of a mountain. Stills and animated clips.
 - `cosmos_intro.py`: 5 s black & white cosmos opener (warp stars, galaxy, black hole, nebula, planet) with accelerating cuts and camera-shutter sound.
 - `hook_intro_outro.py`: "BORING se STUNNING" hook intro and animated FOLLOW outro.
+- `photo_dump_template.py` + `templates/`: rebuild Instagram Edits photo-dump templates (exact cut lists learned from screen recordings) with your own photos; includes "take me to the beach".
 - `common.py`: shared helpers (ffmpeg I/O, beat detection, on-beat audio loop).
 
 ## How to use

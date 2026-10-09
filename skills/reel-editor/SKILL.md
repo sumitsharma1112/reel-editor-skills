@@ -128,6 +128,14 @@ dive into the black hole with a sub-boom and a white flash that cuts into the re
 flash only on slower cuts (every cut flashing at 2-frame gaps becomes a grey strobe).
 Prepend with an ffmpeg concat filter (add `anullsrc` audio to a silent reel first).
 
+### Edits templates (learned from screen recordings)
+`scripts/photo_dump_template.py` + `templates/*.json` rebuild Instagram Edits templates with the user's own
+media. `take_me_to_the_beach.json` (song: Take Me (To The Moon) by Ian Asher, DANNY, 20 s, 110 slots):
+0.93 s hero opener, about 21 strobe cuts of 0.12 s ("take me to" in white lowercase), a 3.7 s hero
+beach shot ("the beach"), more strobe cuts (some 0.06 s), a 1.23 s hero, a run of 0.3 s cuts, then 0.12 s
+strobes to the end. To learn a new template, follow the steps in the script docstring (track the clip
+handles passing the fixed playhead in a screen recording of the Edits timeline).
+
 ### Text & motion
 - Popular pairings: heavy condensed caps (Anton/Bebas) + a script or brush accent
   (Yellowtail/Permanent Marker); white + one accent colour.
