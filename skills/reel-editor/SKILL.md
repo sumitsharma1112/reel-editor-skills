@@ -42,6 +42,7 @@ Scripts live in `scripts/` next to this file. For designed motion graphics also 
 | Depth cover: title behind the subject's crown/head | `python scripts/depth_cover.py --img photo.png --title "अयि गिरि|नन्दिनि" --kicker "JAI MATA DI" --out cover.jpg` |
 | Scene-interactive place titles (on water, rising from sea, out of arches, behind person, gold Hindi, out of a mountain) | `scripts/travel_titles.py` (stills) + `scripts/travel_titles_anim.py` (4 s clips) |
 | Preview all title styles | `python scripts/title_kit.py --sheet --out sheet.jpg` (see `title_styles_preview.jpg`) |
+| Water/action transitions (ripple drop, foam reveal, zoom-through, whip, spin, light leak, lightning) | `python scripts/water_transitions.py --clips a.mp4,b.mp4,c.jpg --trans ripple,leak --durs 2,2,3 --out out.mp4` (`--demo a.mp4,b.mp4` previews all) |
 
 `--wm x,y,r` on strobe_sync inpaints an AI-video watermark (Veo/Gemini sparkle sits near
 x=600,y=1160 r=24 on 720x1280 clips). Check the corner crop first.
@@ -128,6 +129,31 @@ dive into the black hole with a sub-boom and a white flash that cuts into the re
 flash only on slower cuts (every cut flashing at 2-frame gaps becomes a grey strobe).
 Prepend with an ffmpeg concat filter (add `anullsrc` audio to a silent reel first).
 
+### Adventure story reel (rafting / trek "most memorable day")
+Story arc that worked for the Rishikesh rafting reel (55 s):
+1. Proof of the problem (3 x 2 s): someone's weather reel (keep its credit watermark) + "Rafting point pe
+   pahunche… / aur mausam ne kaha: "Aaj nahi!" ⛈️". Lightning-flicker cuts with synthesized thunder; replace
+   the downloaded reel's song with synthesized rain + gusty wind (band-passed noise) so no music clashes.
+2. Meme beat: 4 s cosmos (cosmos_intro with DUR=4, dive at frame 100) under a 4 s TV-show sound (Bigg Boss).
+3. Decision card (white fade-in from the cosmos flash): blurred dark rain frame + animated rain streaks,
+   "Guide bhaiya bole:" in yellow, the quote in Montserrat 900, two glass option cards (number, text, emoji).
+   When the meme audio ("not in the blood sir") starts: red strike slashes the refund card with a shake and
+   it dims, then the other card gets a green outline + ✅.
+4. The jump: real-time run-up, 0.25x slow-mo take-off, 1.6 s FREEZE mid-air (punch-in, half desaturated,
+   white flash) with the meme line in Anton ("Not in the blood," white / "sir." huge yellow), then slow-mo
+   into the water so the splash lands exactly where the meme audio ends.
+5. After the splash NO music (the user adds a trending song in-app): natural river audio per shot
+   (RMS-normalised), a river bed under slow-mo shots and stills, soft whooshes on transitions. Every cut
+   sits on a 120 BPM grid (0.5 s) from the splash, so tell the user "120 BPM song, drop on the splash".
+6. Montage: wide rapids -> big splash in 0.5x slow-mo (60 fps GoPro) -> tip into a hole -> rain shot ->
+   mist -> four 1-beat rapids -> slow-mo white water -> 8 photos strobing 1 beat each (punch cuts) ->
+   swimming laugh (light leak) -> selfies -> hero photo (paddles up) with "Refund? Kabhi nahi." +
+   small "Rishikesh • meri zindagi ka sabse yaadgaar din".
+Footage notes: GoPro exported as letterboxed 4:3 inside 9:16 -> detect the band and crop 9:16 from it
+(unsharp after the upscale); rotated GoPro .mov (display matrix -90) is auto-rotated by ffmpeg; pick rapids
+by viewing dense contact sheets (white-water pixel ratio alone is fooled by the bright sky).
+Keep text between y=500 and y=1350 on 1920 (Instagram caption/UI covers the bottom ~22%).
+
 ### Edits templates (learned from screen recordings)
 `scripts/photo_dump_template.py` + `templates/*.json` rebuild Instagram Edits templates with the user's own
 media. `take_me_to_the_beach.json` (song: Take Me (To The Moon) by Ian Asher, DANNY, 20 s, 110 slots):
@@ -149,6 +175,11 @@ handles passing the fixed playhead in a screen recording of the Edits timeline).
 - Missing glyphs (e.g. check marks) show as boxes: test-render symbols, swap to words if needed.
 
 ### Transitions & SFX
+- `scripts/water_transitions.py`: ripple (drop-in-water ring that refracts both shots), luma foam
+  reveal (next shot shows through its white water first), zoom-through with radial blur, whip pans with
+  directional blur, spin, warm light leak, lightning flicker, flash/punch. Give every shot padding frames
+  so both sides keep moving through the transition; use water transitions between water shots, leak into
+  emotional selfies, punch for photo strobes.
 - Camera shutter: 6-blade iris closes in 4 frames, cut, opens in 4, with a shutter click.
 - Whoosh on every text pop, sub-bass thud on big words, ding on badges.
 - Loudness: normalise the mix to -14 LUFS (`loudnorm=I=-14`). Mute noisy source audio when the
