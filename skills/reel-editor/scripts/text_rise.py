@@ -41,8 +41,9 @@ def main():
     ap.add_argument('--t0', type=float, default=0.55); ap.add_argument('--t1', type=float, default=2.6)
     ap.add_argument('--maxw', type=int, default=1000); ap.add_argument('--no-grade', action='store_true')
     a = ap.parse_args()
-    fps_src = float(eval(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=r_frame_rate',
-                                         '-of', 'csv=p=0', a.video], capture_output=True, text=True).stdout.strip()))
+    rf = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=r_frame_rate',
+                         '-of', 'csv=p=0', a.video], capture_output=True, text=True).stdout.strip().split(',')[0].split('/')
+    fps_src = float(rf[0]) / float(rf[1] if len(rf) > 1 else 1)
     vf = f'fps={FPS / a.speed},crop=ih*9/16:ih:(iw-ih*9/16)/2:0,scale={W}:{H}:flags=lanczos' if abs(fps_src - FPS / a.speed) > 0.5 else \
         f'crop=ih*9/16:ih:(iw-ih*9/16)/2:0,scale={W}:{H}:flags=lanczos'
     rd = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', a.video, '-an', '-vf', vf, '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-'], stdout=subprocess.PIPE)
