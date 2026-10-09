@@ -43,6 +43,7 @@ Scripts live in `scripts/` next to this file. For designed motion graphics also 
 | Scene-interactive place titles (on water, rising from sea, out of arches, behind person, gold Hindi, out of a mountain) | `scripts/travel_titles.py` (stills) + `scripts/travel_titles_anim.py` (4 s clips) |
 | Preview all title styles | `python scripts/title_kit.py --sheet --out sheet.jpg` (see `title_styles_preview.jpg`) |
 | Text Rise: word rises from behind the mountain/skyline (sky-only mask, people & ridge stay in front) | `python scripts/text_rise.py --video clip.mov --word "ऋषिकेश" --out rise.mp4` |
+| Lyric scenes: big Devanagari calligraphy + small roman words over illustrated scenes (red/yellow devotional set) | `python scripts/devotional_backgrounds.py` then `python scripts/lyric_scenes.py --audio song.mp4 --out lyric.mp4` |
 | Water/action transitions (ripple drop, foam reveal, zoom-through, whip, spin, light leak, lightning) | `python scripts/water_transitions.py --clips a.mp4,b.mp4,c.jpg --trans ripple,leak --durs 2,2,3 --out out.mp4` (`--demo a.mp4,b.mp4` previews all) |
 
 `--wm x,y,r` on strobe_sync inpaints an AI-video watermark (Veo/Gemini sparkle sits near
@@ -165,6 +166,18 @@ motion blur; let it pass behind the person's head and settle just above it. A ha
 text: darken and cool the sky (x0.8/0.72/0.66 BGR, darker towards the top) and add a soft shadow under the
 letters. Sound: slowed ambience + noise riser during the rise + soft sub boom when the word settles.
 Devanagari: Baloo 2 800 is the bold readable choice; Sarpanch looks great but reads poorly.
+
+### Lyric scenes (illustrated, word by word)
+Reference: Hindi song reels where each screen shows 1-3 words: a big Devanagari calligraphy word (Amita 700)
+with small rounded roman words (Quicksand 500) tucked beside or above it, words blur-fading in one by one,
+over flat illustrations that match the lyric (sea for "sagar", etc.). For devotional songs,
+`devotional_backgrounds.py` draws a red/yellow set procedurally: glowing cave in the mountains (गुफ़ा),
+layered sunrise ranges (पहाड़), snow peaks + waterfall (बरफ़/फुहारे), font-display page with marigold toran,
+bells and diyas, wind swirls + chunri flag (हवावां), trishul on a peak with sun rays, red mandala page.
+Text colours: gold/cream on red scenes, deep red/maroon on yellow skies, white on snow scenes.
+No word timings and no transcription model? Find repeated sections with chroma similarity (chorus repeats
+correlate 0.6-0.7), split each section evenly by line, then spread words by syllable count; check any
+visuals in the source video (mountains/snow/waterfall shots) to confirm where verses start.
 
 ### Edits templates (learned from screen recordings)
 `scripts/photo_dump_template.py` + `templates/*.json` rebuild Instagram Edits templates with the user's own
