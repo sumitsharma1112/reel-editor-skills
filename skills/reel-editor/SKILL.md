@@ -42,6 +42,7 @@ Scripts live in `scripts/` next to this file. For designed motion graphics also 
 | Depth cover: title behind the subject's crown/head | `python scripts/depth_cover.py --img photo.png --title "अयि गिरि|नन्दिनि" --kicker "JAI MATA DI" --out cover.jpg` |
 | Scene-interactive place titles (on water, rising from sea, out of arches, behind person, gold Hindi, out of a mountain) | `scripts/travel_titles.py` (stills) + `scripts/travel_titles_anim.py` (4 s clips) |
 | Preview all title styles | `python scripts/title_kit.py --sheet --out sheet.jpg` (see `title_styles_preview.jpg`) |
+| Text Rise: word rises from behind the mountain/skyline (sky-only mask, people & ridge stay in front) | `python scripts/text_rise.py --video clip.mov --word "ऋषिकेश" --out rise.mp4` |
 | Water/action transitions (ripple drop, foam reveal, zoom-through, whip, spin, light leak, lightning) | `python scripts/water_transitions.py --clips a.mp4,b.mp4,c.jpg --trans ripple,leak --durs 2,2,3 --out out.mp4` (`--demo a.mp4,b.mp4` previews all) |
 
 `--wm x,y,r` on strobe_sync inpaints an AI-video watermark (Veo/Gemini sparkle sits near
@@ -153,6 +154,17 @@ Footage notes: GoPro exported as letterboxed 4:3 inside 9:16 -> detect the band 
 (unsharp after the upscale); rotated GoPro .mov (display matrix -90) is auto-rotated by ffmpeg; pick rapids
 by viewing dense contact sheets (white-water pixel ratio alone is fooled by the bright sky).
 Keep text between y=500 and y=1350 on 1920 (Instagram caption/UI covers the bottom ~22%).
+
+### Text Rise (CapCut "text from behind the mountain")
+Learned from a CapCut tutorial (CHANDRASHILA rising behind a snowy ridge). CapCut way: keyframe the
+text from below the ridge up to its spot, duplicate the clip on top, "Custom removal" brush the sky away
+on the duplicate. Our way (`scripts/text_rise.py`): per-frame sky mask (V>175, S<40, connected to the top
+edge, soft edges, 60/40 temporal smoothing) so the word is only drawn on sky; head, trees and ridge stay
+in front automatically, even with a handheld pan. Rise 0.55 s -> 2.6 s with ease-out quart and vertical
+motion blur; let it pass behind the person's head and settle just above it. A hazy white sky kills white
+text: darken and cool the sky (x0.8/0.72/0.66 BGR, darker towards the top) and add a soft shadow under the
+letters. Sound: slowed ambience + noise riser during the rise + soft sub boom when the word settles.
+Devanagari: Baloo 2 800 is the bold readable choice; Sarpanch looks great but reads poorly.
 
 ### Edits templates (learned from screen recordings)
 `scripts/photo_dump_template.py` + `templates/*.json` rebuild Instagram Edits templates with the user's own
