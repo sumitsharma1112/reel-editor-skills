@@ -46,6 +46,7 @@ Scripts live in `scripts/` next to this file. For designed motion graphics also 
 | Lyric scenes: big Devanagari calligraphy + small roman words over illustrated scenes (red/yellow devotional set) | `python scripts/devotional_backgrounds.py` then `python scripts/lyric_scenes.py --audio song.mp4 --out lyric.mp4` |
 | Phonetic stretching for held notes (qawwali/classical/ghazal): "naam" -> "naaaaaaam", each new vowel letter rides the singer's pitch | `python scripts/phonetic_stretch.py in.mp4 lyrics.json out.mp4 --y 1050` (lyrics format in the script docstring) |
 | Blur one person's face in a reel (privacy), others stay sharp | `python scripts/face_privacy_blur.py --video in.mp4 --hide her1.jpg,her2.jpg --keep me.jpg --models models/ --out out.mp4` |
+| Karaoke caption video from a word-timed ASS (stretched vowels, gold active word, velvet bokeh bg) | `python scripts/karaoke_ass_captions.py` (parse ASS to events.json first, see docstring) |
 | Water/action transitions (ripple drop, foam reveal, zoom-through, whip, spin, light leak, lightning) | `python scripts/water_transitions.py --clips a.mp4,b.mp4,c.jpg --trans ripple,leak --durs 2,2,3 --out out.mp4` (`--demo a.mp4,b.mp4` previews all) |
 
 `--wm x,y,r` on strobe_sync inpaints an AI-video watermark (Veo/Gemini sparkle sits near
