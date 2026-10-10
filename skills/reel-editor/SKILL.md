@@ -194,7 +194,11 @@ visuals in the source video (mountains/snow/waterfall shots) to confirm where ve
 media. `take_me_to_the_beach.json` (song: Take Me (To The Moon) by Ian Asher, DANNY, 20 s, 110 slots):
 0.93 s hero opener, about 21 strobe cuts of 0.12 s ("take me to" in white lowercase), a 3.7 s hero
 beach shot ("the beach"), more strobe cuts (some 0.06 s), a 1.23 s hero, a run of 0.3 s cuts, then 0.12 s
-strobes to the end. To learn a new template, follow the steps in the script docstring (track the clip
+strobes to the end. Extending to ~30 s: keep cuts up to a late cut that sits on a beat (19.383) and then
+replay the template from an earlier on-beat cut AFTER the text intro (9.530), shifting those cuts by J-S;
+join the song the same way with a 30 ms crossfade (song starts at 1.98 s in the user's Edits recording).
+The intro text is not repeated and every cut stays on the music. Use a 3-4 s video for the long hero slot.
+To learn a new template, follow the steps in the script docstring (track the clip
 handles passing the fixed playhead in a screen recording of the Edits timeline).
 
 ### Text & motion
