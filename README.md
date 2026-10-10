@@ -6,6 +6,8 @@ motion graphics.
 
 Made by [@sumitsharma1112](https://github.com/sumitsharma1112) with Claude.
 
+- **red_calligraphy_lyrics.py** — white page, giant red calligraphy word-stack lyric video with live phonetic stretching
+
 ## What's inside
 
 | Skill | What it does |

@@ -287,3 +287,10 @@ push to `main`. Never commit the user's personal photos, videos, songs or SFX.
 ## Captions (when asked "Caption")
 Plain text only: a 1-line hook, 2-4 short lines, a comment CTA, then 8-10 relevant hashtags.
 No promotion, no event/brand claims the user did not ask for.
+
+## Red calligraphy lyric video (white page, Barsaat/Banjaare reel style)
+`scripts/red_calligraphy_lyrics.py` — pure white 1080x1920, giant red (#EA0000) calligraphy, words appear one by one and stack (max ~3 per screen), hard cuts with a tiny 0.3 s settle-pop.
+- Roman lyrics: Berkshire Swash, condensed to 80 % width (tall letters like the reference). Devanagari: Amita 700 (Latin is not in the amita subset).
+- Phonetic stretch: `(final, start, stretch_end, base_run)` — the longest repeated letter grows from base→final across the held note (raang → raaaaaaang).
+- Long stretched words break into stacked 5-letter chunks (raaaa / aaang), no orphan chunk under 3 letters, so text stays huge.
+- Layout scale comes from the group's fully stretched form, so nothing jumps while letters grow. Block centred at y≈980, inside the IG safe zone.
