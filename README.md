@@ -28,6 +28,7 @@ Scripts in `skills/reel-editor/scripts/`:
 - `hook_intro_outro.py`: "BORING se STUNNING" hook intro and animated FOLLOW outro.
 - `photo_dump_template.py` + `templates/`: rebuild Instagram Edits photo-dump templates (exact cut lists learned from screen recordings) with your own photos; includes "take me to the beach".
 - `lyric_scenes.py` + `devotional_backgrounds.py`: word-by-word lyric screens (big Devanagari calligraphy + small roman) over procedurally drawn red/yellow devotional illustrations.
+- `face_privacy_blur.py`: blur one specific person's face across a reel (face recognition + tracking), everyone else stays sharp.
 - `text_rise.py`: CapCut-style text rise: the word rises from behind the mountain/skyline, drawn only on the sky (auto sky mask), with sky grade and motion blur.
 - `water_transitions.py`: water/action transitions (ripple drop, foam reveal, zoom-through, whip, spin, light leak, lightning) and a simple clip joiner.
 - `common.py`: shared helpers (ffmpeg I/O, beat detection, on-beat audio loop).

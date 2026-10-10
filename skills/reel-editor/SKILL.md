@@ -44,6 +44,7 @@ Scripts live in `scripts/` next to this file. For designed motion graphics also 
 | Preview all title styles | `python scripts/title_kit.py --sheet --out sheet.jpg` (see `title_styles_preview.jpg`) |
 | Text Rise: word rises from behind the mountain/skyline (sky-only mask, people & ridge stay in front) | `python scripts/text_rise.py --video clip.mov --word "ऋषिकेश" --out rise.mp4` |
 | Lyric scenes: big Devanagari calligraphy + small roman words over illustrated scenes (red/yellow devotional set) | `python scripts/devotional_backgrounds.py` then `python scripts/lyric_scenes.py --audio song.mp4 --out lyric.mp4` |
+| Blur one person's face in a reel (privacy), others stay sharp | `python scripts/face_privacy_blur.py --video in.mp4 --hide her1.jpg,her2.jpg --keep me.jpg --models models/ --out out.mp4` |
 | Water/action transitions (ripple drop, foam reveal, zoom-through, whip, spin, light leak, lightning) | `python scripts/water_transitions.py --clips a.mp4,b.mp4,c.jpg --trans ripple,leak --durs 2,2,3 --out out.mp4` (`--demo a.mp4,b.mp4` previews all) |
 
 `--wm x,y,r` on strobe_sync inpaints an AI-video watermark (Veo/Gemini sparkle sits near
@@ -247,6 +248,10 @@ not give away the punchline of a comedy reel.
 - Depth: choose a photo with open sky above the subject; cut the subject out (rembg u2net) and paste only
   its upper part (crown, weapon tip, head) over the last title line. Keep the text clear of the face,
   otherwise the word becomes unreadable. Check the 3:4 grid crop.
+
+## Privacy
+Never show a family member who asked not to be shown: drop their photos first; for group footage use
+`face_privacy_blur.py` (YuNet + SFace recognition, track-level vote, ellipse pixelate). Check frames after.
 
 ## Keep this repo updated
 Whenever you learn a new technique, font set, style or workflow for the user (from a reference they share or a
