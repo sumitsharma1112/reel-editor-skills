@@ -8,6 +8,8 @@ Made by [@sumitsharma1112](https://github.com/sumitsharma1112) with Claude.
 
 - **red_calligraphy_lyrics.py** — white page, giant red calligraphy word-stack lyric video with live phonetic stretching
 
+- **band_word_lyrics.py** — 4:3 band on black, AI city footage, one red calligraphy word at a time
+
 ## What's inside
 
 | Skill | What it does |
