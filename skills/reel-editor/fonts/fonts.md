@@ -84,3 +84,8 @@ of matras and conjuncts.
 4. **Texture matches the meaning.** Grunge for danger, chalk for art, grain or wood for heritage,
    clean rounded strokes for soft and positive words.
 5. **Paper grain.** Flat backgrounds get a fine grain or parchment pattern so they never look digital-flat.
+
+
+# Lyric fonts (`scripts/phonetic_stretch.py`)
+
+- `cormorant-garamond-700i.ttf`: Cormorant Garamond Bold Italic (OFL). Elegant calligraphic serif for qawwali, ghazal and Sufi lyrics, and it stays readable when vowels are stretched.

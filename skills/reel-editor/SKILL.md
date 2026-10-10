@@ -44,6 +44,7 @@ Scripts live in `scripts/` next to this file. For designed motion graphics also 
 | Preview all title styles | `python scripts/title_kit.py --sheet --out sheet.jpg` (see `title_styles_preview.jpg`) |
 | Text Rise: word rises from behind the mountain/skyline (sky-only mask, people & ridge stay in front) | `python scripts/text_rise.py --video clip.mov --word "ऋषिकेश" --out rise.mp4` |
 | Lyric scenes: big Devanagari calligraphy + small roman words over illustrated scenes (red/yellow devotional set) | `python scripts/devotional_backgrounds.py` then `python scripts/lyric_scenes.py --audio song.mp4 --out lyric.mp4` |
+| Phonetic stretching for held notes (qawwali/classical/ghazal): "naam" -> "naaaaaaam", each new vowel letter rides the singer's pitch | `python scripts/phonetic_stretch.py in.mp4 lyrics.json out.mp4 --y 1050` (lyrics format in the script docstring) |
 | Blur one person's face in a reel (privacy), others stay sharp | `python scripts/face_privacy_blur.py --video in.mp4 --hide her1.jpg,her2.jpg --keep me.jpg --models models/ --out out.mp4` |
 | Water/action transitions (ripple drop, foam reveal, zoom-through, whip, spin, light leak, lightning) | `python scripts/water_transitions.py --clips a.mp4,b.mp4,c.jpg --trans ripple,leak --durs 2,2,3 --out out.mp4` (`--demo a.mp4,b.mp4` previews all) |
 
@@ -244,6 +245,24 @@ handles passing the fixed playhead in a screen recording of the Edits timeline).
   user give per-line times and correct individual words with `"t"`.
 - Clamp wide words inside the frame (max 880 px wide, 30 px margins) and check every red word in a
   contact sheet, because long Sanskrit compounds overflow first.
+
+### Phonetic stretching (held notes in qawwali, ghazal, classical)
+- When the singer holds a vowel, repeat that vowel letter by letter while the note lasts
+  ("naam" -> "naaaaaaaaam", "shyaam" -> "shyaaaaaam"), so viewers can follow the alaap/meend.
+- Each new vowel letter is placed higher or lower by the singer's pitch at the moment it appears
+  (300 cents = 0.36 x font size, lightly smoothed), so the word draws the melody: vibrato wobbles,
+  meend slides, taan jumps. Newest letter pops 1.45 -> 1 in 0.14 s.
+- Pitch: pull the voice out of the mix with librosa nn_filter soft-mask (REPET), then pyin
+  (fmin 140, fmax 900). Without the separation the harmonium drone wins and pitch sits at 100 Hz.
+- Finding the held words: plot the separated-vocal spectrogram + pyin; long wavy harmonics
+  (0.8 s and up, often with vibrato) are the held vowels. Map the user's line transcript onto the
+  voiced segments; give every word [text, t0, t1] and add the vowel index on held words.
+- Colours: sung words white, active word gold (#F2C46D) with soft glow, upcoming words 37% white;
+  a small dim preview of the next line underneath. Font: Cormorant Garamond 700 italic (Sufi/ghazal feel).
+- Layout is fixed per line at its fully stretched width (later words wait in place and the vowels
+  flow into the gap). If a line with several held words is still too wide at 46 px, trim the
+  extra-letter budget of the longest-held word until it fits; check a contact sheet.
+- Put the lines in empty space (black band under a letterboxed clip), never over faces.
 
 ### Covers
 Show the subject's face and the title clearly, keep it readable as a small grid thumbnail, and do
