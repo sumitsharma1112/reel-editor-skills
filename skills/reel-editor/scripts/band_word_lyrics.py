@@ -1,18 +1,18 @@
 """Mera Piya Ghar Aaya – Banaras Veo clips in a 4:3 band on black, one red calligraphy (roman) word at a time
 (capturewithdev_ 'Mann Ki Lagan' look)."""
-import subprocess, numpy as np
+import os, subprocess, numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-U = '/root/.claude/uploads/7e7fbd2a-05f7-5789-85d7-a95bbba90e41/'
-SONG = U + '0f709daa-AQPAWRvVljL_AM4-OlnW5K_bftT8uulXbJ2trMPRxUCRW63yzdnyJGeum6Uzeq8N94VFSa7G7kfUqjnMuEdhC2uQ2wjgqx9NjWI6oF4.mp4'
-CLIPS = [U + '50c2385f-gemini_generated_video_DD2AF047.mp4',   # ghats + Ganga
-         U + '9dbcd015-gemini_generated_video_5C51162F.mp4',   # galli
-         U + '35589e8b-gemini_generated_video_040F93F4.mp4']   # rooftops + pigeons
+U = './'   # folder with song.mp4 + clip1/2/3.mp4
+SONG = U + 'song.mp4'
+CLIPS = [U + 'clip1.mp4',   # ghats + Ganga
+         U + 'clip2.mp4',   # galli
+         U + 'clip3.mp4']   # rooftops + pigeons
 W, H, FPS, DUR = 1080, 1920, 24, 63.5
 BW, BH = 1080, 810; BY = (H - BH) // 2                       # 4:3 picture band
-FONT = '/home/claude/reel-editor-skills/skills/reel-editor/fonts/berkshire-swash-400.ttf'
+FONT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'fonts', 'berkshire-swash-400.ttf')
 RED = np.array([212, 36, 28], np.float32)
-OUT = '/home/claude/raft/piya/'
+OUT = './'
 
 LINES = [
     (0.0, 4.0, 'Ho padh padh ilm kitaabaan waala naam rakhaayo qaazi'),
