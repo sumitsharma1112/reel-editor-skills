@@ -1,0 +1,23 @@
+{
+ "name": "dhivara_slow_cinematic",
+ "source": "Instagram Edits template, song: Dhivara (Deepu, Ramya Behara), 152 BPM",
+ "duration": 29.0,
+ "cuts": [
+  0.0,
+  4.51,
+  6.68,
+  9.48,
+  12.19,
+  13.56,
+  16.09,
+  22.34,
+  26.27,
+  29.0
+ ],
+ "texts": [],
+ "hero_slots": [
+  0,
+  6
+ ],
+ "notes": "9 long slots (1.4-6.3 s), cuts learned from the transition icons (yellow pencil / white box) that sit on every clip boundary. Slot 0 (4.5 s) fits a reversed tilt-down reveal; slot 6 (6.25 s) is the long hero clip."
+}

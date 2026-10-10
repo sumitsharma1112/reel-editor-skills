@@ -199,6 +199,11 @@ strobes to the end. Extending to ~30 s: keep cuts up to a late cut that sits on 
 replay the template from an earlier on-beat cut AFTER the text intro (9.530), shifting those cuts by J-S;
 join the song the same way with a 30 ms crossfade (song starts at 1.98 s in the user's Edits recording).
 The intro text is not repeated and every cut stays on the music. Use a 3-4 s video for the long hero slot.
+`dhivara_slow_cinematic.json` (Dhivara, 29 s, 9 slow slots): reversed tilt-down from the waterfall top
+to the person in slot 0, then photos with gentle push/pull and the long video in slot 6.
+Learning cuts: when thumbnails make brightness dips unreliable, detect the transition ICONS (yellow
+pencil / white rounded box, ~45 px squares) that sit exactly on each clip boundary; scroll speed ~147 px/s
+at 1x zoom (measure by profile cross-correlation), cut time = frame_t + (icon_x - playhead_x)/px_per_s.
 To learn a new template, follow the steps in the script docstring (track the clip
 handles passing the fixed playhead in a screen recording of the Edits timeline).
 
