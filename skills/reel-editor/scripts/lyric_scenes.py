@@ -11,15 +11,16 @@ DUR = 73.0
 LAST = 69.0
 
 NAVY = (30, 43, 87)
-SC = {   # scene: anchor, big colour, small colour  (ChatGPT backgrounds, soft pastel skies)
-    'cave': ((540, 470), NAVY, NAVY),
-    'page': ((540, 430), NAVY, NAVY),
-    'trishul': ((610, 380), NAVY, NAVY),
-    'mountains': ((540, 470), NAVY, NAVY),
-    'snow': ((540, 430), NAVY, NAVY),
-    'garlands': ((540, 270), NAVY, NAVY),
-    'wind': ((540, 430), NAVY, NAVY),
+SC = {   # scene: anchor, big colour, small colour  (text kept below IG header + inside 4:5 feed crop)
+    'cave': ((540, 650), NAVY, NAVY),
+    'page': ((540, 590), NAVY, NAVY),
+    'trishul': ((620, 600), NAVY, NAVY),
+    'mountains': ((540, 650), NAVY, NAVY),
+    'snow': ((540, 650), NAVY, NAVY),
+    'garlands': ((540, 590), NAVY, NAVY),
+    'wind': ((540, 650), NAVY, NAVY),
 }
+MAXH = {'page': 330, 'garlands': 280, 'trishul': 360}
 CHORUS1 = "गुफ़ा:D Suhani:r | Vich:r भवानी:D | Aap:r वसदी:D"
 CHORUS2 = "माता:D Meri:r | Mata Meri:r सबदे:D | दिलां:D De Haal:r दसदी:D"
 LINES = [  # start, end, scene, tokens  (timings from the user's SRT)
@@ -99,7 +100,7 @@ def layout(tokens, anchor, cb, cs, maxh=560):
     s = min(1.0, 1000 / (xs1 - xs0), maxh / (ys1 - ys0))
     cx, cy = (xs0 + xs1) / 2, (ys0 + ys1) / 2
     top = anchor[1] - (cy - ys0) * s
-    shift = max(0, 190 - top)
+    shift = max(0, 440 - top)
     out = []
     for L, x, y in placed:
         if s < 1: L = cv2.resize(L, (int(L.shape[1] * s), int(L.shape[0] * s)), interpolation=cv2.INTER_AREA)
@@ -137,7 +138,7 @@ for st, en, scene, spec in LINES:
     for si, scr in enumerate(fixed):
         tins = times[i:i + len(scr)]; i += len(scr)
         tout = times[i] - 0.05 if i < len(times) else en
-        SCREENS.append((tins, tout, scene, layout(scr, anchor, cb, cs, 380 if scene == 'garlands' else 540)))
+        SCREENS.append((tins, tout, scene, layout(scr, anchor, cb, cs, MAXH.get(scene, 420))))
 
 BG = {k: cv2.imread(f'bg_{k}.png') for k in SC}
 def bg_frame(scene, t, t0, t1):
@@ -199,7 +200,7 @@ def frame(t):
             paste(f, L, x, y, e * fo)
     if t >= LAST + 0.3:
         u = min(1, (t - LAST - 0.3) / 0.5); e = 1 - (1 - u) ** 3
-        paste(f, OUTRO, 240, 600, u * u * (3 - 2 * u))
+        paste(f, OUTRO, 240, 760, u * u * (3 - 2 * u))
     if t > DUR - 0.8: f = f * max(0, (DUR - t) / 0.8)
     return np.clip(f, 0, 255).astype(np.uint8)
 

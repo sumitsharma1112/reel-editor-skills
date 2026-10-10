@@ -179,7 +179,10 @@ movement), stay still, and the whole screen fades out together (~0.6 s). Big Dev
 calligraphic swash tail (Amita + deva_kit.swash); roman words look hand-sketched (double outline strokes,
 slightly offset). Navy text on soft pastel skies. Best backgrounds: user-made ChatGPT images (9:16, top 40%
 kept as empty sky); devotional prompts must say 'respectful devotional illustration' or they get blocked.
-Clamp each text block to the sky (max height ~540 px, top >= 190 px) so it never covers a face.
+Instagram safe zone (learned from the user's screenshots): the FEED shows a reel as a centred 4:5 crop
+(y 285-1635 on 1920) with the username/audio line on top, and the Reels view puts the 'Reels / Friends'
+header over the top ~400 px. Keep every word below y=440 and above ~1500, and cap the block height per
+scene (~280-420 px) so it stays in the sky and off faces.
 Amita draws the conjunct च्च like ज्ज (नच्चा reads as नज्जा): words with च्च switch to Yatra One. Test-render
 every conjunct-heavy word before the full render. Text colours: gold/cream on red scenes, deep red/maroon on yellow skies, white on snow scenes.
 No word timings and no transcription model? Find repeated sections with chroma similarity (chorus repeats
