@@ -174,6 +174,12 @@ over flat illustrations that match the lyric (sea for "sagar", etc.). For devoti
 `devotional_backgrounds.py` draws a red/yellow set procedurally: glowing cave in the mountains (गुफ़ा),
 layered sunrise ranges (पहाड़), snow peaks + waterfall (बरफ़/फुहारे), font-display page with marigold toran,
 bells and diyas, wind swirls + chunri flag (हवावां), trishul on a peak with sun rays, red mandala page.
+Reference look (learned frame by frame): words simply FADE (opacity 0->1 over ~0.6 s, smoothstep, no blur, no
+movement), stay still, and the whole screen fades out together (~0.6 s). Big Devanagari words carry a long
+calligraphic swash tail (Amita + deva_kit.swash); roman words look hand-sketched (double outline strokes,
+slightly offset). Navy text on soft pastel skies. Best backgrounds: user-made ChatGPT images (9:16, top 40%
+kept as empty sky); devotional prompts must say 'respectful devotional illustration' or they get blocked.
+Clamp each text block to the sky (max height ~540 px, top >= 190 px) so it never covers a face.
 Amita draws the conjunct च्च like ज्ज (नच्चा reads as नज्जा): words with च्च switch to Yatra One. Test-render
 every conjunct-heavy word before the full render. Text colours: gold/cream on red scenes, deep red/maroon on yellow skies, white on snow scenes.
 No word timings and no transcription model? Find repeated sections with chroma similarity (chorus repeats
