@@ -174,7 +174,8 @@ over flat illustrations that match the lyric (sea for "sagar", etc.). For devoti
 `devotional_backgrounds.py` draws a red/yellow set procedurally: glowing cave in the mountains (गुफ़ा),
 layered sunrise ranges (पहाड़), snow peaks + waterfall (बरफ़/फुहारे), font-display page with marigold toran,
 bells and diyas, wind swirls + chunri flag (हवावां), trishul on a peak with sun rays, red mandala page.
-Text colours: gold/cream on red scenes, deep red/maroon on yellow skies, white on snow scenes.
+Amita draws the conjunct च्च like ज्ज (नच्चा reads as नज्जा): words with च्च switch to Yatra One. Test-render
+every conjunct-heavy word before the full render. Text colours: gold/cream on red scenes, deep red/maroon on yellow skies, white on snow scenes.
 No word timings and no transcription model? Find repeated sections with chroma similarity (chorus repeats
 correlate 0.6-0.7), split each section evenly by line, then spread words by syllable count; check any
 visuals in the source video (mountains/snow/waterfall shots) to confirm where verses start.

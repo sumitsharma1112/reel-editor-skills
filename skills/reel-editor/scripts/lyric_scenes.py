@@ -48,8 +48,9 @@ def syl(w):
 
 def render_word(s, kind, col):
     if kind == 'D':
-        size = 310; ft = ImageFont.truetype(BIG, size, layout_engine=ImageFont.Layout.RAQM)
-        while ft.getlength(s) > 900: size -= 8; ft = ImageFont.truetype(BIG, size, layout_engine=ImageFont.Layout.RAQM)
+        fp = DV + 'yatra-one-devanagari-400.ttf' if 'च्च' in s else BIG     # Amita draws च्च like ज्ज
+        size = 310 if fp == BIG else 270; ft = ImageFont.truetype(fp, size, layout_engine=ImageFont.Layout.RAQM)
+        while ft.getlength(s) > 900: size -= 8; ft = ImageFont.truetype(fp, size, layout_engine=ImageFont.Layout.RAQM)
     else:
         size = 86; ft = ImageFont.truetype(SMALL, size)
     b = ft.getbbox(s); p = 40
