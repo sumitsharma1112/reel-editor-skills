@@ -342,3 +342,14 @@ No promotion, no event/brand claims the user did not ask for.
 
 ## Exact-timed cream Gurmukhi captions
 Use `scripts/timed_caption_stills.py` with pre-rendered RGBA captions and full 9:16 background stills. Shape Punjabi with RAQM and a Gurmukhi-capable font such as Noto Serif Gurmukhi; Berkshire Swash supports Latin only and can be used for Roman transliteration. Cream #F2E6CE with a dark stroke and lower-frame gradient stays readable over golden devotional artwork. Keep verse intervals exact, add a slow 4.5% push and 0.18 s text fade, and leave audio absent when no matching recitation is supplied.
+
+## Black-page kinetic lyric cards
+`scripts/black_gold_kinetic.py --spec cards.json --out sample.mp4` renders a black
+9:16 page with Montserrat 900 white anchors, Great Vibes gold #EDB84F accents,
+and condensed outline variants of the same bold font. JSON has `duration` and
+`cards` with `start`, `end`, and `lines` (`text`, `font`, `size`, `y`, `delay`).
+Use short stacked groups, a 0.18-second zoom/blur entrance, staggered side slides,
+soft glow and brief exits. Keep settled text inside x=80–900 and y=800–1300.
+Inspect the reference at 8 fps to distinguish word assembly from card changes.
+Tested on a five-second Roman Punjabi sample; timings are approximate until
+matching song audio is supplied. Never attach the unrelated style-reference song.

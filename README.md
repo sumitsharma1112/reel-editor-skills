@@ -73,3 +73,4 @@ Needs Python 3.10+ and ffmpeg.
 Code: MIT. Fonts in `skills/reel-editor/fonts/` are Google Fonts under the SIL Open Font License.
 
 - Exact-timed cream Punjabi caption stills: `skills/reel-editor/scripts/timed_caption_stills.py` (shaped Gurmukhi overlays, Latin Berkshire Swash pairing, silent output for adding recitation).
+- Black-page white/gold kinetic lyric cards: `skills/reel-editor/scripts/black_gold_kinetic.py` (zoom/blur entrances, staggered script accents and condensed outline lettering).
