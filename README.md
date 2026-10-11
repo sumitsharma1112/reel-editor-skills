@@ -10,6 +10,8 @@ Made by [@sumitsharma1112](https://github.com/sumitsharma1112) with Claude.
 
 - **band_word_lyrics.py** — 4:3 band on black, AI city footage, one red calligraphy word at a time
 
+- **poster_mask_type.py** — carousel post: giant yellow masked headline behind the person, handwritten note
+
 ## What's inside
 
 | Skill | What it does |

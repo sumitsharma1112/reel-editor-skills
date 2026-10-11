@@ -294,3 +294,11 @@ No promotion, no event/brand claims the user did not ask for.
 - Phonetic stretch: `(final, start, stretch_end, base_run)` — the longest repeated letter grows from base→final across the held note (raang → raaaaaaang).
 - Long stretched words break into stacked 5-letter chunks (raaaa / aaang), no orphan chunk under 3 letters, so text stays huge.
 - Layout scale comes from the group's fully stretched form, so nothing jumps while letters grow. Block centred at y≈980, inside the IG safe zone.
+
+## Masked poster carousel (giant yellow type behind the subject)
+`scripts/poster_mask_type.py` — 3:4 (1080x1440) carousel post from ONE original photo, face untouched.
+- Headline: Anton, #F5C518 yellow, stretched full width, 2 lines (~420 px each), ink-speckle distress.
+- Subject cut out with rembg `u2net_human_seg` (largest blob only) and composited IN FRONT of the letters; place lines so the head overlaps only the lower half of line 2 — the word must still read.
+- Warm punchy grade (+contrast, R up, B down) + grain. Small Montserrat caps label above the headline.
+- Handwritten Caveat Brush note in white with a soft black shadow + hand-drawn arrow, on a darker area (never on a white shirt).
+- Why not ChatGPT: it lays text out with Python boxes (Canva look) or redraws faces. Doing it here keeps the photo 100% original.
