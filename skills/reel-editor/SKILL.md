@@ -302,3 +302,4 @@ No promotion, no event/brand claims the user did not ask for.
 - Warm punchy grade (+contrast, R up, B down) + grain. Small Montserrat caps label above the headline.
 - Handwritten Caveat Brush note in white with a soft black shadow + hand-drawn arrow, on a darker area (never on a white shirt).
 - Why not ChatGPT: it lays text out with Python boxes (Canva look) or redraws faces. Doing it here keeps the photo 100% original.
+- Approved ChatGPT variant (Rishikesh Post 1): one-line full-width "RISHIKESH" in distressed yellow, set in the sky above the horizon with the bridge cables/towers crossing IN FRONT of the letters; dramatic golden-hour cloud sky; small white handwritten note in the sky ("bas chal pada…") with a thin arrow down to the subject's head. Prompt that worked: one photo per post, image generation not code, no boxes/panels/insets, headline 40–60% of frame interacting with the scene, face untouched, "Make one post per reply… wait for next".
