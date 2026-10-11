@@ -39,6 +39,7 @@ Scripts in `skills/reel-editor/scripts/`:
 - `text_rise.py`: CapCut-style text rise: the word rises from behind the mountain/skyline, drawn only on the sky (auto sky mask), with sky grade and motion blur.
 - `water_transitions.py`: water/action transitions (ripple drop, foam reveal, zoom-through, whip, spin, light leak, lightning) and a simple clip joiner.
 - `common.py`: shared helpers (ffmpeg I/O, beat detection, on-beat audio loop).
+- `kinetic_gold_captions.py`: reference-led white/gold lyric motion over full-frame photos: word assembly, glowing script, brief rotating exits and blurred zooms; clears outgoing text so old lyrics never stay upside down.
 
 ## How to use
 
@@ -70,3 +71,5 @@ Needs Python 3.10+ and ffmpeg.
 ## License
 
 Code: MIT. Fonts in `skills/reel-editor/fonts/` are Google Fonts under the SIL Open Font License.
+
+- Exact-timed cream Punjabi caption stills: `skills/reel-editor/scripts/timed_caption_stills.py` (shaped Gurmukhi overlays, Latin Berkshire Swash pairing, silent output for adding recitation).

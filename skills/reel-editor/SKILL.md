@@ -284,6 +284,37 @@ new reel you build), add it to this repo in the same session: a reusable script 
 input), a section in this SKILL.md, fonts in `fonts/` (OFL/free only), a line in README.md. Then commit and
 push to `main`. Never commit the user's personal photos, videos, songs or SFX.
 
+### White/gold kinetic captions (reference-led motion)
+Use `scripts/kinetic_gold_captions.py --spec edit.json --out reel.mp4` with optional
+`--audio matching_song.mp4`. JSON contains `duration`, `scenes` (`start`, `image`), and
+`captions` (`start`, `end`, `before`, `accent`, `after`). Image paths are relative to
+the JSON. Use `--preview --out preview.jpg` to inspect the first caption's motion.
+- Montserrat 700 white #FFFFFF anchors; Great Vibes 400 gold #FFD64A accents with a
+  soft glow. Keep glyphs in the open sky; crop photos to full 9:16 without blurred sides.
+- Inspect a reference at 4 fps or faster: sparse contact sheets miss brief zooms and
+  rotation transitions. Match word assembly, accent entrance and outgoing movement
+  independently; a small repeated pop is not a replacement for a camera flip.
+- Build white words individually, reveal gold script above them, briefly rotate and
+  fade the outgoing stack while introducing the next upright phrase. Outgoing text
+  must clear at the end of the transition: never hold old lyrics upside down.
+- Use brief large zoom-through cuts with directional blur. Inspect both transition
+  frames and settled frames for clipping and overlap before delivery.
+- Per-line timestamps provide approximate phrase timing, not verified word sync.
+  A style-reference song is not the requested soundtrack. When matching audio is
+  absent, deliver a clearly labeled silent visual edit and request the correct audio.
+- Tested on a 41-second, ten-photo edit. For longer captions, shorten the display
+  groups or reduce type size; review every line, not just the first preview.
+
+### Cloud art on a real sky canvas
+Register transparent cloud art in a 1080x1920 canvas within x=100–880, y=400–1160;
+reserve y=1180–1420 for captions and leave the top, bottom and right UI areas clear.
+Normalize artwork from its alpha bounds, preserving soft edge transparency, then
+composite over the original sky photo. Amita 700 with Baloo 2 600 works for Hindi;
+cream #F6ECD6 with navy #1E2B57 outlines reads well over sunset skies. Keep full
+sprite bounds and flourishes separated, and omit speaker-name labels when requested.
+Verify saved images by decoding them before packaging; an intact ZIP CRC alone does
+not establish that every embedded PNG is readable.
+
 ## Captions (when asked "Caption")
 Plain text only: a 1-line hook, 2-4 short lines, a comment CTA, then 8-10 relevant hashtags.
 No promotion, no event/brand claims the user did not ask for.
@@ -308,3 +339,6 @@ No promotion, no event/brand claims the user did not ask for.
 `scripts/painting_band_reel.py` — 16:9 ChatGPT paintings with lyric text baked in, shown as a sharp band across the middle of a 9:16 frame over a heavily blurred, darkened copy of the same painting; slow 4 % push-in ANCHORED RIGHT (lyric text sits on the right, never crop it); 0.45 s crossfades; last chorus alternates two images.
 - ChatGPT prompt rules that worked: subject left / text right; text = Roman-before + ONE big Devanagari calligraphy word + Roman-after, never repeat the Devanagari word in Roman; spell exactly; same art style as Image 1.
 - Ask the user for each image downloaded individually from ChatGPT — screenshots of a grid are tiny strips.
+
+## Exact-timed cream Gurmukhi captions
+Use `scripts/timed_caption_stills.py` with pre-rendered RGBA captions and full 9:16 background stills. Shape Punjabi with RAQM and a Gurmukhi-capable font such as Noto Serif Gurmukhi; Berkshire Swash supports Latin only and can be used for Roman transliteration. Cream #F2E6CE with a dark stroke and lower-frame gradient stays readable over golden devotional artwork. Keep verse intervals exact, add a slow 4.5% push and 0.18 s text fade, and leave audio absent when no matching recitation is supplied.
