@@ -303,3 +303,8 @@ No promotion, no event/brand claims the user did not ask for.
 - Handwritten Caveat Brush note in white with a soft black shadow + hand-drawn arrow, on a darker area (never on a white shirt).
 - Why not ChatGPT: it lays text out with Python boxes (Canva look) or redraws faces. Doing it here keeps the photo 100% original.
 - Approved ChatGPT variant (Rishikesh Post 1): one-line full-width "RISHIKESH" in distressed yellow, set in the sky above the horizon with the bridge cables/towers crossing IN FRONT of the letters; dramatic golden-hour cloud sky; small white handwritten note in the sky ("bas chal pada…") with a thin arrow down to the subject's head. Prompt that worked: one photo per post, image generation not code, no boxes/panels/insets, headline 40–60% of frame interacting with the scene, face untouched, "Make one post per reply… wait for next".
+
+## Painting band reel (ChatGPT lyric paintings → 9:16 reel)
+`scripts/painting_band_reel.py` — 16:9 ChatGPT paintings with lyric text baked in, shown as a sharp band across the middle of a 9:16 frame over a heavily blurred, darkened copy of the same painting; slow 4 % push-in ANCHORED RIGHT (lyric text sits on the right, never crop it); 0.45 s crossfades; last chorus alternates two images.
+- ChatGPT prompt rules that worked: subject left / text right; text = Roman-before + ONE big Devanagari calligraphy word + Roman-after, never repeat the Devanagari word in Roman; spell exactly; same art style as Image 1.
+- Ask the user for each image downloaded individually from ChatGPT — screenshots of a grid are tiny strips.
