@@ -71,3 +71,5 @@ a 9:16 black canvas. Props: `duration`, `clips` (`start`, `end`, `video`,
 and `colour`. Source audio is muted; provide the matching song separately.
 Video loops advance normally, and `objectFit: cover` crops instead of stretching.
 Word times require user lyrics or verified transcription, not arbitrary guesses.
+
+CinematicBandReel accepts `fontSize` (default 248 px) for reference-sized lyric words, with a length-based cap for long words.

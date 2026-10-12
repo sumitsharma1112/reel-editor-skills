@@ -467,3 +467,5 @@ are a different visual treatment and should not be described as equivalent motio
 `remotion-doodle/src/CinematicBandReel.tsx` provides an adjustable template with
 moving clips, speed/loop control and timed words. Tested on an original supplied
 Veo clip. Keep the source footage, song, local timing props and analytics out of git.
+
+For this cinema-band style, size captions relative to the active picture, not the full vertical canvas. Use 248 px as the initial single-word size at 1080 px picture width and check longest words against the safe horizontal area. Keep `fontSize` configurable for future references.
