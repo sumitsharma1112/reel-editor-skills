@@ -64,3 +64,10 @@ cream/gold serif + script lyric groups. Props: `duration`, `outroSeconds`, `audi
 Letter reveals adapt to short phrases; the image timeline never shifts audio.
 Read captions already embedded in supplied footage before attempting lyric guesses.
 OCR can suggest timings, but must be checked visually; creator watermarks are not lyrics.
+
+`CinematicBandReel` renders actual moving 16:9 clips inside a centered 4:3 band on
+a 9:16 black canvas. Props: `duration`, `clips` (`start`, `end`, `video`,
+`sourceDuration`, `speed`), `words` (`start`, `end`, `text`), optional `audio`/`font`,
+and `colour`. Source audio is muted; provide the matching song separately.
+Video loops advance normally, and `objectFit: cover` crops instead of stretching.
+Word times require user lyrics or verified transcription, not arbitrary guesses.

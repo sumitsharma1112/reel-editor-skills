@@ -438,3 +438,32 @@ a 4-fps cropped caption strip and verify OCR against frames; exclude watermarks.
 Embedded caption timing is not independently verified word-level vocal timing.
 Short phrase reveals adapt to duration so the complete phrase remains readable.
 Render a sample, inspect settled text and transitions, then export with matched audio.
+
+### Cinematic Sufi reels from three Veo clips
+Study the user-supplied finished reel and original clips together. A proven workflow
+used three coherent 10-second 16:9 moving shots: hazy ghats, a narrow old lane and a
+rooftop with circling pigeons. Prompts share warm sepia-grey, low saturation, matte
+highlights, soft film grain, slow push/dolly/pan and clear sky for words. Animate
+birds, boats and distant street activity in the source footage; still-image zooms
+are a different visual treatment and should not be described as equivalent motion.
+
+- The inspected finished 9:16 video has a **4:3 active band** (512x384) centered
+  vertically, with black above and below. The source clips are 910x512 (16:9).
+  A new template should preserve source proportions with a center crop; do not
+  stretch people or buildings. Confirm the desired band ratio from actual frames.
+- One tall red Roman word at a time, simple short fade/settle, over quiet sky.
+  Berkshire Swash with 0.8 horizontal scale is a bundled approximation; the exact
+  reference font and playback speed have not been confirmed.
+- Build the musical structure from user lyrics and word timings, then map the three
+  scene roles to sections. Slow moving sources or loop deliberately; never freeze
+  the last frame merely because the song is longer than a generated clip.
+- Treat the curiosity question and "read the caption" cue on a **cover** separately
+  from the video's actual opening. Provide a substantive, checked explanation in
+  the post caption when the cover invites reading it.
+- Engagement shown for one reel supports a format hypothesis, not a causal claim
+  that a particular model, colour or transition produced the result. Evaluate sends,
+  saves, watch time and follows alongside views before generalizing.
+
+`remotion-doodle/src/CinematicBandReel.tsx` provides an adjustable template with
+moving clips, speed/loop control and timed words. Tested on an original supplied
+Veo clip. Keep the source footage, song, local timing props and analytics out of git.

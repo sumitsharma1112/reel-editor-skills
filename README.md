@@ -77,3 +77,5 @@ Code: MIT. Fonts in `skills/reel-editor/fonts/` are Google Fonts under the SIL O
 - White-page doodle motion: `skills/reel-editor/scripts/doodle_page_motion.py` (reference-inspired 3D page hinge, half-turn, dolly and ink-colour/vignette pulses).
 - Generated doodle bhajan reels: `skills/reel-editor/scripts/doodle_bhajan_reel.py` (timed Roman serif captions, matched audio, artwork breathing and scene page turns).
 - Remotion version: `remotion-doodle/` (editable data-driven page hinges, half-turns, zooms, ink pulses and continuous matched audio).
+
+- Cinematic moving-footage lyric reels: `remotion-doodle/src/CinematicBandReel.tsx` (timed Roman words, centered cinema band, optional follow ending).
