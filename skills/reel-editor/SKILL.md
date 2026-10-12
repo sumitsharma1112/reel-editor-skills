@@ -412,3 +412,16 @@ Keep the core song in its own Sequence so prepended hooks shift audio and lyric
 timing together. Brand cards use the same loaded serif font and existing art;
 English-only requests apply to hooks, CTA, caption and cover text. A "No manual
 editing" claim describes the creator's workflow, not the absence of editing by AI.
+
+### Colourful cute singer reels
+Remotion `ColourfulReel` preserves generated sprite colours instead of tinting the
+ink. Use an original rosy-cheeked rounded singer, warm pastel pages, restrained
+floating hearts, sparkle accents and musical-onset bounce (about 2% scale).
+Keep critical artwork above y=1500 and the follow-card text below the top UI.
+Normalize alpha-bounded assets into a 1000x1000 transparent canvas so mouth masks
+and overlays remain registered. Inspect alpha, face and mouth position before
+rendering. A calibrated mouth overlay may respond to soundtrack RMS amplitude;
+this approximates singing energy, not exact phoneme lip sync. Use a matching
+uploaded soundtrack and add no invented lyric captions when transcript is absent.
+The latest "no opening hook" request takes precedence over a prior branding intro.
+The component plays the song immediately, then adds only a follow-page ending.

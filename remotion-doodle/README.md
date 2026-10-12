@@ -47,3 +47,12 @@ cards. Additional props: `introSeconds`, `outroSeconds`, `introLines`, `outroLin
 The audio starts with the main sequence; captions use its local frame, avoiding drift.
 Use a personal-workflow claim such as "No manual editing" only when accurate for
 the creator, and don't present generated views as proof of trending performance.
+
+`ColourfulReel` starts directly with matching audio and ends with a follow card.
+Props: `duration`, `outroSeconds`, `handle`, optional `audio`/`font`/`endingImage`,
+`scenes` (`start`, `image`, `background`, optional `mouth`), `energy` and `beats`.
+Images are transparent RGBA sprites normalized to a 1000x1000 canvas. Optional
+mouth coordinates use that same canvas; calibrate them on the actual artwork.
+Energy values and beat positions are indexed in 30-fps frames. The mouth opening
+responds to full-mix amplitude, not verified vocal phonemes or exact lip sync.
+Keep motion subtle; colour/pose changes and page swings should not become strobing.
