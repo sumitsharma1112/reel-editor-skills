@@ -425,3 +425,16 @@ this approximates singing energy, not exact phoneme lip sync. Use a matching
 uploaded soundtrack and add no invented lyric captions when transcript is absent.
 The latest "no opening hook" request takes precedence over a prior branding intro.
 The component plays the song immediately, then adds only a follow-page ending.
+
+### Melancholy painted lyric reels
+Remotion `PaintedLyricReel` supports expressive oil-paint backgrounds, quiet navy
+caption regions, Cormorant Garamond italic cream #F7EBD8 and Great Vibes gold #F1D28D.
+Use original paintings inspired by a requested historical artist rather than copies
+of specific paintings. Place figures low and leave y=600–1000 open for caption groups.
+Slow pushes (about 3–6%), horizontal drift, 1.15-second picture crossfades and gentle
+script reveals fit a sad performance better than repeated spins or flashes.
+Derive phrase text from readable user-supplied captions where available. Inspect
+a 4-fps cropped caption strip and verify OCR against frames; exclude watermarks.
+Embedded caption timing is not independently verified word-level vocal timing.
+Short phrase reveals adapt to duration so the complete phrase remains readable.
+Render a sample, inspect settled text and transitions, then export with matched audio.

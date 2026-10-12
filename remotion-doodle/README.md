@@ -56,3 +56,11 @@ mouth coordinates use that same canvas; calibrate them on the actual artwork.
 Energy values and beat positions are indexed in 30-fps frames. The mouth opening
 responds to full-mix amplitude, not verified vocal phonemes or exact lip sync.
 Keep motion subtle; colour/pose changes and page swings should not become strobing.
+
+`PaintedLyricReel` uses full-frame paintings with slow drift, soft crossfades and
+cream/gold serif + script lyric groups. Props: `duration`, `outroSeconds`, `audio`,
+`serifFont`, `scriptFont`, `handle`, `paintings` (`start`, `image`) and `lyrics`
+(`start`, `end`, `above`, `hero`, `below`). Use quiet painted regions for captions.
+Letter reveals adapt to short phrases; the image timeline never shifts audio.
+Read captions already embedded in supplied footage before attempting lyric guesses.
+OCR can suggest timings, but must be checked visually; creator watermarks are not lyrics.
