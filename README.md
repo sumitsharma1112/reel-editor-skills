@@ -76,3 +76,4 @@ Code: MIT. Fonts in `skills/reel-editor/fonts/` are Google Fonts under the SIL O
 - Black-page white/gold kinetic lyric cards: `skills/reel-editor/scripts/black_gold_kinetic.py` (zoom/blur entrances, staggered script accents and condensed outline lettering).
 - White-page doodle motion: `skills/reel-editor/scripts/doodle_page_motion.py` (reference-inspired 3D page hinge, half-turn, dolly and ink-colour/vignette pulses).
 - Generated doodle bhajan reels: `skills/reel-editor/scripts/doodle_bhajan_reel.py` (timed Roman serif captions, matched audio, artwork breathing and scene page turns).
+- Remotion version: `remotion-doodle/` (editable data-driven page hinges, half-turns, zooms, ink pulses and continuous matched audio).

@@ -395,3 +395,14 @@ consecutive lyric cards; apply page turns when the scene changes, not every line
 Whole-sprite breathing/bobbing is modest motion, not independent hand/face rigging.
 Use uploaded matching audio and user phrase timestamps; word-level sync remains
 unverified. Tested with a 23-second, eight-phrase devotional edit and four scenes.
+
+### Remotion implementation of doodle page motion
+The `remotion-doodle/` project implements the learned white-page treatment in React:
+frame-driven CSS perspective/rotateY page hinges, half-turns, zoom settling and
+SVG alpha tinting of transparent ink sprites. Scene times stay fixed and audio
+is continuous; transitions do not cumulatively shorten the song timeline.
+Run `npm ci`, `npm run check`, then Studio or render with a local JSON props file.
+Keep user art/audio in ignored `public/media/`, not in repository commits.
+Load the bundled local serif font before capture to avoid fallback-font frames.
+No exact new preset can be inferred from screen recordings whose preview remains
+grey; use visible timeline information plus the corresponding finished reel.

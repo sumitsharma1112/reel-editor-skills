@@ -1,0 +1,5 @@
+node_modules/
+public/media/
+public/fonts/
+out/
+*.local.json
