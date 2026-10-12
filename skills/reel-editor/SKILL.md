@@ -382,3 +382,16 @@ provides reusable **reference-inspired approximations**, not exact preset recons
 `hinge`, `halfturn`, `dolly`, and `inkpulse`. Uses Pillow/NumPy/ffmpeg. Tested all four
 effects on decoded real reference frames. Supply complete page images; character pose
 animation needs separate assets. No reference footage or personal assets belong in git.
+
+### Generated doodle scenes with real bhajan audio
+`scripts/doodle_bhajan_reel.py --spec scenes.json --out reel.mp4 --preview preview.jpg`
+combines generated white-page drawings, small Roman lyrics in Cormorant Garamond
+700 italic (muted gold #9B843E), ink pulses and the studied 3D page swing.
+Spec contains `duration`, `audio`, and `scenes` (`start`, `end`, `image`, `lines`).
+Generate each distinct scene separately, omit baked-in text, then crop to dark-ink
+bounds and fit the drawing inside an 810x660 region. Anchor captions at y=580/660
+and art at y=1150, keeping critical content above y=1500. Reuse a scene across
+consecutive lyric cards; apply page turns when the scene changes, not every line.
+Whole-sprite breathing/bobbing is modest motion, not independent hand/face rigging.
+Use uploaded matching audio and user phrase timestamps; word-level sync remains
+unverified. Tested with a 23-second, eight-phrase devotional edit and four scenes.
