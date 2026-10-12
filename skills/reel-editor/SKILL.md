@@ -353,3 +353,32 @@ soft glow and brief exits. Keep settled text inside x=80–900 and y=800–1300.
 Inspect the reference at 8 fps to distinguish word assembly from card changes.
 Tested on a five-second Roman Punjabi sample; timings are approximate until
 matching song audio is supplied. Never attach the unrelated style-reference song.
+
+## White-page blob doodles with page turns
+Reference studied: a 26.2-second vertical cartoon song reel and its editing-timeline
+screen recording. The recording shows grey preview placeholders; derive visual motion
+from the finished reel, not guessed app preset names. Inspect transitions at 8–10 fps.
+
+- White paper, thin imperfect black outlines, rounded blob bodies, dot eyes and simple
+  mouths. Small looped pose changes (hands, instruments, bell) carry the performance;
+  a static drawing with camera motion alone does not reproduce character animation.
+- Small muted gold serif lyrics above the drawing; one or two centred lines, occasional
+  emoji and repeated vowels for held notes. The exact reference font is unverified;
+  bundled Cormorant Garamond is a mood substitute, not a confirmed match.
+- Use whole-page 3D yaw over a BLACK surround: page narrows toward edge-on, incoming
+  page starts small, swings/expands and settles flat. The clearest example occurs
+  around 5.9–7.1 seconds. Keep full white-page corners visible during the turn.
+- Alternate with cropped dolly zooms, half-turns, horizontal mirroring and clean cuts.
+  The reference sometimes deliberately holds reversed/upside-down text. Prefer upright
+  captions after transitions unless that reversal is explicitly requested.
+- Pulse outline ink between black, navy, magenta, cyan and warm red; alternate bright
+  paper with a grey dark-edge vignette. Temple shots occasionally flash neon green.
+  Keep tinting separate from page geometry; hue changes are not new drawings.
+- For new reels, move the reference's high caption placement down into the usual
+  Instagram safe zone; don't copy its small text location blindly.
+
+`scripts/doodle_page_motion.py --a page_a.png --b page_b.png --effect hinge --out turn.mp4`
+provides reusable **reference-inspired approximations**, not exact preset reconstruction:
+`hinge`, `halfturn`, `dolly`, and `inkpulse`. Uses Pillow/NumPy/ffmpeg. Tested all four
+effects on decoded real reference frames. Supply complete page images; character pose
+animation needs separate assets. No reference footage or personal assets belong in git.
