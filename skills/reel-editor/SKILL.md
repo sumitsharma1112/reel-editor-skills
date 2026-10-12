@@ -406,3 +406,9 @@ Keep user art/audio in ignored `public/media/`, not in repository commits.
 Load the bundled local serif font before capture to avoid fallback-font frames.
 No exact new preset can be inferred from screen recordings whose preview remains
 grey; use visible timeline information plus the corresponding finished reel.
+
+`BrandedReel` adds same-art text hooks and follow cards around the Remotion reel.
+Keep the core song in its own Sequence so prepended hooks shift audio and lyric
+timing together. Brand cards use the same loaded serif font and existing art;
+English-only requests apply to hooks, CTA, caption and cover text. A "No manual
+editing" claim describes the creator's workflow, not the absence of editing by AI.

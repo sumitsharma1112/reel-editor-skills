@@ -40,3 +40,10 @@ Whole-sprite bobbing does not animate individual hands, mouths or eyes.
 
 Use `--browser-executable=/path/to/chrome` when the standard browser download is
 unavailable. Tested with Remotion 4.0.535, TypeScript and a rendered bhajan scene.
+
+`BrandedReel` wraps the same composition in matching white-page opening and closing
+cards. Additional props: `introSeconds`, `outroSeconds`, `introLines`, `outroLines`,
+`handle`, and optional `brandImage`. Render with composition ID `BrandedReel`.
+The audio starts with the main sequence; captions use its local frame, avoiding drift.
+Use a personal-workflow claim such as "No manual editing" only when accurate for
+the creator, and don't present generated views as proof of trending performance.
