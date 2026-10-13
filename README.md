@@ -80,6 +80,4 @@ Code: MIT. Fonts in `skills/reel-editor/fonts/` are Google Fonts under the SIL O
 
 - Photo-first editorial reel guidance: native 9:16 composition, original photography, scene-integrated condensed type and restrained motion.
 
-- Animated birthday doodles: `remotion-doodle/src/BirthdayDoodle.tsx` (independent limbs, cake and gift gags, audio-driven movement).
-
-- Family-cartoon birthday variant: `remotion-doodle/src/FamilyBirthday.tsx` (full-frame artwork, singer focus shots, mouth animation and confetti).
+- Dialogue comic renderer: `remotion-doodle/src/DialogueComic.tsx` (timed speech bubbles, alternating reaction sprites and cat/bowl/mask/frame/dog visual reveals).

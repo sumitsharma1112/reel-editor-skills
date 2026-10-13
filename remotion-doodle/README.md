@@ -65,6 +65,4 @@ Letter reveals adapt to short phrases; the image timeline never shifts audio.
 Read captions already embedded in supplied footage before attempting lyric guesses.
 OCR can suggest timings, but must be checked visually; creator watermarks are not lyrics.
 
-`BirthdayDoodle` creates a white-page 9:16 animated birthday party using native SVG characters. Props: `duration`, `audio`, `name`, optional `font`, `energy` (per-frame normalized RMS), and `beats` (frame indices). Scene timings are adjustable in the component. Limbs and props move independently; audio energy drives mouth openings and bounce. These are expressive movements, not phoneme-aligned lip sync. Keep private audio and local props out of git.
-
-`FamilyBirthday` uses a full-frame family cartoon illustration with matched audio and wide/close camera shots. Its props mirror BirthdayDoodle plus `image`. Mouth clips are artwork-specific and must be repositioned for replacement artwork. Preserve the supplied audio, do not claim phoneme lip sync, and keep generated personal artwork out of git.
+`DialogueComic` renders supplied dialogue on a tan comic stage. Props: `duration`, `audio`, optional `font`/`handle`, six transparent `poses` arranged by reaction row and speaker column, and `lines` with `start`, `end`, `text`, `speaker`, `left`, `right`, `object`. Objects: `money`, `bowl`, `up`, `mask`, `frame`, `dog`. Poses, private audio and local transcript props stay out of git.
