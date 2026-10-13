@@ -78,4 +78,4 @@ Code: MIT. Fonts in `skills/reel-editor/fonts/` are Google Fonts under the SIL O
 - Generated doodle bhajan reels: `skills/reel-editor/scripts/doodle_bhajan_reel.py` (timed Roman serif captions, matched audio, artwork breathing and scene page turns).
 - Remotion version: `remotion-doodle/` (editable data-driven page hinges, half-turns, zooms, ink pulses and continuous matched audio).
 
-- Cinematic moving-footage lyric reels: `remotion-doodle/src/CinematicBandReel.tsx` (timed Roman words, centered cinema band, optional follow ending).
+- Photo-first editorial reel guidance: native 9:16 composition, original photography, scene-integrated condensed type and restrained motion.

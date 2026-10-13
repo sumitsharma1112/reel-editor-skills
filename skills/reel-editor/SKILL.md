@@ -439,33 +439,5 @@ Embedded caption timing is not independently verified word-level vocal timing.
 Short phrase reveals adapt to duration so the complete phrase remains readable.
 Render a sample, inspect settled text and transitions, then export with matched audio.
 
-### Cinematic Sufi reels from three Veo clips
-Study the user-supplied finished reel and original clips together. A proven workflow
-used three coherent 10-second 16:9 moving shots: hazy ghats, a narrow old lane and a
-rooftop with circling pigeons. Prompts share warm sepia-grey, low saturation, matte
-highlights, soft film grain, slow push/dolly/pan and clear sky for words. Animate
-birds, boats and distant street activity in the source footage; still-image zooms
-are a different visual treatment and should not be described as equivalent motion.
-
-- The inspected finished 9:16 video has a **4:3 active band** (512x384) centered
-  vertically, with black above and below. The source clips are 910x512 (16:9).
-  A new template should preserve source proportions with a center crop; do not
-  stretch people or buildings. Confirm the desired band ratio from actual frames.
-- One tall red Roman word at a time, simple short fade/settle, over quiet sky.
-  Berkshire Swash with 0.8 horizontal scale is a bundled approximation; the exact
-  reference font and playback speed have not been confirmed.
-- Build the musical structure from user lyrics and word timings, then map the three
-  scene roles to sections. Slow moving sources or loop deliberately; never freeze
-  the last frame merely because the song is longer than a generated clip.
-- Treat the curiosity question and "read the caption" cue on a **cover** separately
-  from the video's actual opening. Provide a substantive, checked explanation in
-  the post caption when the cover invites reading it.
-- Engagement shown for one reel supports a format hypothesis, not a causal claim
-  that a particular model, colour or transition produced the result. Evaluate sends,
-  saves, watch time and follows alongside views before generalizing.
-
-`remotion-doodle/src/CinematicBandReel.tsx` provides an adjustable template with
-moving clips, speed/loop control and timed words. Tested on an original supplied
-Veo clip. Keep the source footage, song, local timing props and analytics out of git.
-
-For this cinema-band style, size captions relative to the active picture, not the full vertical canvas. Use 248 px as the initial single-word size at 1080 px picture width and check longest words against the safe horizontal area. Keep `fontSize` configurable for future references.
+### Photo-first editorial reel frames
+When a reference uses huge type integrated into photos, do not substitute cream page headers with small photo boxes. Design directly at 1080x1920 for reels; 1080x1440 is 3:4, not 9:16. Match the reference's photo coverage and lettering scale. Place type in actual sky, walls or floor; use perspective transforms for graphic lettering and original-pixel subject masks only when the mask preserves readable words. Inspect every final frame for obstructed faces and clipped letters. Preserve supplied photography without regenerating people or environments when the user requires exact images. For school-trip content, adapt festival copy to age-appropriate trip humour. Use no more than four source photos per collage. Reel assembly can use a restrained 2.5% push per three-second frame; export without a soundtrack when none is supplied.
