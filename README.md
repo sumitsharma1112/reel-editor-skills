@@ -79,3 +79,5 @@ Code: MIT. Fonts in `skills/reel-editor/fonts/` are Google Fonts under the SIL O
 - Remotion version: `remotion-doodle/` (editable data-driven page hinges, half-turns, zooms, ink pulses and continuous matched audio).
 
 - Photo-first editorial reel guidance: native 9:16 composition, original photography, scene-integrated condensed type and restrained motion.
+
+- Animated birthday doodles: `remotion-doodle/src/BirthdayDoodle.tsx` (independent limbs, cake and gift gags, audio-driven movement).

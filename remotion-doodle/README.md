@@ -65,11 +65,4 @@ Letter reveals adapt to short phrases; the image timeline never shifts audio.
 Read captions already embedded in supplied footage before attempting lyric guesses.
 OCR can suggest timings, but must be checked visually; creator watermarks are not lyrics.
 
-`CinematicBandReel` renders actual moving 16:9 clips inside a centered 4:3 band on
-a 9:16 black canvas. Props: `duration`, `clips` (`start`, `end`, `video`,
-`sourceDuration`, `speed`), `words` (`start`, `end`, `text`), optional `audio`/`font`,
-and `colour`. Source audio is muted; provide the matching song separately.
-Video loops advance normally, and `objectFit: cover` crops instead of stretching.
-Word times require user lyrics or verified transcription, not arbitrary guesses.
-
-CinematicBandReel accepts `fontSize` (default 248 px) for reference-sized lyric words, with a length-based cap for long words.
+`BirthdayDoodle` creates a white-page 9:16 animated birthday party using native SVG characters. Props: `duration`, `audio`, `name`, optional `font`, `energy` (per-frame normalized RMS), and `beats` (frame indices). Scene timings are adjustable in the component. Limbs and props move independently; audio energy drives mouth openings and bounce. These are expressive movements, not phoneme-aligned lip sync. Keep private audio and local props out of git.
