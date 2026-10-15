@@ -10,6 +10,7 @@ Made by [@sumitsharma1112](https://github.com/sumitsharma1112) with Claude.
 
 - **band_word_lyrics.py** — 4:3 band on black, AI city footage, one red calligraphy word at a time
 
+- **flying_birds.py** — flapping bird flock overlay for any still painting/photo sky (depth, glide, bob)
 - **scrapbook_collage.py** — scrapbook song animation: paper card, torn strips, die-cut stickers that pop/spin/drop in per lyric, tiny serif caption
 - **poster_mask_type.py** — carousel post: giant yellow masked headline behind the person, handwritten note
 

@@ -458,3 +458,9 @@ Script: `scripts/scrapbook_collage.py scenes.json out.mp4 --audio song.mp3` (`--
 - Tiny italic serif caption (Cormorant 600i, dark brown) at the bottom of the card.
 - `photo` scenes go full-bleed with a slow push-in (eye close-up endings).
 - Pick literal props per line (heart + band-aid for "zakhm pe marham", sunflower for "phool", globe for "jag", planet for "taare").
+
+## Flying birds (aasmaan mein udte panchi)
+Script: `scripts/flying_birds.py image out.mp4 --dur 8 --n 14 --sky 0.05 0.3` or `Flock(W, H, n, sky_y).draw(frame, t)` inside any renderer.
+- Procedural flock: two curved flapping wings per bird, occasional glide, sine bob, slight tilt.
+- Depth: far birds smaller, slower, fainter; flock wraps across the sky.
+- Keep `sky_y` above heads/idols so no bird crosses a face.
