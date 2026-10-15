@@ -78,6 +78,12 @@ Read the broad sheets, choose changing regions, then sample densely around those
 
 **Starting settings:** near-black/navy #060C1C, electric blue #54BFFF, pink #F18FD4. Bloom from a duplicate bright-pass layer, blur 12–30 px, opacity 0.2–0.45. Begin with roughly 0.6–1.5 s shots and adjust to actual soundtrack events; no BPM was measured. Add lyrics only if requested.
 
+### R5 pacing correction from a recreated edit
+
+When the user says fast surreal cuts are not visible, measure the delivered cut list before changing colour or adding more glow. An initial 19.78-second edit with 11 shot slots averaged about 1.8 seconds per shot and felt too slow. Rebuild the rhythm with roughly 0.4–0.8-second shots, a few 1.0–1.2-second emotional holds, and brief returns to earlier eye/flower/CRT/celestial imagery. A 35-shot revision averages about 0.57 seconds per shot. Treat this as a tested assembly target, not measured reference BPM or proof of vocal sync.
+
+Use small 3-frame zoom-blur accents on selected cuts, followed by sharp settled pictures; do not make every transition a dissolve. Keep lyric phrase cards on their independent absolute timeline so rapid visual cuts do not repeatedly erase or restart the same caption. Insert generated metaphor art only where existing footage lacks a reference motif; animate stills modestly and distinguish them from live subject motion. Check motion in a short playback or dense frame sequence, not a sparse contact sheet alone.
+
 ## R6 — Shared-earphone illustration and stacked lyrics
 
 **Observed:** Cropped shoulders of two illustrated people share white earphone cables. White background, mauve/rust and grey-green clothes. Pale yellow Devanagari lyric clusters build near the centre, with different word sizes and short stacked lines. In 1.0–2.65 s a short two-line cluster holds, then additional words assemble beneath/beside it; later groups replace it. Artwork remains visually stable.
