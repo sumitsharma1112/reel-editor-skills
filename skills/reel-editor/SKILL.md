@@ -447,3 +447,11 @@ Use the user's supplied transcript and actual audio duration for alternating spe
 
 ### Rebuild a dialogue reel with distinct generated panels
 If a user rejects a reused two-sprite scene as unlike a hand-drawn comic reference, generate multiple full narrative illustrations. Keep the same character identities using reference panels; alternate large listener reaction close-ups with questioner-plus-object panels. Illustrate every physical reveal in the same medium, rather than inserting unrelated generic vector props. Composite speech balloons separately so the transcript stays exact and legible. Avoid revealing masks, frames or the dog before their punchline. Keep the original audio intact, use timed hard cuts and restrained image pushes, inspect a contact sheet and actual video frames, and preserve a requested handle on every frame. A ten-image sequence can support seventeen dialogue exchanges without making every shot the same composition.
+## Scrapbook collage song animation (paper + die-cut stickers)
+Script: `scripts/scrapbook_collage.py scenes.json out.mp4 --audio song.mp3` (`--preview 2.5` renders one frame).
+- Cream paper card with grain, fibres and torn green/kraft corner strips, sitting in a dark 9:16 frame (card_y / card_h).
+- Every image becomes a sticker: background removed (rembg u2net, largest piece kept), white die-cut border, soft drop shadow.
+- One scene per lyric line; stickers enter on cue with back-ease: `pop`, `spin`, `drop`, `slide_l`, `slide_r`, `fade`, then idle float + sway.
+- Tiny italic serif caption (Cormorant 600i, dark brown) at the bottom of the card.
+- `photo` scenes go full-bleed with a slow push-in (eye close-up endings).
+- Pick literal props per line (heart + band-aid for "zakhm pe marham", sunflower for "phool", globe for "jag", planet for "taare").
