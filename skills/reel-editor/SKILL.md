@@ -475,3 +475,9 @@ Script: `scripts/flying_birds.py image out.mp4 --dur 8 --n 14 --sky 0.05 0.3` or
 - Depth: far birds smaller, slower, fainter; flock wraps across the sky.
 - Keep `sky_y` above heads/idols so no bird crosses a face.
 - Hand-lettered lyrics mode (`"lyrics": [{t0, t1, text, big: [...]}]`, `lyrics_y`): words appear one by one below the card in Caveat Brush / Kaushan (alternating per line), the key word in Permanent Marker caps + accent colour with a small bounce, soft shadow + glow; replaces the small card caption. Move the card up (card_y ≈ 450, card_h ≈ 760) so lyrics sit in the safe zone underneath.
+
+## Film-burn hook intro (trending "save it" credit card)
+Script: `scripts/film_burn_hook.py in.mp4 out.mp4 --lyric "first words…" --hook 1.9 --credit "Song" [--top "..."]`
+- First `hook` seconds become a black card: orange film-burn light leaks with sprocket holes sweep and flicker, the song's first words type in letter by letter (Cormorant italic), top-right Instagram glyph pops, handle + song credit type in, glyph turns gradient.
+- Ends with a burn-flash wipe into the reel; audio untouched so the lyric matches the singer.
+- Set `--hook` to the end of the song's first line.
