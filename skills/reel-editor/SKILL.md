@@ -274,6 +274,9 @@ not give away the punchline of a comedy reel.
   its upper part (crown, weapon tip, head) over the last title line. Keep the text clear of the face,
   otherwise the word becomes unreadable. Check the 3:4 grid crop.
 
+## Handle on every reel
+Always add the handle `@aitricksbysumit` to every reel for Sumit's own page without asking: small, readable, inside the safe zone (e.g. top-left under the username area, or bottom corner of the card), soft shadow so it reads on any image. Skip only for reels made for someone else (friends/clients) unless he asks.
+
 ## Privacy
 Never show a family member who asked not to be shown: drop their photos first; for group footage use
 `face_privacy_blur.py` (YuNet + SFace recognition, track-level vote, ellipse pixelate). Check frames after.
