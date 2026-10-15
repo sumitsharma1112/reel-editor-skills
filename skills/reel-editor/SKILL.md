@@ -20,6 +20,16 @@ reference reel and you deliver a finished, postable MP4 — not instructions.
   (`ffmpeg -vf "select='lt(n\,30)',scale=120:-1,tile=10x3"`), and look at it.
 - Reply to the user in their language (Hinglish if they write Hinglish), short and clear.
 
+## Reference-led illustrated reel styles
+For the eight romantic/devotional references (double exposure, moonlit lyric scroll,
+burgundy curved/typewriter text, metaphor-prop scrapbook, surreal luminous montage,
+stacked Indic lyrics, anime foreground parallax, red memory silhouette), read
+[the eight-style recipes](references/eight-reel-style-recipes.md). Use
+`scripts/inspect_reference.py` for broad and dense timestamped contact sheets.
+Keep observed behavior separate from suggested settings; do not apply a single
+caption animation to all styles. Verify actual dialogue timing, especially the final
+20–30 seconds; silence detection and estimated timestamps do not establish word sync.
+
 ## Setup
 
 ```bash

@@ -83,3 +83,6 @@ Code: MIT. Fonts in `skills/reel-editor/fonts/` are Google Fonts under the SIL O
 - Photo-first editorial reel guidance: native 9:16 composition, original photography, scene-integrated condensed type and restrained motion.
 
 - Dialogue comic renderer: `remotion-doodle/src/DialogueComic.tsx` (timed speech bubbles, alternating reaction sprites and cat/bowl/mask/frame/dog visual reveals).
+
+### Reference-led illustrated reels
+Eight studied style recipes cover double exposure, scrolling lyrics, curved/typewriter captions, scrapbook props, luminous montage, stacked Indic text, foreground parallax and red silhouette compositions. See [recipes](skills/reel-editor/references/eight-reel-style-recipes.md) and [timestamped inspection tool](skills/reel-editor/scripts/inspect_reference.py). Observed details and suggested recreation settings are distinguished; source media is excluded.
