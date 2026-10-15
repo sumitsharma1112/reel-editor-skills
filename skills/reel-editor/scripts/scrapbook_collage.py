@@ -108,6 +108,44 @@ def caption(text, width, size, col=(70, 50, 40)):
     tw = d.textlength(text, font=f); d.text(((width - tw) / 2, size * 0.3), text, font=f, fill=tuple(col) + (255,))
     a = np.asarray(im, np.float32); return a[..., 2::-1], a[..., 3:] / 255
 
+FD = os.path.join(HERE, '..', 'fonts')
+LYR_FONTS = ['caveat-brush-400.ttf', 'kaushan-script-400.ttf']
+_lg = {}
+def lyr_glyph(word, font, size):
+    k = (word, font, size)
+    if k not in _lg:
+        f = ImageFont.truetype(os.path.join(FD, font), size); bb = f.getbbox(word)
+        im = Image.new('L', (bb[2] - bb[0] + 40, bb[3] - bb[1] + 40)); ImageDraw.Draw(im).text((20 - bb[0], 20 - bb[1]), word, font=f, fill=255)
+        _lg[k] = np.asarray(im, np.float32) / 255
+    return _lg[k]
+
+def layout_lyrics(lyrics, W, top):
+    """Hand-lettered word-by-word lyrics (Bade Achhe Lagte Hain style). Each item: {t0, t1, text, big: [words]}.
+    Words share the line time by length; 'big' words use Permanent Marker in caps and the accent colour."""
+    out = []
+    for n, L in enumerate(lyrics):
+        words = L['text'].split(); big = {b.lower() for b in L.get('big', [])}
+        wt = [max(2, len(w)) for w in words]; wt[-1] *= 1.5; span = (L['t1'] - L['t0']) * 0.8
+        t = L['t0']; gl = []
+        for w, k in zip(words, wt):
+            isbig = w.lower().strip('.,!?…') in big
+            g = lyr_glyph(w.upper() if isbig else w, 'permanent-marker-400.ttf' if isbig else LYR_FONTS[n % 2], 118 if isbig else 84)
+            gl.append((t, g, isbig)); t += span * k / sum(wt)
+        rows, row, rw = [], [], 0
+        for item in gl:                                                      # wrap to 960 px
+            w_ = item[1].shape[1]
+            if row and rw + w_ + 22 > W - 120: rows.append(row); row, rw = [], 0
+            row.append(item); rw += w_ + 22
+        rows.append(row)
+        placed, y = [], top
+        for r in rows:
+            tw = sum(i[1].shape[1] for i in r) + 22 * (len(r) - 1); x = (W - tw) / 2; lh = max(i[1].shape[0] for i in r)
+            for ti, g, isbig in r:
+                placed.append((ti, g, isbig, int(x), int(y + (lh - g.shape[0]) / 2))); x += g.shape[1] + 22
+            y += lh - 14
+        out.append((L['t0'], L['t1'], placed))
+    return out
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('spec'); ap.add_argument('out'); ap.add_argument('--audio'); ap.add_argument('--preview', type=float)
     A = ap.parse_args()
@@ -151,7 +189,7 @@ def main():
                 ft = lt + k * 0.7                                                   # idle float
                 cy += 5 * math.sin(ft * 2.1); rot += 1.5 * math.sin(ft * 1.6)
                 card = place(card, col, al, cx, cy, sc_, rot, op)
-        if sc.get('caption'):
+        if sc.get('caption') and not S.get('lyrics'):
             L, Aa = caption(sc['caption'], W, S.get('caption_size', 34), TH['cap'][::-1])
             y = CH - L.shape[0] - 16; a = Aa * min(1, lt / 0.25)
             card[y:y + L.shape[0]] = card[y:y + L.shape[0]] * (1 - a) + L * a
@@ -166,9 +204,30 @@ def main():
             for x, y, r, ph in STARS:
                 a = 0.35 + 0.65 * (0.5 + 0.5 * math.sin(t * 2.2 + ph))
                 cv2.circle(out, (int(x), int(y)), int(r), (200 * a + 40, 230 * a + 20, 255 * a), -1, cv2.LINE_AA)
-        sh = np.zeros((H, W), np.float32); sh[CY + 10:CY + CH + 24, 12:W - 12] = 1; sh = cv2.GaussianBlur(sh, (0, 0), 18)
+        sh = SHADOW
         out = out * (1 - 0.5 * sh[..., None]); out[CY:CY + CH] = card
+        if LYR:
+            tx = np.zeros((H, W), np.float32); acc = np.zeros((H, W), np.float32)
+            for t0, t1, placed in LYR:
+                if not (t0 - 0.05 <= t < t1): continue
+                ga = min(1, (t1 - t) / 0.3)
+                for ti, g, isbig, x, y in placed:
+                    if t < ti: continue
+                    u = min(1, (t - ti) / 0.3); dy = int((1 - u) * 22)
+                    h_, w_ = g.shape; L_ = acc if isbig else tx
+                    if isbig and t < ti + 0.25: dy -= int(8 * math.sin((t - ti) * 40))
+                    y0 = max(0, y + dy); y1 = min(H, y + dy + h_)
+                    if y1 > y0: L_[y0:y1, x:x + w_] = np.maximum(L_[y0:y1, x:x + w_], g[y0 - y - dy:y1 - y - dy] * u * ga)
+            for L_, col in ((tx, LCOL), (acc, ACOL)):
+                if L_.max() <= 0: continue
+                sm = cv2.resize(L_, (W // 4, H // 4), interpolation=cv2.INTER_AREA)
+                sh_ = cv2.resize(cv2.GaussianBlur(sm, (0, 0), 1.3), (W, H)); glow = cv2.resize(cv2.GaussianBlur(sm, (0, 0), 3.5), (W, H))
+                out = out * (1 - np.clip(sh_ * 1.2, 0, 0.7)[..., None])
+                out = out * (1 - L_[..., None]) + col * L_[..., None] + col * glow[..., None] * 0.45
         return np.clip(out, 0, 255).astype(np.uint8)
+    SHADOW = np.zeros((H, W), np.float32); SHADOW[CY + 10:CY + CH + 24, 12:W - 12] = 1; SHADOW = cv2.GaussianBlur(SHADOW, (0, 0), 18)
+    LYR = layout_lyrics(S['lyrics'], W, S.get('lyrics_y', CY + CH + 40)) if S.get('lyrics') else None
+    LCOL = np.array(S.get('lyrics_colour', [215, 238, 250]), np.float32); ACOL = np.array(S.get('accent_colour', [60, 190, 245]), np.float32)
     if A.preview is not None:
         cv2.imwrite(A.out, frame(int(A.preview * FPS))); return
     cmd = ['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-']

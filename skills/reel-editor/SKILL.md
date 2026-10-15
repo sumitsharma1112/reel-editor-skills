@@ -464,3 +464,4 @@ Script: `scripts/flying_birds.py image out.mp4 --dur 8 --n 14 --sky 0.05 0.3` or
 - Procedural flock: two curved flapping wings per bird, occasional glide, sine bob, slight tilt.
 - Depth: far birds smaller, slower, fainter; flock wraps across the sky.
 - Keep `sky_y` above heads/idols so no bird crosses a face.
+- Hand-lettered lyrics mode (`"lyrics": [{t0, t1, text, big: [...]}]`, `lyrics_y`): words appear one by one below the card in Caveat Brush / Kaushan (alternating per line), the key word in Permanent Marker caps + accent colour with a small bounce, soft shadow + glow; replaces the small card caption. Move the card up (card_y ≈ 450, card_h ≈ 760) so lyrics sit in the safe zone underneath.
