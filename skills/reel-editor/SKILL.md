@@ -481,3 +481,5 @@ Script: `scripts/film_burn_hook.py in.mp4 out.mp4 --lyric "first words…" --hoo
 - First `hook` seconds become a black card: orange film-burn light leaks with sprocket holes sweep and flicker, the song's first words type in letter by letter (Cormorant italic), top-right Instagram glyph pops, handle + song credit type in, glyph turns gradient.
 - Ends with a burn-flash wipe into the reel; audio untouched so the lyric matches the singer.
 - Set `--hook` to the end of the song's first line.
+- Title mode (`--title "The Beauty of" --cycle Waiting`): gold serif title + a word flickering through fonts over burn flashes, video fades up under the title.
+- Red-word variant: keep Berkshire red word captions running from frame 0 over the burn card (see raft build169 pattern) so the hook already shows the lyric.

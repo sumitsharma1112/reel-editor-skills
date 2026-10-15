@@ -73,10 +73,14 @@ def lyric_layer(W, txt, size):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('inp'); ap.add_argument('out')
-    ap.add_argument('--lyric', required=True); ap.add_argument('--hook', type=float, default=2.2)
+    ap.add_argument('--lyric', default=''); ap.add_argument('--hook', type=float, default=2.2)
     ap.add_argument('--handle', default='@aitricksbysumit'); ap.add_argument('--credit', default='')
     ap.add_argument('--top', default=''); ap.add_argument('--size', type=int, default=110)
+    ap.add_argument('--title', default='', help="title mode: gold serif line, e.g. 'The Beauty of'")
+    ap.add_argument('--cycle', default='', help='title mode: word that flickers through fonts, e.g. Waiting')
     A = ap.parse_args()
+    if A.title:
+        return title_mode(A)
     cap = cv2.VideoCapture(A.inp); W, H = int(cap.get(3)), int(cap.get(4)); FPS = cap.get(5)
     LY = lyric_layer(W, A.lyric, A.size); ly_y = int(H * 0.45)
     TOP = text_rgba(W, A.top, 'montserrat-500.ttf', 34, (235, 235, 235, 255)) if A.top else None
@@ -119,6 +123,41 @@ def main():
                 mix = min(1, v * 1.3)
                 card = card * (1 - mix) + f * mix
                 card = card * (1 - 0.6 * fl) + full * 0.6 * fl
+            f = card
+        p.stdin.write(np.clip(f, 0, 255).astype(np.uint8).tobytes()); i += 1
+    p.stdin.close(); p.wait()
+
+CYCLE_FONTS = ['permanent-marker-400.ttf', 'great-vibes-400.ttf', 'anton-400.ttf', 'caveat-brush-400.ttf', 'cinzel-700.ttf',
+               'mr-dafoe-400.ttf', 'bebas-neue-400.ttf', 'sacramento-400.ttf', 'kaushan-script-400.ttf']
+
+def title_mode(A):
+    """Second hook variant: burn flashes on black, gold 'The Beauty of' + a word that flickers through fonts,
+    then the video fades up under the title (title lingers 0.6 s over the footage)."""
+    cap = cv2.VideoCapture(A.inp); W, H = int(cap.get(3)), int(cap.get(4)); FPS = cap.get(5)
+    sc = min(W, H) / 1080
+    T, TA = text_rgba(W, A.title, 'cormorant-700i.ttf', int(64 * sc), (235, 200, 90, 255))
+    cyc = [text_rgba(W, A.cycle, f, int(56 * sc), (255, 255, 255, 255)) for f in CYCLE_FONTS]
+    ty = int(H * 0.46) - T.shape[0]; cy = int(H * 0.46) + 4
+    hook = A.hook; fade = 0.6
+    p = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
+                          '-i', A.inp, '-map', '0:v', '-map', '1:a?', '-shortest', '-c:v', 'libx264', '-crf', '19', '-pix_fmt', 'yuv420p',
+                          '-c:a', 'copy', '-movflags', '+faststart', A.out], stdin=subprocess.PIPE)
+    i = 0
+    while True:
+        ok, f = cap.read()
+        if not ok: break
+        t = i / FPS; f = f.astype(np.float32)
+        if t < hook + fade:
+            card = burn_colour(np.clip(burn_layer(W, H, t * 1.4) * 1.4, 0, 1)) * max(0, 1 - t / (hook * 0.8))
+            if t >= hook:
+                v = (t - hook) / fade; card = card * (1 - v) + f * v
+            ta = min(1, t / 0.4) * (1 - max(0, (t - hook - fade * 0.4) / (fade * 0.6)))
+            if ta > 0:
+                card[ty:ty + T.shape[0]] = card[ty:ty + T.shape[0]] * (1 - TA * ta) + T * TA * ta
+                if t > 0.5:
+                    k = int((t - 0.5) / 0.14)
+                    L, LA = cyc[-1] if t > hook * 0.85 else cyc[k % len(cyc)]
+                    card[cy:cy + L.shape[0]] = card[cy:cy + L.shape[0]] * (1 - LA * ta) + L * LA * ta
             f = card
         p.stdin.write(np.clip(f, 0, 255).astype(np.uint8).tobytes()); i += 1
     p.stdin.close(); p.wait()
