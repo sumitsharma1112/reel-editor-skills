@@ -10,7 +10,7 @@ Usage:
 
 scenes.json:
 {
-  "size": [1080, 1920], "fps": 30, "card_y": 560, "card_h": 800,
+  "size": [1080, 1920], "fps": 30, "theme": "cream", "card_y": 560, "card_h": 800,
   "scenes": [
     {"t": 0, "dur": 3, "caption": "Zakhm pe marham",
      "stickers": [{"src": "heart.png", "x": 0.5, "y": 0.5, "w": 0.45, "rot": -6, "in": "pop", "at": 0.1},
@@ -29,9 +29,9 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONT = os.path.join(HERE, '..', 'fonts', 'cormorant-600i.ttf')
 
-def paper(w, h, seed=3):
+def paper(w, h, seed=3, base_col=(196, 226, 240), strips=((120, 160, 130), (150, 175, 190))):
     rng = np.random.default_rng(seed)
-    base = np.full((h, w, 3), (196, 226, 240), np.float32)                     # BGR cream
+    base = np.full((h, w, 3), base_col, np.float32)                     # BGR cream
     n = cv2.GaussianBlur(rng.normal(0, 1, (h, w)).astype(np.float32), (0, 0), 1.2) * 6
     n += cv2.GaussianBlur(rng.normal(0, 1, (h, w)).astype(np.float32), (0, 0), 18) * 10
     base += n[..., None]
@@ -51,8 +51,8 @@ def paper(w, h, seed=3):
             pts.append((x + rng.uniform(-amp, amp), y + rng.uniform(-amp, amp)))
         return pts
     out = base
-    for poly, col in ((jag((w * 0.62, 0), (w, h * 0.42), 40, 7) + [(w, 0)], (120, 160, 130)),
-                      ([(0, h * 0.05)] + jag((w * 0.07, h * 0.05), (w * 0.03, h), 50, 5) + [(0, h)], (150, 175, 190))):
+    for poly, col in ((jag((w * 0.62, 0), (w, h * 0.42), 40, 7) + [(w, 0)], strips[0]),
+                      ([(0, h * 0.05)] + jag((w * 0.07, h * 0.05), (w * 0.03, h), 50, 5) + [(0, h)], strips[1])):
         m, tex, sh = torn(poly, col)
         out = out * (1 - sh * 0.25) ; out = out * (1 - m) + tex * m
     return np.clip(out, 0, 255)
@@ -103,9 +103,9 @@ def place(canvas, col, alpha, cx, cy, scale, rot, opacity):
     canvas = canvas * (1 - sh[..., None])
     return canvas * (1 - a[..., None]) + c * a[..., None]
 
-def caption(text, width, size):
+def caption(text, width, size, col=(70, 50, 40)):
     f = ImageFont.truetype(FONT, size); im = Image.new('RGBA', (width, size * 2)); d = ImageDraw.Draw(im)
-    tw = d.textlength(text, font=f); d.text(((width - tw) / 2, size * 0.3), text, font=f, fill=(70, 50, 40, 255))
+    tw = d.textlength(text, font=f); d.text(((width - tw) / 2, size * 0.3), text, font=f, fill=tuple(col) + (255,))
     a = np.asarray(im, np.float32); return a[..., 2::-1], a[..., 3:] / 255
 
 def main():
@@ -114,7 +114,13 @@ def main():
     S = json.load(open(A.spec)); base = os.path.dirname(os.path.abspath(A.spec))
     W, H = S.get('size', [1080, 1920]); FPS = S.get('fps', 30)
     CY, CH = S.get('card_y', 560), S.get('card_h', 800)
-    PAPER = paper(W, CH)
+    THEMES = {'cream': dict(paper=(196, 226, 240), strips=((120, 160, 130), (150, 175, 190)), cap=(70, 50, 40), bg=(14, 14, 14), stars=False),
+              'midnight': dict(paper=(92, 44, 30), strips=((60, 175, 230), (120, 110, 200)), cap=(225, 240, 250), bg=(48, 22, 16), stars=True)}
+    TH = THEMES[S.get('theme', 'cream')]
+    PAPER = paper(W, CH, base_col=TH['paper'], strips=TH['strips'])
+    rs = np.random.default_rng(9); STARS = np.c_[rs.uniform(0, W, 140), rs.uniform(0, H, 140), rs.uniform(1, 3, 140), rs.uniform(0, 6.3, 140)]
+    yy_ = np.linspace(0, 1, H)[:, None, None]
+    BG = (np.array(TH['bg'], np.float32) * (1.25 - 0.5 * yy_) * np.ones((1, W, 1))).astype(np.float32)
     scenes = S['scenes']; DUR = max(s['t'] + s['dur'] for s in scenes)
     photos = {}
     def frame(i):
@@ -146,16 +152,22 @@ def main():
                 cy += 5 * math.sin(ft * 2.1); rot += 1.5 * math.sin(ft * 1.6)
                 card = place(card, col, al, cx, cy, sc_, rot, op)
         if sc.get('caption'):
-            L, Aa = caption(sc['caption'], W, S.get('caption_size', 34))
+            L, Aa = caption(sc['caption'], W, S.get('caption_size', 34), TH['cap'][::-1])
             y = CH - L.shape[0] - 16; a = Aa * min(1, lt / 0.25)
             card[y:y + L.shape[0]] = card[y:y + L.shape[0]] * (1 - a) + L * a
         if S.get('handle'):
             if 'h' not in photos:
-                f = ImageFont.truetype(FONT, 28); im = Image.new('RGBA', (W, 50)); d = ImageDraw.Draw(im)
-                tw = d.textlength(S['handle'], font=f); d.text((W - tw - 28, 8), S['handle'], font=f, fill=(90, 70, 60, 200))
+                f = ImageFont.truetype(FONT, 24); im = Image.new('RGBA', (W, 50)); d = ImageDraw.Draw(im)
+                tw = d.textlength(S['handle'], font=f); d.text((W - tw - 40, 8), S['handle'], font=f, fill=tuple(TH['cap'][::-1]) + (200,))
                 a = np.asarray(im, np.float32); photos['h'] = (a[..., 2::-1], a[..., 3:] / 255)
-            L, Aa = photos['h']; card[18:68] = card[18:68] * (1 - Aa) + L * Aa
-        out = np.full((H, W, 3), S.get('bg', 14), np.float32); out[CY:CY + CH] = card
+            L, Aa = photos["h"]; card[CH - 62:CH - 12] = card[CH - 62:CH - 12] * (1 - Aa * 0.8) + L * Aa * 0.8
+        out = BG.copy()
+        if TH['stars']:
+            for x, y, r, ph in STARS:
+                a = 0.35 + 0.65 * (0.5 + 0.5 * math.sin(t * 2.2 + ph))
+                cv2.circle(out, (int(x), int(y)), int(r), (200 * a + 40, 230 * a + 20, 255 * a), -1, cv2.LINE_AA)
+        sh = np.zeros((H, W), np.float32); sh[CY + 10:CY + CH + 24, 12:W - 12] = 1; sh = cv2.GaussianBlur(sh, (0, 0), 18)
+        out = out * (1 - 0.5 * sh[..., None]); out[CY:CY + CH] = card
         return np.clip(out, 0, 255).astype(np.uint8)
     if A.preview is not None:
         cv2.imwrite(A.out, frame(int(A.preview * FPS))); return
