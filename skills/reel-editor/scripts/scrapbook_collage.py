@@ -16,7 +16,8 @@ scenes.json:
      "stickers": [{"src": "heart.png", "x": 0.5, "y": 0.5, "w": 0.45, "rot": -6, "in": "pop", "at": 0.1},
                   {"src": "bandaid.png", "x": 0.5, "y": 0.48, "w": 0.55, "rot": 20, "in": "drop", "at": 1.2}]},
     {"t": 3, "dur": 2, "photo": "eyes.jpg", "caption": "Tere naina"}
-  ]
+  ],
+  "handle": "@yourhandle"
 }
 x/y are fractions of the card (paper area), w is sticker width as a fraction of card width.
 Entrances: pop | slide_l | slide_r | drop | spin | fade.  Stickers persist inside their scene.
@@ -148,6 +149,12 @@ def main():
             L, Aa = caption(sc['caption'], W, S.get('caption_size', 34))
             y = CH - L.shape[0] - 16; a = Aa * min(1, lt / 0.25)
             card[y:y + L.shape[0]] = card[y:y + L.shape[0]] * (1 - a) + L * a
+        if S.get('handle'):
+            if 'h' not in photos:
+                f = ImageFont.truetype(FONT, 28); im = Image.new('RGBA', (W, 50)); d = ImageDraw.Draw(im)
+                tw = d.textlength(S['handle'], font=f); d.text((W - tw - 28, 8), S['handle'], font=f, fill=(90, 70, 60, 200))
+                a = np.asarray(im, np.float32); photos['h'] = (a[..., 2::-1], a[..., 3:] / 255)
+            L, Aa = photos['h']; card[18:68] = card[18:68] * (1 - Aa) + L * Aa
         out = np.full((H, W, 3), S.get('bg', 14), np.float32); out[CY:CY + CH] = card
         return np.clip(out, 0, 255).astype(np.uint8)
     if A.preview is not None:
