@@ -483,3 +483,10 @@ Script: `scripts/film_burn_hook.py in.mp4 out.mp4 --lyric "first words…" --hoo
 - Set `--hook` to the end of the song's first line.
 - Title mode (`--title "The Beauty of" --cycle Waiting`): gold serif title + a word flickering through fonts over burn flashes, video fades up under the title.
 - Red-word variant: keep Berkshire red word captions running from frame 0 over the burn card (see raft build169 pattern) so the hook already shows the lyric.
+
+## Bam Lahiri word-cut (scripts/bam_word_cut.py)
+Full-frame 9:16 living paintings driven by a SEG table `(start, image, line_words, highlight_idx, flow, particles, mode)`.
+- Slow spoken intro: one image per half-line, `dip` (dip-to-black) cuts. Never dip the very first frame.
+- Drop / war-cry: `flash` cuts (white flash + strong entry punch).
+- Fast chant section: ONE IMAGE PER WORD, `cut` mode; the tiny centred Devanagari line stays put and the sung word glows saffron (highlight_idx).
+- Snap each start to the nearest audio onset (per-section normalised onset peaks). Masked noise-flow (rembg), particles, warm-pixel fire flicker, handle top-left y≈460.
