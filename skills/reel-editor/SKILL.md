@@ -509,3 +509,6 @@ Alternative renderer: EffectCraft (pure-Rust After Effects clone, github.com/sto
 - Gotchas: keyframes at the same frame merge (pre-cut keys must be ≥1 frame earlier); a new animator has no selector,
   add `ADBE Text Selector`; fonts by PostScript name from ~/.local/share/fonts (Baloo2-ExtraBold shapes Devanagari fine);
   output is ~15 Mbps, recompress with ffmpeg for long reels. ~0.44 s/frame at 1080x1920 on CPU.
+
+## Native EffectCraft prototype
+For an actual headless EffectCraft smoke test and command pitfalls, read [native prototype](references/effectcraft-native-prototype.md) and use `scripts/effectcraft_reel_test.py`. Verify decoded assets, native preview frames, audio offset and stream frame counts. The tested binary is official EffectCraft CLI0.10.0; GPU and native FilmCraft beat detection are not yet validated.

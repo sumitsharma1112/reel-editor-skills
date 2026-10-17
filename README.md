@@ -91,3 +91,5 @@ Eight studied style recipes cover double exposure, scrolling lyrics, curved/type
 - **bam_word_cut.py** — Bam Lahiri style devotional reel: one painting per sung word in the fast section, saffron word highlight in a tiny Devanagari caption, dip/flash/cut transition modes per segment.
 - **shayari_karaoke.py** — Romantic shayari reel: karaoke misra captions with the rhyme word blooming in gold script, hook-first image order, petals + candle flicker.
 - **effectcraft/** — beat-synced reel prototype on the EffectCraft engine (beats.py → make_reel.py → JSX → effectcraft-cli render).
+
+- Native EffectCraft prototype: [tested CLI workflow](skills/reel-editor/references/effectcraft-native-prototype.md) and [manifest-driven project builder](skills/reel-editor/scripts/effectcraft_reel_test.py).
