@@ -509,6 +509,11 @@ Alternative renderer: EffectCraft (pure-Rust After Effects clone, github.com/sto
 - Gotchas: keyframes at the same frame merge (pre-cut keys must be ≥1 frame earlier); a new animator has no selector,
   add `ADBE Text Selector`; fonts by PostScript name from ~/.local/share/fonts (Baloo2-ExtraBold shapes Devanagari fine);
   output is ~15 Mbps, recompress with ffmpeg for long reels. ~0.44 s/frame at 1080x1920 on CPU.
+- `make_scrapbook.py scenes.json song.wav out.jsx [max_s]`: scrapbook_collage scene spec on EffectCraft. Night Gradient Ramp +
+  Fractal Noise haze (Evolution expression), cream card = rounded-rect shape layer + Noise grain + Drop Shadow + sway
+  expression, washi-tape shapes, stickers with Drop Shadow entering on the nearest onset (pop/spin/drop/slide/fade),
+  idle sway expression, pop-out at scene end, card bump per scene, Caveat Brush caption revealed by a range selector,
+  Glow threshold ≥85 (lower blows out the paper). First sticker static on frame 0 (hook). 17 s took ~10 min on 2 CPU cores.
 
 ## Native EffectCraft prototype
 For an actual headless EffectCraft smoke test and command pitfalls, read [native prototype](references/effectcraft-native-prototype.md) and use `scripts/effectcraft_reel_test.py`. Verify decoded assets, native preview frames, audio offset and stream frame counts. The tested binary is official EffectCraft CLI0.10.0; GPU and native FilmCraft beat detection are not yet validated.
