@@ -490,3 +490,10 @@ Full-frame 9:16 living paintings driven by a SEG table `(start, image, line_word
 - Drop / war-cry: `flash` cuts (white flash + strong entry punch).
 - Fast chant section: ONE IMAGE PER WORD, `cut` mode; the tiny centred Devanagari line stays put and the sung word glows saffron (highlight_idx).
 - Snap each start to the nearest audio onset (per-section normalised onset peaks). Masked noise-flow (rembg), particles, warm-pixel fire flicker, handle top-left y≈460.
+
+## Shayari karaoke (scripts/shayari_karaoke.py)
+For romantic shayari / nazm reels on AI images (e.g. trending maroon faceless-couple look).
+- Whole misra appears at once, dim (0.32 alpha; 0.55 for the first one so frame 0 reads), each word brightens as it is spoken.
+- The rhyme word (kitaab / gulaab / sharaab ...) sits on its own line in Great Vibes 190px gold with a warm glow and swells when sung; other words in Cormorant Garamond 700 italic cream.
+- Hook: most striking image first (not the literal first line image), first misra visible at frame 0, small gold kicker line "sirf usko bhejna jiske liye ye likha hai" for 3.6 s (share bait).
+- Soft 0.3 s crossfades, slow Ken Burns, candle flicker on bright pixels, falling dark-red petals, gold dust, vignette and a soft dark band behind the caption block.

@@ -89,3 +89,4 @@ Code: MIT. Fonts in `skills/reel-editor/fonts/` are Google Fonts under the SIL O
 Eight studied style recipes cover double exposure, scrolling lyrics, curved/typewriter captions, scrapbook props, luminous montage, stacked Indic text, foreground parallax and red silhouette compositions. See [recipes](skills/reel-editor/references/eight-reel-style-recipes.md) and [timestamped inspection tool](skills/reel-editor/scripts/inspect_reference.py). Observed details and suggested recreation settings are distinguished; source media is excluded.
 
 - **bam_word_cut.py** — Bam Lahiri style devotional reel: one painting per sung word in the fast section, saffron word highlight in a tiny Devanagari caption, dip/flash/cut transition modes per segment.
+- **shayari_karaoke.py** — Romantic shayari reel: karaoke misra captions with the rhyme word blooming in gold script, hook-first image order, petals + candle flicker.
