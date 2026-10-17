@@ -497,3 +497,15 @@ For romantic shayari / nazm reels on AI images (e.g. trending maroon faceless-co
 - The rhyme word (kitaab / gulaab / sharaab ...) sits on its own line in Great Vibes 190px gold with a warm glow and swells when sung; other words in Cormorant Garamond 700 italic cream.
 - Hook: most striking image first (not the literal first line image), first misra visible at frame 0, small gold kicker line "sirf usko bhejna jiske liye ye likha hai" for 3.6 s (share bait).
 - Soft 0.3 s crossfades, slow Ken Burns, candle flicker on bright pixels, falling dark-red petals, gold dust, vignette and a soft dark band behind the caption block.
+
+## EffectCraft pipeline (scripts/effectcraft/)
+Alternative renderer: EffectCraft (pure-Rust After Effects clone, github.com/storytold/effectcraft) driven headless.
+- Build once: `cargo build -p effectcraft-cli --release` (≈19 min on 2 cores; set CARGO_TARGET_DIR outside the clone, LTO off).
+- `beats.py` snaps one cut per image to audio onsets -> plan.json; `make_reel.py` writes an After Effects-style JSX:
+  cover-fit images with scale punch, Linear Wipe on alternate cuts, white flash + Gaussian Blur pulse on cuts,
+  Glow (`ADBE Glo2`) on an adjustment layer, per-word caption text layers with a text animator
+  (Opacity 0 + Scale 180%, range selector Start 0→100 over 0.3 s), handle text.
+- `effectcraft-cli script reel.jsx --empty --save-as reel.ecproj` then `render --format h264 --audio on`.
+- Gotchas: keyframes at the same frame merge (pre-cut keys must be ≥1 frame earlier); a new animator has no selector,
+  add `ADBE Text Selector`; fonts by PostScript name from ~/.local/share/fonts (Baloo2-ExtraBold shapes Devanagari fine);
+  output is ~15 Mbps, recompress with ffmpeg for long reels. ~0.44 s/frame at 1080x1920 on CPU.
