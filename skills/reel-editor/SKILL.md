@@ -1,6 +1,6 @@
 ---
 name: reel-editor
-description: Pro Instagram reel editor for vertical 1080x1920 video. Use for beat-sync edits, strobe A/B cuts copied from a reference reel, fusion reels from AI (Veo/Flow) clips, colour grades, head-back text, 3D cutout stickers, hand-tracked text, camera-shutter transitions, covers/posters, outros and captions — with Python + ffmpeg.
+description: Pro Instagram reel editor for vertical 1080x1920 video. Use for beat-sync edits, strobe A/B cuts copied from a reference reel, fusion reels from AI (Veo/Flow) clips, colour grades, head-back text, 3D cutout stickers, hand-tracked text, camera-shutter transitions, covers/posters, outros, Hindi story-first illustrated moral reels and captions — with Python + ffmpeg.
 ---
 
 # Reel Editor
@@ -16,8 +16,8 @@ reference reel and you deliver a finished, postable MP4 — not instructions.
 - Text: simple, readable, never too fast (hold each line >= 0.8 s). Max two fonts per frame.
 - One clear deliverable. Show one sample frame / short test first for big jobs, then render.
 - If a file is bigger than the chat upload limit (~30 MB), re-encode with `-maxrate 12M` or split.
-- Always verify before sending: `ffprobe` duration/size + a contact sheet of frames
-  (`ffmpeg -vf "select='lt(n\,30)',scale=120:-1,tile=10x3"`), and look at it.
+- Always verify the complete approved narration, including its ending, before rendering. Do not silently replace missing speech with a shorter text card.
+- Verify every intermediate and final video with `ffprobe` frame counts/duration and a full decode. Inspect frames across all shots and the ending, not only the first 30 frames.
 - Reply to the user in their language (Hinglish if they write Hinglish), short and clear.
 
 ## Reference-led illustrated reel styles
@@ -29,6 +29,14 @@ stacked Indic lyrics, anime foreground parallax, red memory silhouette), read
 Keep observed behavior separate from suggested settings; do not apply a single
 caption animation to all styles. Verify actual dialogue timing, especially the final
 20–30 seconds; silence detection and estimated timestamps do not establish word sync.
+
+## Story-first illustrated moral reels
+For an everyday allegory followed by a festival/social message, read
+[story-first reels](references/story-first-reels.md). Use `scripts/story_reel.py`
+for the measured square-art-on-black layout, shaped Hindi captions and validated
+exports. Match the approved script against the entire recording before rendering;
+request any missing ending instead of silently shortening it. For an appended take,
+replace the incomplete sentence once, listen across the join, and re-time the ending.
 
 ## Setup
 
