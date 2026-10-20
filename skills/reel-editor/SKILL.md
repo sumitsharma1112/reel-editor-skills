@@ -525,3 +525,16 @@ Alternative renderer: EffectCraft (pure-Rust After Effects clone, github.com/sto
 
 ## Native EffectCraft prototype
 For an actual headless EffectCraft smoke test and command pitfalls, read [native prototype](references/effectcraft-native-prototype.md) and use `scripts/effectcraft_reel_test.py`. Verify decoded assets, native preview frames, audio offset and stream frame counts. The tested binary is official EffectCraft CLI0.10.0; GPU and native FilmCraft beat detection are not yet validated.
+
+## Still-to-loop background library (scripts/still_loops.py)
+When AI video is not available (e.g. Runway Free plan shows "Upgrade" instead of Generate even with credits), turn 9:16 stills into
+seamless, reusable loop clips in code. Generate the stills in ChatGPT with ONE prompt asking for separate images (not a grid), no text,
+and an empty area kept for captions. Every effect is periodic with period T, so the last frame flows into the first:
+- periodic noise `N(t) = A·cos(2πt/T) + B·sin(2πt/T)` (A, B = FFT low-pass random fields) drives displacement warps;
+- crossfade drift `F(t) = (1−t/T)·L(vt) + (t/T)·L(v(t−T))` for a drifting mist layer that still loops;
+- lifespan cycling `age = (t − birth) mod T` for drops / particles.
+Kinds: `smoke` (incense on black — warp grows with height, stick tip ~86% down stays still, upward travelling ripple; use as Screen overlay),
+`moon` (cloud churn warp + drifting fbm mist + moon glow pulse + twinkling stars, lower half kept clean for text),
+`rain` (refracting drops with wet trails + beads, specular from top-left, bokeh shimmer), `outro` (maroon/gold floating particles),
+`follow` (5 s end-card on the outro loop: Great Vibes "Follow", Playfair handle, Baloo Hindi line, FOLLOW pill → tap ripple → FOLLOWING + drawn tick;
+draw the tick yourself, Poppins has no ✓ glyph). Check: decoded seam diff ≈ typical frame diff.
