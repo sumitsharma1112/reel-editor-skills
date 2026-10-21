@@ -25,6 +25,7 @@ Made by [@sumitsharma1112](https://github.com/sumitsharma1112) with Claude.
 
 Scripts in `skills/reel-editor/scripts/`:
 
+- `milestone_celebration.py`: follower-milestone (1K) celebration reel from profile + dashboard screenshots: popping cards, glitter, confetti, bursts, pop-up stat stickers, Hindi thank-you finale.
 - `still_loops.py`: turn 9:16 AI stills into seamless reusable loop backgrounds without AI video (incense smoke, moon + drifting clouds, rain on window, maroon gold particles) and a 5 s animated Follow end-card.
 - `story_reel.py`: story-first Hindi illustrated reels with square art on black, full-script caption coverage, narration-duration checks, per-shot frame validation and full-export decoding. See `skills/reel-editor/references/story-first-reels.md`.
 - `strobe_sync.py`: alternate two shots every few frames, copying the cut pattern and song from a reference reel; extends the song on-beat.

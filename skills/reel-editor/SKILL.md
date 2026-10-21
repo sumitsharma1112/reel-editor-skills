@@ -538,3 +538,13 @@ Kinds: `smoke` (incense on black — warp grows with height, stick tip ~86% down
 `rain` (refracting drops with wet trails + beads, specular from top-left, bokeh shimmer), `outro` (maroon/gold floating particles),
 `follow` (5 s end-card on the outro loop: Great Vibes "Follow", Playfair handle, Baloo Hindi line, FOLLOW pill → tap ripple → FOLLOWING + drawn tick;
 draw the tick yourself, Poppins has no ✓ glyph). Check: decoded seam diff ≈ typical frame diff.
+
+## Follower-milestone celebration (scripts/milestone_celebration.py)
+For "1K / 10K followers" story or reel from the user's own profile + dashboard screenshots (crop off the phone status bar).
+- Frame 0 = the hook: huge gold-gradient "1K" (Montserrat 900, glow) + FOLLOWERS already fully visible; tiny flash only (≤0.12).
+- 1K flies up and shrinks into a header; screenshot cards (rounded, gold border, drop shadow) pop in with ease-out-back + slight tilt and pop out by scaling down.
+- Pulsing gold ring on the followers count, pop-up pill stickers ("1,000!", "1.2M VIEWS", "+547 NEW") placed off the important text.
+- Particle burst (gravity, fading) on every pop; 4-point twinkling glitter; falling confetti that tumbles (squashed rotated quads); heavy confetti at the finale.
+- Finale: "शुक्रिया" + "1000 लोगों के परिवार का" + Great Vibes "Thank you for the love" + 1K FAMILY + handle.
+- Baloo has no Latin digits or punctuation: set numbers/?/, in Montserrat and mix fonts on one line.
+- Silent AAC track; the user adds a trending song in Instagram.
