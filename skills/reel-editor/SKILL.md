@@ -548,3 +548,12 @@ For "1K / 10K followers" story or reel from the user's own profile + dashboard s
 - Finale: "शुक्रिया" + "1000 लोगों के परिवार का" + Great Vibes "Thank you for the love" + 1K FAMILY + handle.
 - Baloo has no Latin digits or punctuation: set numbers/?/, in Montserrat and mix fonts on one line.
 - Silent AAC track; the user adds a trending song in Instagram.
+
+## Copy a reference reel's calligraphy captions frame-by-frame (scripts/reference_calligraphy_captions.py)
+When the user gives a target video + a reference reel with the same song: cross-correlate the audio envelopes (offset was 0),
+then copy every caption at the same frame. Reference look ("Lag ja gale"): 1-4 big scattered Devanagari calligraphy words per
+scene, tall condensed (Rozha One squeezed into the measured box), long tapered swash curls with small ring terminals,
+colour per scene (yellow+orange glow, mint, white neon, cream), each word either fades in (blur→sharp) or "burns" in
+(noise dissolve + glitter front); all words of a scene leave with the scene crossfade. Intro: frame 0 shows the finished
+first group (cover), then dark frames with warm light leaks, Kalam 700 "Best of" fade + name burn-in.
+Measure with scene-cut detection, 5 fps timestamped sheets and a 40 px grid on each group's final frame.
