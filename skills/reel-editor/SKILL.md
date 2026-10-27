@@ -557,3 +557,14 @@ colour per scene (yellow+orange glow, mint, white neon, cream), each word either
 (noise dissolve + glitter front); all words of a scene leave with the scene crossfade. Intro: frame 0 shows the finished
 first group (cover), then dark frames with warm light leaks, Kalam 700 "Best of" fade + name burn-in.
 Measure with scene-cut detection, 5 fps timestamped sheets and a 40 px grid on each group's final frame.
+
+## Qawwali / Sufi phrase lyrics + audience targeting (scripts/qawwali_phrase_lyrics.py)
+Hit: NFAK "Yeh Jo Halka Halka Saroor Hai" trial reel, 267 -> 1.15 lakh views, 1.8K shares, 1.4K saves, avg watch 4s -> 8s.
+- Phrases of 2-3 words (one word at a time did not stay in sync on fast qawwali lines): red Playfair Display 700, soft shadow,
+  text bottom at y≈1470 (just above Instagram's bottom UI), timed by length inside each transcript line.
+- Shot-shuffle hook: detect shot cuts (frame diff), swap the slow opening shots with the most dynamic shots OF EQUAL FRAME LENGTH
+  (ffmpeg trim+concat) so the beat sync survives; frame 0 must already be in motion.
+- Audience targeting: tiny corner text block top-left (y≈250): "NFAK" 30 px + 17 px keywords at 60% opacity (artist full name,
+  song title, Qawwali, Sufi Qawwali, Sufi Music). Instagram's "About this reel" AI switched from "Sufi dervish ritual" to
+  "Ustad Nusrat Fateh Ali Khan's iconic Qawwali" and pushed it to the right audience. Avoid words Indian viewers don't know
+  (e.g. "dervish"). Caption: "Kattar <artist> audience, make your attendance here 🙏🤍".
