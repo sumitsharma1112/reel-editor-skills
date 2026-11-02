@@ -568,3 +568,27 @@ Hit: NFAK "Yeh Jo Halka Halka Saroor Hai" trial reel, 267 -> 1.15 lakh views, 1.
   song title, Qawwali, Sufi Qawwali, Sufi Music). Instagram's "About this reel" AI switched from "Sufi dervish ritual" to
   "Ustad Nusrat Fateh Ali Khan's iconic Qawwali" and pushed it to the right audience. Avoid words Indian viewers don't know
   (e.g. "dervish"). Caption: "Kattar <artist> audience, make your attendance here 🙏🤍".
+
+## Clap-synced image cuts (scripts/clap_cut_sync.py)
+New image on every clap / hand-percussion hit. Claps = peaks of positive log-flux in the 2-8 kHz band
+(STFT nperseg 1024, hop 220), min 0.18 s apart; thresh 0.35 = every clap (~2/s), 0.45 = only strong ones.
+Each cut: +10 % punch-in (90 ms) + 35 % white flash (60 ms), then a 3 % push. Alternate two image packs
+(A, B, A, B) so the mix is even, reuse images instead of adding new ones, never the same image twice in a row.
+`--exclude` drops images by file-name words (e.g. bhangra, couple) when the person rejects a look.
+
+## Orange light-leak text hook (scripts/light_leak_text_hook.py)
+"Har bala se" Insta style opener: black screen, orange/amber light leaks sweeping in (full frame, top strip,
+side bands, dim fade), serif text centred. White lines in Playfair Display 700 (cream + thin dark stroke),
+last line in gold Great Vibes script + colour emoji (Noto Color Emoji). `--reveal word` reveals word by word
+like the reference; `--reveal all` shows the whole text at once (Sumit preferred this). Renders 9:16 and 16:9.
+Cormorant Garamond's old-style figures make "10" look like "1o" - use Playfair or spell the number.
+
+## Editable FilmCraft project (scripts/filmcraft_project.py)
+FilmCraft (storytold/filmcraft, MIT/Apache, Rust NLE, alpha) has 700+ commands driven by `filmcraft-cli`
+(and MCP). Build: `cargo build --release -p filmcraft-cli` (~10 min; release downloads may be blocked).
+The script turns a plan.json (shots with cut times, audio, caption lines) into a .fcproj: shots on V1,
+Motion.scale keyframes 103 -> 100 -> 105 per shot, caption track C1 (cream background, Poppins Bold 25,
+bottom margin 0.27), audio on A1. `filmcraft-cli --project p.fcproj render --seconds S --out f.png` checks a frame;
+`export out.mp4 --range entire` renders (~4.5x real time on CPU, very high bitrate: recompress for Instagram).
+Media paths are absolute: on the person's computer relink with File > Link Media. Give them the .fcproj + media zip
+so they can change a caption or a cut themselves without asking for a re-render.

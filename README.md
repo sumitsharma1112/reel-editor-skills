@@ -25,6 +25,9 @@ Made by [@sumitsharma1112](https://github.com/sumitsharma1112) with Claude.
 
 Scripts in `skills/reel-editor/scripts/`:
 
+- `filmcraft_project.py`: build an editable FilmCraft (open-source Premiere-like editor) project for a reel: shots on the timeline at cut times, zoom keyframes, caption track, audio; then render/export through `filmcraft-cli`.
+- `clap_cut_sync.py`: new image on every clap of a song (2-8 kHz flux peaks), punch-in + flash per cut, alternating two image packs.
+- `light_leak_text_hook.py`: black screen + orange light-leak flashes + Playfair/gold-script text hook, word-by-word or all at once, 9:16 and 16:9.
 - `qawwali_phrase_lyrics.py`: Sufi/qawwali lyric reel (2-3 word red phrases above the Insta UI) + shot-shuffle hook + tiny corner keywords for audience targeting (267 -> 1.15 lakh views).
 - `reference_calligraphy_captions.py`: copy a reference reel's scattered Devanagari calligraphy lyric captions (positions, colours, fade/burn reveals, swashes, intro) onto another video with the same song, frame by frame.
 - `milestone_celebration.py`: follower-milestone (1K) celebration reel from profile + dashboard screenshots: popping cards, glitter, confetti, bursts, pop-up stat stickers, Hindi thank-you finale.
