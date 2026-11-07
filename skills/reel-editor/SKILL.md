@@ -596,3 +596,7 @@ so they can change a caption or a cut themselves without asking for a re-render.
 
 ## Talking-head effects (../effects, by Vibha Ramprakash, MIT)
 For Sumit's own face-to-camera reels (satire monologues, story narration) use the sibling `effects` skill: `bash ../effects/scripts/setup.sh`, then `../effects/.venv/bin/python ../effects/scripts/fx.py <effect> in.mp4 out.mp4 --start S --end E`. 51 effects track the face and sit behind the head (spotlight, backdrop-word, led-sign, orbit, comment-box, tap follow...). It adds visuals only. Never use it on videos where his daughter appears.
+
+
+## Scrapbook motion intro (scripts/scrapbook_intro/)
+For 'same style as this motion-graphics showreel' requests: build scenes in one HTML page where render(t) sets every transform from time (closed-form springs), screenshot with Playwright at 60 fps and blend to 30 fps for motion blur. Scene cuts on VO phrase starts (silencedetect -35 dB, 0.25 s). Avatar talk = VO RMS bob. Ask the user for a one-zip asset pack (avatar poses, props, backgrounds) via a single ChatGPT prompt; never copy the reference creator's text or character, only layout and motion.

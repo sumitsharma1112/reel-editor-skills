@@ -1,0 +1,233 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Anton;src:url(fonts/Anton-Regular.ttf)}
+@font-face{font-family:Archivo;src:url(fonts/ArchivoBlack-Regular.ttf)}
+@font-face{font-family:Serif;src:url(fonts/InstrumentSerif-Italic.ttf)}
+@font-face{font-family:PlayI;src:url(fonts/PlayfairDisplay-Italic.ttf)}
+@font-face{font-family:Inter;src:url(fonts/Inter.ttf)}
+@font-face{font-family:Hand;src:url(fonts/caveat-brush-400.ttf)}
+@font-face{font-family:Mono;src:url(fonts/SpaceMono-Bold.ttf)}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#fff}
+#stage{position:absolute;inset:0;overflow:hidden}
+.sc{position:absolute;inset:0;display:none;transform-origin:50% 50%}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.el{position:absolute;transform-origin:50% 50%;will-change:auto}
+img.el{display:block}
+.t{white-space:nowrap;line-height:1}
+.shadow{filter:drop-shadow(0 18px 22px rgba(0,0,0,.28))}
+.tag{background:#111;color:#fff;font-family:Anton;padding:10px 26px 14px;letter-spacing:2px}
+.sel{outline:4px solid #2f6bff;outline-offset:10px;position:relative}
+.h{position:absolute;width:18px;height:18px;background:#fff;border:4px solid #2f6bff}
+.pill{background:#fff;border-radius:60px;font-family:Inter;font-weight:800;color:#111;padding:22px 46px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.btn{border-radius:28px;font-family:Inter;font-weight:800;padding:26px 70px;font-size:58px}
+</style></head>
+<body><div id="stage">
+
+<!-- S1 hello 0-2.09 -->
+<div class="sc" id="s1" data-a="0" data-b="2.09">
+  <img class="bg" src="as/25_bg_grid_paper_plain.png">
+  <img class="el shadow" id="s1stamp" src="as/09_prop_stamp.png" style="width:300px;left:740px;top:150px">
+  <img class="el shadow" id="s1reel" src="as/10_prop_film_reel.png" style="width:260px;left:60px;top:1120px">
+  <div class="el t" id="s1hi" style="left:110px;top:230px;font-family:Archivo;font-size:300px;color:#ffd23f;-webkit-text-stroke:12px #111;paint-order:stroke fill">Hi!</div>
+  <img class="el" id="s1av" src="as/01_avatar_wave.png" style="width:1080px;left:0;top:180px">
+  <div class="el t tag" id="s1tag" style="left:560px;top:1050px;font-size:110px">SUMIT</div>
+</div>
+
+<!-- S2 desk 2.09-6.86 -->
+<div class="sc" id="s2" data-a="2.09" data-b="6.86">
+  <img class="bg" id="s2bg" src="as/21_bg_desk_grid.png">
+  <img class="el shadow" id="s2env" src="as/08_prop_envelope.png" style="width:470px;left:-40px;top:1330px">
+  <img class="el shadow" id="s2phone" src="as/11_prop_phone_grid.png" style="width:300px;left:780px;top:1240px">
+  <img class="el shadow" id="s2paper" src="as/12_prop_torn_paper.png" style="width:1000px;left:40px;top:640px;height:640px">
+  <img class="el" id="s2clip" src="as/16_prop_paperclip.png" style="width:150px;left:150px;top:560px">
+  <div class="el t" id="s2a" style="left:160px;top:760px;font-family:Inter;font-weight:900;font-size:72px;color:#111">Agar ye video</div>
+  <div class="el t" id="s2b" style="left:160px;top:860px;font-size:92px;color:#111;font-family:Inter;font-weight:900">aapki <span style="font-family:Serif;font-weight:400;color:#2f6bff;font-size:118px">screen</span> tak</div>
+  <div class="el t" id="s2c" style="left:160px;top:990px;font-family:Inter;font-weight:900;font-size:72px;color:#111">pahunch gayi hai,</div>
+  <div class="el t" id="s2d" style="left:150px;top:760px;font-family:Serif;font-size:110px;color:#111">toh ye koi</div>
+  <div class="el" id="s2mk" style="left:140px;top:885px;width:760px;height:150px;background:#ffd23f;transform-origin:0 50%"></div>
+  <div class="el t" id="s2e" style="left:170px;top:880px;font-family:Archivo;font-size:132px;color:#111">ITTEFAQ</div>
+  <div class="el t" id="s2f" style="left:160px;top:1060px;font-family:Inter;font-weight:900;font-size:80px;color:#111">nahi hai.</div>
+</div>
+
+<!-- S3 green page turn 6.86-8.18 -->
+<div class="sc" id="s3" data-a="6.86" data-b="8.18">
+  <img class="bg" src="as/24_bg_green_pages.png">
+  <div class="el t" id="s3a" style="left:0;width:1080px;text-align:center;top:520px;font-family:Anton;font-size:210px;color:#fff;text-shadow:0 14px 0 #0b3d1f">EK KAAM</div>
+  <div class="el t" id="s3b" style="left:0;width:1080px;text-align:center;top:760px;font-family:Serif;font-size:190px;color:#fff">karo.</div>
+  <img class="el" id="s3av" src="as/03_avatar_point_up.png" style="width:900px;left:300px;top:760px">
+</div>
+
+<!-- S4 spotlight 8.18-12.89 -->
+<div class="sc" id="s4" data-a="8.18" data-b="12.89" style="background:#000">
+  <div class="el" id="s4c" style="width:720px;height:720px;border-radius:50%;background:#5fa8a7;left:180px;top:560px"></div>
+  <div class="el t" id="s4a" style="left:0;width:1080px;text-align:center;top:740px;font-family:Inter;font-weight:900;font-size:80px;color:#111">Meri</div>
+  <div class="el t" id="s4b" style="left:0;width:1080px;text-align:center;top:830px;font-family:Serif;font-size:170px;color:#ffe27a">profile</div>
+  <div class="el t" id="s4b2" style="left:0;width:1080px;text-align:center;top:1000px;font-family:Inter;font-weight:900;font-size:80px;color:#111">kholo</div>
+  <img class="el shadow" id="s4ph" src="as/11_prop_phone_grid.png" style="width:330px;left:375px;top:600px">
+  <div class="el t" id="s4g" style="left:0;width:1080px;text-align:center;top:1230px;font-family:Archivo;font-size:84px;color:#fff">grid mein jao</div>
+  <div class="el t pill" id="s4p" style="left:290px;top:860px;font-size:64px">⇅ Most viewed</div>
+  <svg class="el" id="s4cur" width="90" height="120" viewBox="0 0 24 32" style="left:640px;top:960px"><path d="M2 2 L2 26 L8 20 L12 30 L16 28 L12 18 L20 18 Z" fill="#fff" stroke="#111" stroke-width="2"/></svg>
+  <div class="el t" id="s4s" style="left:0;width:1080px;text-align:center;top:1180px;font-family:Serif;font-size:120px;color:#fff">se sort karo</div>
+</div>
+
+<!-- S5 yellow follow 12.89-16.09 -->
+<div class="sc" id="s5" data-a="12.89" data-b="16.09">
+  <img class="bg" id="s5bg" src="as/22_bg_yellow_waves.png">
+  <img class="el" id="s5av" src="as/02_avatar_arms_crossed.png" style="width:1080px;left:0;top:300px">
+  <div class="el t" id="s5a" style="left:0;width:1080px;text-align:center;top:250px;font-family:PlayI;font-size:96px;color:#111">Agar mera content</div>
+  <div class="el t tag" id="s5b" style="left:280px;top:390px;font-size:120px;background:#d7262c">ACHHA LAGE</div>
+  <div class="el t btn" id="s5f" style="left:300px;top:1460px;background:#2f6bff;color:#fff">Follow</div>
+  <div class="el t btn" id="s5f2" style="left:300px;top:1460px;background:#e9e9e9;color:#111">Following</div>
+  <img class="el" id="s5h" src="as/20_prop_heart.png" style="width:210px;left:760px;top:1300px">
+  <svg class="el" id="s5cur" width="90" height="120" viewBox="0 0 24 32" style="left:600px;top:1560px"><path d="M2 2 L2 26 L8 20 L12 30 L16 28 L12 18 L20 18 Z" fill="#fff" stroke="#111" stroke-width="2"/></svg>
+</div>
+
+<!-- S6 sticky + selection words 16.09-21.45 -->
+<div class="sc" id="s6" data-a="16.09" data-b="21.45">
+  <img class="bg" src="as/25_bg_grid_paper_plain.png">
+  <img class="el shadow" id="s6y" src="as/13_prop_sticky_yellow.png" style="width:560px;left:420px;top:170px">
+  <img class="el" id="s6tape" src="as/17_prop_tape.png" style="width:300px;left:560px;top:150px">
+  <div class="el t" id="s6a" style="left:470px;top:330px;font-family:Hand;font-size:92px;color:#222;line-height:1.05;white-space:normal;width:470px">Kuch apna sa lage?</div>
+  <div class="el t" id="s6w1" style="left:110px;top:860px;font-family:Archivo;font-size:150px;color:#111"><span class="sel">save<i class="h" style="left:-21px;top:-21px"></i><i class="h" style="right:-21px;bottom:-21px"></i></span></div>
+  <div class="el t" id="s6w2" style="left:330px;top:1080px;font-family:Serif;font-size:200px;color:#2f6bff">repost</div>
+  <div class="el t" id="s6w3" style="left:120px;top:1340px;font-family:Archivo;font-size:150px;color:#111"><span class="sel">share<i class="h" style="left:-21px;top:-21px"></i><i class="h" style="right:-21px;bottom:-21px"></i></span></div>
+  <img class="el shadow" id="s6p" src="as/14_prop_sticky_pink.png" style="width:380px;left:640px;top:1380px">
+  <div class="el t" id="s6pt" style="left:680px;top:1500px;font-family:Hand;font-size:66px;color:#222;white-space:normal;width:300px;line-height:1.05">kisi khaas ko 🤍</div>
+</div>
+
+<!-- S7 hmm 21.45-24.15 -->
+<div class="sc" id="s7" data-a="21.45" data-b="24.15">
+  <img class="bg" src="as/27_bg_white_clean.png">
+  <div class="el t" id="s7a" style="left:0;width:1080px;text-align:center;top:250px;font-family:Serif;font-size:200px;color:#111">Hmm…</div>
+  <img class="el" id="s7av" src="as/04_avatar_shrug.png" style="width:1080px;left:0;top:420px">
+  <div class="el" id="s7mk" style="left:110px;top:1470px;width:860px;height:40px;background:#ffd23f;transform-origin:0 50%"></div>
+  <div class="el t" id="s7b" style="left:0;width:1080px;text-align:center;top:1340px;font-family:Inter;font-weight:900;font-size:76px;color:#111">kam se kam</div>
+  <div class="el t" id="s7c" style="left:0;width:1080px;text-align:center;top:1440px;font-family:Archivo;font-size:92px;color:#111">KOSHISH TOH KARO</div>
+</div>
+
+<!-- S8 crossroad 24.15-29.68 -->
+<div class="sc" id="s8" data-a="24.15" data-b="29.68">
+  <img class="bg" id="s8bg" src="as/26_bg_crossroad.png">
+  <img class="el" id="s8av" src="as/07_avatar_back_silhouette.png" style="width:760px;left:160px;top:900px">
+  <div class="el t" id="s8q" style="left:0;width:1080px;text-align:center;top:200px;font-family:Archivo;font-size:300px;color:#111">?</div>
+  <div class="el t tag" id="s8a" style="left:90px;top:560px;font-size:96px;transform-origin:0 50%">BIOGRAPHY?</div>
+  <div class="el t tag" id="s8b" style="left:470px;top:760px;font-size:96px;background:#2f6bff;transform-origin:100% 50%">GAANA?</div>
+  <div class="el t tag" id="s8c" style="left:110px;top:960px;font-size:84px;background:#d7262c;transform-origin:0 50%">FUNNY VOICE-OVER?</div>
+</div>
+
+<!-- S9 DM 29.68-31.92 -->
+<div class="sc" id="s9" data-a="29.68" data-b="31.92">
+  <img class="bg" src="as/27_bg_white_clean.png">
+  <svg class="el" id="s9sw" width="1080" height="1920" viewBox="0 0 1080 1920" style="left:0;top:0">
+    <path id="s9p1" d="M-60 1500 C 300 1300, 700 1700, 1140 1350" stroke="#d7262c" stroke-width="46" fill="none" stroke-linecap="round" pathLength="1"/>
+    <path id="s9p2" d="M-60 420 C 350 650, 760 250, 1140 520" stroke="#d7262c" stroke-width="22" fill="none" stroke-linecap="round" pathLength="1"/>
+  </svg>
+  <div class="el t" id="s9a" style="left:0;width:1080px;text-align:center;top:560px;font-family:PlayI;font-size:100px;color:#111">Jo dekhna hai,</div>
+  <div class="el t" id="s9b" style="left:0;width:1080px;text-align:center;top:690px;font-family:Anton;font-size:420px;color:#d7262c">DM</div>
+  <div class="el t" id="s9c" style="left:0;width:1080px;text-align:center;top:1150px;font-family:Inter;font-weight:900;font-size:90px;color:#111">mein bata do</div>
+  <img class="el" id="s9dm" src="as/19_prop_dm_bubble.png" style="width:260px;left:760px;top:250px">
+</div>
+
+<!-- S10 farmaish 31.92-34.98 -->
+<div class="sc" id="s10" data-a="31.92" data-b="34.98">
+  <img class="bg" src="as/25_bg_grid_paper_plain.png">
+  <div class="el t" id="s10a" style="left:0;width:1080px;text-align:center;top:330px;font-family:Inter;font-weight:900;font-size:80px;color:#111">Kyunki agli reel…</div>
+  <div class="el t" id="s10b" style="left:0;width:1080px;text-align:center;top:470px;font-family:Serif;font-size:130px;color:#111">aapki</div>
+  <div class="el t" id="s10c" style="left:0;width:1080px;text-align:center;top:600px;font-family:Anton;font-size:250px;color:#d7262c">FARMAISH</div>
+  <div class="el t" id="s10d" style="left:0;width:1080px;text-align:center;top:880px;font-family:Inter;font-weight:900;font-size:90px;color:#111">par hogi.</div>
+  <img class="el" id="s10av" src="as/06_avatar_thumbs_up.png" style="width:900px;left:180px;top:800px">
+</div>
+
+<!-- S11 follow end 34.98-end -->
+<div class="sc" id="s11" data-a="34.98" data-b="99">
+  <img class="bg" src="as/27_bg_white_clean.png">
+  <div class="el t" id="s11a" style="left:0;width:1080px;text-align:center;top:560px;font-family:Anton;font-size:230px;color:#111;letter-spacing:4px"></div>
+  <div class="el t" id="s11b" style="left:0;width:1080px;text-align:center;top:830px;font-family:Serif;font-size:130px;color:#111">kijiye</div>
+  <div class="el t pill" id="s11c" style="left:170px;top:1040px;font-size:70px;background:#111;color:#fff">@aitricksbysumit</div>
+  <img class="el" id="s11av" src="as/01_avatar_wave.png" style="width:700px;left:190px;top:1150px">
+</div>
+
+</div>
+<script>
+let ENV=[];
+const $=id=>document.getElementById(id);
+function spr(x,k=1){ // closed-form underdamped spring step, small overshoot
+  if(x<=0) return 0; const w=14*k, z=0.62, wd=w*Math.sqrt(1-z*z);
+  return 1-Math.exp(-z*w*x)*(Math.cos(wd*x)+z*w/wd*Math.sin(wd*x));}
+function eo(x){x=Math.min(1,Math.max(0,x));return 1-Math.pow(1-x,3);}
+function cl(x){return Math.min(1,Math.max(0,x));}
+function set(id,o){const e=$(id);const s=o.s??1,sx=o.sx??s,sy=o.sy??s;
+  e.style.transform=`translate(${o.x||0}px,${o.y||0}px) rotate(${o.r||0}deg) scale(${sx},${sy})`;
+  e.style.opacity=o.o??1;}
+function pop(id,t,t0,extra={}){const p=spr(t-t0);set(id,{s:p,o:cl((t-t0)*12),...extra});}
+function rise(id,t,t0,d=90,extra={}){const p=spr(t-t0,.9);set(id,{y:(1-p)*d,o:cl((t-t0)*8),...extra});}
+function slam(id,t,t0,extra={}){const p=spr(t-t0,1.2);set(id,{s:2.4-1.4*p,o:cl((t-t0)*14),...extra});}
+function hide(id){$(id).style.opacity=0;}
+function talk(t){const i=Math.floor(t*30);const v=ENV[i]||0;return v;}
+function avatar(id,t,t0,{x=0,y=0,s=1}={}){const p=spr(t-t0,.8);const v=talk(t);
+  set(id,{x,y:y+(1-p)*260-v*10,sx:s*(1+v*0.012),sy:s*(1+v*0.022),o:cl((t-t0)*8),r:Math.sin(t*2.2)*1.2});}
+
+function render(t){
+  document.querySelectorAll('.sc').forEach(sc=>{const a=+sc.dataset.a,b=+sc.dataset.b;sc.style.display=(t>=a&&t<b)?'block':'none';
+    if(t>=a&&t<b){const d=t-a; const z=1+0.06*Math.exp(-d/0.12); sc.style.transform=`scale(${z})`;}});
+  // S1
+  if(t<2.09){pop('s1hi',t,0.0,{r:-8}); avatar('s1av',t,0.05,{y:40}); pop('s1tag',t,0.89,{r:-6});
+    pop('s1stamp',t,0.2,{r:12+Math.sin(t*3)*3}); pop('s1reel',t,0.35,{r:t*40});}
+  // S2
+  else if(t<6.86){const d=t-2.09; const cam=1+0.04*d/4.8; $('s2bg').style.transform=`scale(${cam})`;
+    rise('s2paper',t,2.09,700,{r:-2}); pop('s2clip',t,2.25,{r:-20});
+    rise('s2env',t,2.4,500,{r:8}); rise('s2phone',t,2.55,500,{r:-10});
+    const out=t>=5.1;
+    if(!out){rise('s2a',t,2.12,40); rise('s2b',t,3.22,40); rise('s2c',t,3.9,40); ['s2d','s2mk','s2e','s2f'].forEach(hide);}
+    else{['s2a','s2b','s2c'].forEach(hide); rise('s2d',t,5.1,40);
+      set('s2mk',{sx:eo((t-5.45)/0.3),o:t>5.45?1:0}); slam('s2e',t,5.5); rise('s2f',t,5.85,40);}
+  }
+  // S3
+  else if(t<8.18){slam('s3a',t,6.86); rise('s3b',t,7.05,60); avatar('s3av',t,6.95,{x:0,y:0});}
+  // S4 spotlight moves with each phrase
+  else if(t<12.89){
+    let cx=0,cy=0,cs=1;
+    if(t<9.54){cs=spr(t-8.18);} else if(t<10.79){const p=spr(t-9.54);cy=-60*p;cs=1+0.12*p;} else {const p=spr(t-10.79);cy=-60+60*p;cs=1.12-0.12*p;}
+    set('s4c',{x:cx,y:cy,s:cs});
+    if(t<9.54){pop('s4a',t,8.18); slam('s4b',t,8.35); pop('s4b2',t,8.6); ['s4ph','s4g','s4p','s4cur','s4s'].forEach(hide);}
+    else if(t<10.79){['s4a','s4b','s4b2','s4p','s4cur','s4s'].forEach(hide); rise('s4ph',t,9.54,300); pop('s4g',t,9.7);}
+    else{['s4a','s4b','s4b2','s4ph','s4g'].forEach(hide); pop('s4p',t,10.79);
+      const c=cl((t-11.0)/0.45); const click=t>11.55?Math.max(0.85,1-0.15*Math.exp(-(t-11.55)/0.08)):1;
+      set('s4cur',{x:(1-eo(c))*260,y:(1-eo(c))*300-40,o:t>10.95?1:0,s:click});
+      $('s4p').style.background=t>11.55?'#ffd23f':'#fff'; if(t>11.55) set('s4p',{s:1+0.08*Math.exp(-(t-11.55)/0.1)});
+      rise('s4s',t,11.7,50);}
+  }
+  // S5
+  else if(t<16.09){const d=t-12.89; $('s5bg').style.transform=`scale(${1.04+0.02*Math.sin(d*1.5)}) translateY(${Math.sin(d*1.2)*10}px)`;
+    avatar('s5av',t,12.89,{y:60}); rise('s5a',t,12.95,50); slam('s5b',t,13.55,{r:-4});
+    const tap=15.2; pop('s5f',t,14.63); $('s5f').style.opacity=t<tap?cl((t-14.63)*12):0; $('s5f2').style.opacity=t>=tap?1:0;
+    if(t>=tap) set('s5f2',{s:1+0.12*Math.exp(-(t-tap)/0.1)});
+    const c=cl((t-14.8)/0.35); set('s5cur',{x:(1-eo(c))*240,y:(1-eo(c))*200,o:t>14.75?1:0,s:t>tap?Math.max(.85,1-.15*Math.exp(-(t-tap)/.08)):1});
+    pop('s5h',t,tap+0.05,{r:-12}); }
+  // S6
+  else if(t<21.45){pop('s6y',t,16.09,{r:4}); pop('s6tape',t,16.2,{r:-3}); rise('s6a',t,16.25,30,{r:4});
+    slam('s6w1',t,17.37,{r:-3}); slam('s6w2',t,18.26,{r:2}); slam('s6w3',t,19.56,{r:-2});
+    pop('s6p',t,19.9,{r:-6}); pop('s6pt',t,20.05,{r:-6});}
+  // S7
+  else if(t<24.15){const n=Math.min(3,Math.floor((t-21.45)/0.15)); $('s7a').textContent='Hmm'+'.'.repeat(n);
+    pop('s7a',t,21.45); avatar('s7av',t,21.45,{y:-40}); rise('s7b',t,22.6,40); slam('s7c',t,22.85);
+    set('s7mk',{sx:eo((t-23.15)/0.35),o:t>23.15?1:0});}
+  // S8
+  else if(t<29.68){const d=t-24.15; $('s8bg').style.transform=`scale(${1+0.06*d/5.5})`;
+    set('s8av',{y:(1-spr(t-24.15,.7))*400,s:1-0.05*d/5.5});
+    pop('s8q',t,24.25,{r:Math.sin(t*3)*6});
+    pop('s8a',t,24.15,{r:-5}); pop('s8b',t,25.7,{r:4}); pop('s8c',t,26.89,{r:-3});}
+  // S9
+  else if(t<31.92){const p1=eo((t-29.9)/0.5),p2=eo((t-29.68)/0.45);
+    $('s9p1').style.strokeDasharray=`${p1} 1`; $('s9p2').style.strokeDasharray=`${p2} 1`;
+    rise('s9a',t,29.68,40); slam('s9b',t,30.71); rise('s9c',t,30.95,40);
+    const f=eo((t-30.8)/0.5); set('s9dm',{x:(1-f)*500,y:(1-f)*-300,r:(1-f)*40-8,o:t>30.8?1:0});}
+  // S10
+  else if(t<34.98){rise('s10a',t,31.92,40); rise('s10b',t,33.52,40); slam('s10c',t,33.75,{r:-2}); rise('s10d',t,34.1,40);
+    avatar('s10av',t,32.1,{x:0,y:120});}
+  // S11
+  else{const word='FOLLOW'; const n=Math.min(word.length,Math.floor((t-34.98)/0.09)+1); $('s11a').textContent=word.slice(0,n);
+    pop('s11a',t,34.98); rise('s11b',t,35.5,40); pop('s11c',t,35.9); avatar('s11av',t,36.0,{y:60});}
+}
+</script></body></html>

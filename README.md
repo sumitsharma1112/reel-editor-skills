@@ -26,6 +26,7 @@ Made by [@sumitsharma1112](https://github.com/sumitsharma1112) with Claude.
 
 Scripts in `skills/reel-editor/scripts/`:
 
+- `scrapbook_intro/`: After-Effects-style scrapbook creator intro in HTML + Playwright (frame-pure springs, talking avatar from VO loudness, motion blur), timed to a voice-over.
 - `filmcraft_project.py`: build an editable FilmCraft (open-source Premiere-like editor) project for a reel: shots on the timeline at cut times, zoom keyframes, caption track, audio; then render/export through `filmcraft-cli`.
 - `clap_cut_sync.py`: new image on every clap of a song (2-8 kHz flux peaks), punch-in + flash per cut, alternating two image packs.
 - `light_leak_text_hook.py`: black screen + orange light-leak flashes + Playfair/gold-script text hook, word-by-word or all at once, 9:16 and 16:9.
