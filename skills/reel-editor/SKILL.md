@@ -592,3 +592,7 @@ bottom margin 0.27), audio on A1. `filmcraft-cli --project p.fcproj render --sec
 `export out.mp4 --range entire` renders (~4.5x real time on CPU, very high bitrate: recompress for Instagram).
 Media paths are absolute: on the person's computer relink with File > Link Media. Give them the .fcproj + media zip
 so they can change a caption or a cut themselves without asking for a re-render.
+
+
+## Talking-head effects (../effects, by Vibha Ramprakash, MIT)
+For Sumit's own face-to-camera reels (satire monologues, story narration) use the sibling `effects` skill: `bash ../effects/scripts/setup.sh`, then `../effects/.venv/bin/python ../effects/scripts/fx.py <effect> in.mp4 out.mp4 --start S --end E`. 51 effects track the face and sit behind the head (spotlight, backdrop-word, led-sign, orbit, comment-box, tap follow...). It adds visuals only. Never use it on videos where his daughter appears.
