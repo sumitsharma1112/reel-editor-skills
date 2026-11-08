@@ -39,6 +39,7 @@ Scripts in `skills/reel-editor/scripts/`:
 - `beat_montage.py`: cut a folder of clips onto the beats of a song (or a Premiere XML cut list).
 - `crimson_grade.py`: crimson Aerochrome colour grade.
 - `title_kit.py`: 20 travel/cinematic title lettering styles (Ladakh, Kerala Tales, Jodhpur Blue City...) with bundled free fonts. Preview: `skills/reel-editor/title_styles_preview.jpg`.
+- `tilt_view_reel.sh` + `tilt_intro.py`: landscape clips rotated into a tilt-view 9:16 reel at 4K with an animated "TILT YOUR PHONE" intro and synth SFX.
 - `deva_kit.py`: 16 Hindi (Devanagari) calligraphy title styles: swash tails, hairlines, headline bar, chalk, grunge, plus the English meaning line. Preview: `skills/reel-editor/hindi_styles_preview.jpg`.
 - `lyric_captions.py`: word-by-word song lyric captions over still images (huge red calligraphy on black & white + small white words on colour, with roman transliteration), timed to the vocals.
 - `depth_cover.py`: reel cover with a huge title behind the subject (rembg cut-out) and a small spaced kicker.

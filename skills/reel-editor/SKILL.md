@@ -600,3 +600,13 @@ For Sumit's own face-to-camera reels (satire monologues, story narration) use th
 
 ## Scrapbook motion intro (scripts/scrapbook_intro/)
 For 'same style as this motion-graphics showreel' requests: build scenes in one HTML page where render(t) sets every transform from time (closed-form springs), screenshot with Playwright at 60 fps and blend to 30 fps for motion blur. Scene cuts on VO phrase starts (silencedetect -35 dB, 0.25 s). Avatar talk = VO RMS bob. Ask the user for a one-zip asset pack (avatar poses, props, backgrounds) via a single ChatGPT prompt; never copy the reference creator's text or character, only layout and motion.
+
+
+## Tilt-view reel (scripts/tilt_view_reel.sh + scripts/tilt_intro.py)
+Cinematic landscape film inside a 9:16 reel: the viewer turns the phone. Learned from a Ram Setu reel (Nov 2026).
+- Shoot/generate every shot 16:9 (image -> Veo/Flow image-to-video). Rotate the finished 16:9 video 90 deg CLOCKWISE (`transpose=1`) into 1080x1920 (or 2160x3840): ground ends up on the left, sky on the right, so the viewer tilts the phone counter-clockwise.
+- Intro (2.8 s, English only - Sumit does not want Hindi in it): dark maroon gradient + saffron glow, drifting petals, a phone icon pops in showing the first scene sideways, rotates 90 deg CCW so the scene stands upright with two gold curved arrows, "TILT" (Anton, slam 2.2x -> 1x in 0.12 s) + "YOUR PHONE" (gold, pop) + small spaced "FOR THE FULL CINEMATIC VIEW". Synth SFX: pop, whoosh while rotating, thud on the slam, chime when the phone lands. Crossfade 0.4 s into the reel.
+- Assemble: `bash scripts/tilt_view_reel.sh scene.png out.mp4 clipA.mp4:start:dur clipB.mp4:start:dur ...` - clips upscaled to 4K (lanczos + unsharp), 0.6 s crossfades, audio loudnorm to -17 LUFS per clip and acrossfaded. Rendered in stages because one 4K filter graph with all inputs was OOM-killed on 8 GB.
+- Veo notes: clips from Flow may start with a 1 s flash of the start frame then a hard cut (scene-detect with `select='gt(scene,0.25)'` and trim it); identical downloads can arrive twice (md5sum); 720p clips need upscaling, Flow's own 1080p output is better.
+- Upscale honesty: Photoshop/Adobe MCP has no video super-resolution; ffmpeg lanczos is a resize, not new detail. Use Flow/Topaz/Runway upscale if real detail is wanted.
+- Prompt lessons for Ayodhya scenes: no sea or river (Ayodhya is on the Saryu; use palace road / mahal corridor / court), do not garland every citizen, court needs queen mothers in full royal dress, raj gurus seated, ministers in full raja attire.
