@@ -30,7 +30,7 @@ ALIASES = {'the-noise': 'noise', 'the-lineup': 'lineup', 'bill': 'the-bill', 'to
            'pills': 'check-pills', 'auto-edit': 'timeline', 'headline': 'headline-box', 'wall': 'profile-wall', 'tiers': 'tier-list',
            'tier': 'tier-list', 'broll': 'broll-split', 'b-roll': 'broll-split', 'fan': 'phone-fan', 'dots': 'dot-reveal',
            'headlines': 'headline-wall', 'tasks': 'checklist',
-           'liquid-glass': 'liquid-glass-graph', 'glass-graph': 'liquid-glass-graph', 'carousel': 'carousel-spin', 'match': 'match-cut',
+           'glass-graph': 'liquid-glass-graph', 'carousel': 'carousel-spin', 'match': 'match-cut',
            'toggles': 'apple-toggles', 'led': 'led-sign', 'push': 'slow-push', 'push-in': 'slow-push',
            'ots': 'over-the-shoulder-zoom', 'shoulder-zoom': 'over-the-shoulder-zoom', 'corner-zoom': 'over-the-shoulder-zoom',
            'tape': 'tape-label', 'select': 'select-resize', 'resize': 'select-resize', 'trim': 'wave-trim', 'strike': 'huge-strike', 'crayon': 'crayon-write', 'deal': 'fan-build', 'imessage': 'messages', 'texts': 'messages', 'notifications': 'messages', 'grid': 'place-in-grid', 'profile-grid': 'place-in-grid'}
@@ -2166,6 +2166,11 @@ def fx_fan_build(c, e):
         if c.lt < t0: break
         q = ease_out((c.lt - t0) / 0.3); a = -95 + (-62 + 124 * i / max(1, n - 1) + 95) * q; r = math.radians(a)
         place(c, cards[i], px + R * math.sin(r), py - R * math.cos(r), 1, -a, al, behind=True)
+
+
+# Pack 20 (by Claude for @aitricksbysumit)
+_P20 = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fx_pack20.py')
+if os.path.exists(_P20): exec(open(_P20).read(), globals())
 
 
 # ---------- video in/out + tracking ----------

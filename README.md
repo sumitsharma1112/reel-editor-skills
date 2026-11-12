@@ -21,7 +21,7 @@ Made by [@sumitsharma1112](https://github.com/sumitsharma1112) with Claude.
 |---|---|
 | `skills/reel-editor` | Main editor skill: techniques, rules, and tested Python + ffmpeg scripts |
 | `skills/remotion-setup` | Installs Remotion's official agent skills (motion graphics in React) |
-| `skills/effects` | 51 talking-head video effects (orbit, spotlight, glass widgets, LED sign, match-cut, iMessage pop-ups...) by Vibha Ramprakash, MIT, vendored unchanged |
+| `skills/effects` | 51 talking-head video effects (orbit, spotlight, glass widgets, LED sign, match-cut, iMessage pop-ups...) by Vibha Ramprakash, MIT, vendored, plus Pack 20 (fisheye, wall captions, magnifier, dolly zoom, disappear, prompt box, follow bell...) written by Claude |
 | `skills/hyperframes-setup` | Installs HeyGen's HyperFrames skills (HTML -> MP4 motion graphics) |
 
 Scripts in `skills/reel-editor/scripts/`:

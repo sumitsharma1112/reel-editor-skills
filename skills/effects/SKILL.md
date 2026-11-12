@@ -93,6 +93,34 @@ A single effect needs no plan: `.venv/bin/python scripts/fx.py orbit <video> <ou
 | 50 | `crayon-write` | A red crayon writes your word behind your head, then underlines it and flies off | `text` |
 | 51 | `fan-build` | Your reel covers deal into a fan behind your head, one card at a time | `images` (folder of your covers), `count` (default 13) |
 
+
+## Pack 20 (added by Claude for @aitricksbysumit, file `scripts/fx_pack20.py`)
+These load automatically. They are Claude's own starter versions of the effect names in the "Effects to try" list, not copies of anyone's code.
+| `fx` name | What it does | Options |
+|---|---|---|
+| `fisheye` | Fisheye lens bulge on your face that ramps in and out | `strength` (default 0.9) |
+| `select-box` | Blue design-app selection box with handles around you, name and size tags | `text` (tag), `size` |
+| `artifact` | A Claude artifact window builds behind your head: code types, then a live preview of you | `text` (file name) |
+| `flash-cut` | White flash, hard punch-in, tiny shake; second flash halfway | `zoom` |
+| `wall-captions` | Words painted on the wall in 3D perspective with a light trail, behind you | `text` (words with `\|`), `side` (`left`/`right`) |
+| `magnifier` | A magnifying glass glides in and enlarges your face (or `x`,`y`) | `size`, `zoom`, `x`, `y` |
+| `graph-split` | Frame splits, bar graph grows in the top half, you slide down | `text` (title), `values`, `labels`, `top` |
+| `flight-map` | Dotted flight arc between two places on a map card, plane flies it | `text` (`From\|To`) |
+| `room-swap` | Your room wipes away to a new background (first image in `images`, else a gradient) | `images` |
+| `apple-notes` | Apple Notes checklist beside you ticks off line by line | `text` (items with `\|`), `title` |
+| `dolly-zoom` | Vertigo shot: you stay, the room stretches (soft inpainted plate) | `amount` |
+| `stop-motion` | 8 fps hold-frames with jitter and a warm paper grade | `fps` |
+| `word-funnel` | Words spiral in and get sucked into a glowing funnel at your head | `text` (words with `\|`) |
+| `glass-tunnel` | Glass panels rush past in a tunnel around you, room softens | `speed` |
+| `prompt-box` | AI prompt box under your chin types your line and presses send | `text` |
+| `liquid-glass` | A liquid-glass pill slides across bending the picture, with a label | `text`, `y` |
+| `disappear` | You dissolve into drifting particles; the room stays (soft inpainted plate) | none |
+| `thrown-in` | Reel cards are thrown in from off screen, spin and land behind you | `images`, `count` |
+| `follow-bell` | Follow flips to Following, bell rings, "Notifications on" toast | `text` (handle), `at` |
+| `fx-label` | Demo-reel corner tag: pink counter pill + `/effect-name` | `text` (`05/20\|/wall-captions`) |
+`comment-box` (number 9 in that list) already exists above. `liquid-glass` now means the new pill; use `liquid-glass-graph` for the graph card.
+Close-up framing: when the person fills the spot where a card would sit, cards switch from "behind you" to "keep off the face" automatically.
+
 **Named looks** (same effect, a fancier look; they don't add to the count):
 - `glitter-spotlight` = `spotlight` with `look=sparkle`: the room goes dark, golden rays burst from behind your head, a big gold word with a shine sweep, twinkling sparkles and a glow around you. `text` (the word), `color`, `push`.
 - `cover-star` with `look=editorial`: a soft warm film look, a classic serif masthead behind your head, an issue line and elegant cover lines. `text` (masthead), `issue`, `lines` (3 lines with `\|`), `right` (lines with `\|`), `color`, `accent`, `lines_y`, `right_y`.
