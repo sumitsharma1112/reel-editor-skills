@@ -29,6 +29,7 @@ Made by [@sumitsharma1112](https://github.com/sumitsharma1112) with Claude.
 | `skills/remotion-setup` | Installs Remotion's official agent skills (motion graphics in React) |
 | `skills/effects` | 51 talking-head video effects (orbit, spotlight, glass widgets, LED sign, match-cut, iMessage pop-ups...) by Vibha Ramprakash, MIT, vendored, plus Pack 20 (fisheye, wall captions, magnifier, dolly zoom, disappear, prompt box, follow bell...) written by Claude |
 | `skills/earshot` | Trim a long talking video under 35 s: word-level Whisper transcript, cut list (repeats, retakes, filler), wait for OK, save next to the original |
+| `skills/storyboard` | One-page storyboard of an edit: numbered beat cards with still, spoken words, on-screen element, two alternative ideas and a notes box; 'done, run my notes' changes only the noted beats |
 | `skills/vibha-free-skills` | Installer for Vibha's free masterclass skills (nate-herk-style-edit, free-sfx-finder) straight from her repo |
 | `skills/hyperframes-setup` | Installs HeyGen's HyperFrames skills (HTML -> MP4 motion graphics) |
 
