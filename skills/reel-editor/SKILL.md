@@ -64,6 +64,7 @@ Scripts live in `scripts/` next to this file. For designed motion graphics also 
 | Lyric scenes: big Devanagari calligraphy + small roman words over illustrated scenes (red/yellow devotional set) | `python scripts/devotional_backgrounds.py` then `python scripts/lyric_scenes.py --audio song.mp4 --out lyric.mp4` |
 | Phonetic stretching for held notes (qawwali/classical/ghazal): "naam" -> "naaaaaaam", each new vowel letter rides the singer's pitch | `python scripts/phonetic_stretch.py in.mp4 lyrics.json out.mp4 --y 1050` (lyrics format in the script docstring) |
 | Blur one person's face in a reel (privacy), others stay sharp | `python scripts/face_privacy_blur.py --video in.mp4 --hide her1.jpg,her2.jpg --keep me.jpg --models models/ --out out.mp4` |
+| Rain-reflection lyric captions on a finished video (cream Tiro + big gold Amita key words, rippling wet-pavement mirror, rain-wash exits, bloom/vignette/dust look pass) | `python scripts/rain_reflection_lyrics.py in.mp4 words.ass timing.json out.mp4 --stills 1,5,9 --sheet sheet.jpg` (timing format in the docstring) |
 | Karaoke caption video from a word-timed ASS (stretched vowels, gold active word, velvet bokeh bg) | `python scripts/karaoke_ass_captions.py` (parse ASS to events.json first, see docstring) |
 | Water/action transitions (ripple drop, foam reveal, zoom-through, whip, spin, light leak, lightning) | `python scripts/water_transitions.py --clips a.mp4,b.mp4,c.jpg --trans ripple,leak --durs 2,2,3 --out out.mp4` (`--demo a.mp4,b.mp4` previews all) |
 
@@ -610,3 +611,14 @@ Cinematic landscape film inside a 9:16 reel: the viewer turns the phone. Learned
 - Veo notes: clips from Flow may start with a 1 s flash of the start frame then a hard cut (scene-detect with `select='gt(scene,0.25)'` and trim it); identical downloads can arrive twice (md5sum); 720p clips need upscaling, Flow's own 1080p output is better.
 - Upscale honesty: Photoshop/Adobe MCP has no video super-resolution; ffmpeg lanczos is a resize, not new detail. Use Flow/Topaz/Runway upscale if real detail is wanted.
 - Prompt lessons for Ayodhya scenes: no sea or river (Ayodhya is on the Saryu; use palace road / mahal corridor / court), do not garland every citizen, court needs queen mothers in full royal dress, raj gurus seated, ministers in full raja attire.
+
+## Rain-reflection lyric captions (scripts/rain_reflection_lyrics.py)
+For sad / romantic Hindi songs over painted, rainy or golden-hour footage that already exists as one video.
+- Words write on one by one (0.42 s rise + soft-to-sharp) and build a centred block per lyric line; the block washes away downward (vertical smear + drift + fade) just before the next line.
+- Connecting words: Tiro Devanagari Hindi 92 px cream #FFF4E2. Key words (taken from the ASS colour flags): Amita 700 146 px, gold gradient #FFF4BE -> #FFD468 -> #EC9E34, warm bloom that swells while sung, one diagonal light sweep and a 4-point sparkle at the top-right. Last word of the song can sit alone on its own row at 216 px (`hero_last`).
+- The whole block is mirrored underneath: flipped, squashed to 55 %, sine-rippled, fading out - reads as a reflection on wet ground. Keep the mirror line about 66 px under the baseline so matras below the line do not touch it.
+- Legibility without a box: blurred text-shaped dark plate (0.40) + dilated soft outline shadow. Needed for gold on orange/peach areas (paper, lamps, sunsets).
+- Look pass on the whole video: gentle S-curve, cool shadows / warm highlights, highlight bloom from a 1/8-size copy, vignette, floating gold dust, fine grain.
+- Placement: baseline y=1325 by default. Check every shot: where the subject sits in the lower third, split the lyric line at the scene cut and give that part its own `base_y` (e.g. 880 to sit in the sky above a seated figure). `rows` fixes awkward wraps (never break inside a pair like "रह के").
+- Timing: do not trust a draft ASS whose line times equal the picture cuts - that is edit timing, not vocal timing. Run Whisper (references/whisper-offline.md) twice (plain, then with the caption words as `initial_prompt`), keep times both passes agree on, move the first word of each segment to where the loudness actually rises, and settle doubtful words with `librosa.onset.onset_strength`.
+- Delivery: the grain makes CRF 17 huge (about 97 MB for 37 s); re-encode with `-crf 22 -maxrate 9M` (about 30 MB) for phone sharing.
