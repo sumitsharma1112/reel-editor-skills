@@ -15,6 +15,12 @@ Made by [@sumitsharma1112](https://github.com/sumitsharma1112) with Claude.
 - **scrapbook_collage.py** — scrapbook song animation: paper card, torn strips, die-cut stickers that pop/spin/drop in per lyric, tiny serif caption
 - **poster_mask_type.py** — carousel post: giant yellow masked headline behind the person, handwritten note
 
+- **kinetic_explainer/**: faceless AI explainer in the red 3D kinetic-word style: cartoon presenter, blurred phone screen-recording in a glowing frame, pixel glitch, light-streak and halftone transitions, soft SFX
+- **milestone_kinetic/**: follower-milestone reel from Instagram dashboard numbers: counters, reel thumbnails orbiting the presenter, city/country bars, the real views graph, Hinglish Roman captions, egg-drop hook
+- **devotional_glow_story/**: story narration with word-by-word golden glow captions (Whisper timings), Ken Burns, particles, tanpura drone + bells, then shabad/aarti with big Hinglish meanings
+- **beauty_edit/**: beat-synced glam edit: optical-flow slow-mo, speed ramps, whip/zoom/spin/glitch/blur transitions, pink grade + bloom, before/after wipe, triptych, polaroids, voice-hook captions
+- **screen_record_privacy_blur.py**: blur names, numbers and addresses in a phone screen recording, checked with OCR
+
 ## What's inside
 
 | Skill | What it does |
@@ -22,6 +28,8 @@ Made by [@sumitsharma1112](https://github.com/sumitsharma1112) with Claude.
 | `skills/reel-editor` | Main editor skill: techniques, rules, and tested Python + ffmpeg scripts |
 | `skills/remotion-setup` | Installs Remotion's official agent skills (motion graphics in React) |
 | `skills/effects` | 51 talking-head video effects (orbit, spotlight, glass widgets, LED sign, match-cut, iMessage pop-ups...) by Vibha Ramprakash, MIT, vendored, plus Pack 20 (fisheye, wall captions, magnifier, dolly zoom, disappear, prompt box, follow bell...) written by Claude |
+| `skills/earshot` | Trim a long talking video under 35 s: word-level Whisper transcript, cut list (repeats, retakes, filler), wait for OK, save next to the original |
+| `skills/vibha-free-skills` | Installer for Vibha's free masterclass skills (nate-herk-style-edit, free-sfx-finder) straight from her repo |
 | `skills/hyperframes-setup` | Installs HeyGen's HyperFrames skills (HTML -> MP4 motion graphics) |
 
 Scripts in `skills/reel-editor/scripts/`:
