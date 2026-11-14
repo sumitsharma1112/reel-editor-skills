@@ -26,4 +26,5 @@ Use when Sumit wants a story/biography reel ("Einstein style", "Flow State style
 ## Look
 - Big keyword Anton navy with white glow + gold underline swipe; small italic line (Instrument Serif) above.
 - Captions: frosted glass pill at y=1665, chunks of 4 words, upcoming words faded, active word on a navy pill (gold pill for key words).
-- Finish: drifting dust, grain, vignette. Sound: soft whoosh on moves, low hit on flashes, pops on element entries, ticks on clocks, risers before chapters, quiet pad. Keep SFX low.
+- Finish: drifting dust, grain, vignette.
+- Sound: Sumit prefers VOICE ONLY for these reels (no whooshes, pops, pad). After rendering, replace the audio with the loudnorm-ed voiceover: `ffmpeg -i out.mp4 -i vo.wav -map 0:v -map 1:a -c:v copy -af loudnorm=I=-14:TP=-1.5 -c:a aac out_voice.mp4`.
