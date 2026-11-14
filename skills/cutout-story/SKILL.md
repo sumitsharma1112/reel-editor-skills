@@ -28,3 +28,9 @@ Use when Sumit wants a story/biography reel ("Einstein style", "Flow State style
 - Captions: frosted glass pill at y=1665, chunks of 4 words, upcoming words faded, active word on a navy pill (gold pill for key words).
 - Finish: drifting dust, grain, vignette.
 - Sound: Sumit prefers VOICE ONLY for these reels (no whooshes, pops, pad). After rendering, replace the audio with the loudnorm-ed voiceover: `ffmpeg -i out.mp4 -i vo.wav -map 0:v -map 1:a -c:v copy -af loudnorm=I=-14:TP=-1.5 -c:a aac out_voice.mp4`.
+
+## Instagram safe zones (learned from Sumit's preview)
+- Small line at y=300, big title from y=430; nothing above y=250 (IG top bar).
+- Captions centred at x=490 (clear of the right-side icons), y=1585, max width 780; nothing below y=1700 (username/caption).
+- Cutouts are scaled 0.84 and start animating when the transition INTO their scene starts, so no transition ever shows an empty stage.
+- Deliverable: Sumit wants the full-quality file. The send limit is 400 MB: use `-b:v 17M -maxrate 20M` for a 3-minute 1080p reel.

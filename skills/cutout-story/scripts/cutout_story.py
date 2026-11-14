@@ -235,7 +235,8 @@ def sprite(name, h):
 
 
 def draw_el(fr, el, t, ts, k):
-    name, x, y, h, d, an = el; u = t - ts - d
+    name, x, y, h, d, an = el; u = t - (ts - TD) - d * 0.8
+    h = int(h * 0.84); y = 1050 + (y - 1060) * 0.84 + 30
     if u < 0: return
     pre, a, sh = sprite(name, h)
     sc = 1.0; dx = dy = 0.0; rot = 0.0; al = 1.0
@@ -320,14 +321,14 @@ def glow_of(a):
 def titles(fr, t, k):
     ts, bg, els, sm, big = SC[k][:5]; u = t - ts; t1 = CUTS[k + 1]
     out = 1 - ease((t - (t1 - 0.2)) / 0.2)
-    a = tmask(sm, SERIF, 64); put(fr, glow_of(a), WHITE, W / 2, 200, 0.55 * ease(u / 0.3) * out)
-    put(fr, a, (60, 66, 150), W / 2, 200, ease((u - 0.05) / 0.3) * out, 1.0, min(1, (u - 0.05) / 0.4))
+    a = tmask(sm, SERIF, 64); put(fr, glow_of(a), WHITE, W / 2, 300, 0.55 * ease(u / 0.3) * out)
+    put(fr, a, (60, 66, 150), W / 2, 300, ease((u - 0.05) / 0.3) * out, 1.0, min(1, (u - 0.05) / 0.4))
     words = big.split(' ')
     lines = [big] if (len(big) <= 11 or len(words) == 1) else [' '.join(words[:(len(words) + 1) // 2]), ' '.join(words[(len(words) + 1) // 2:])]
     for j, l in enumerate(lines):
-        bm = fitbig(l, W * 0.88); tt = u - 0.15 - j * 0.12
+        bm = fitbig(l, W * 0.84); tt = u - 0.15 - j * 0.12
         if tt < 0: continue
-        sc = 1.0 + 0.35 * (1 - back(tt / 0.42)); cy = 335 + j * 175
+        sc = 1.0 + 0.35 * (1 - back(tt / 0.42)); cy = 430 + j * 160
         put(fr, glow_of(bm), WHITE, W / 2, cy, 0.6 * ease(tt / 0.25) * out, sc)
         put(fr, bm, NAVY, W / 2, cy, ease(tt / 0.15) * out, sc)
         if j == len(lines) - 1:
@@ -365,10 +366,10 @@ def overlay(fr, t, k):
     for o in ov.split('|'):
         if o.startswith('chapter:'):
             a = ease(u / 0.3) * (1 - ease((u - 2.6) / 0.4))
-            if a > 0: pill(fr, o.split(':', 1)[1], W / 2, 108, a, size=32)
+            if a > 0: pill(fr, o.split(':', 1)[1], W / 2, 215, a, size=32)
         elif o == 'salary':
             v = int(25000 * ease((u - 1.4) / 1.8))
-            if u > 1.3: pill(fr, f'Rs {v:,} / month', 820, 1470, ease((u - 1.3) / 0.2), RED, WHITE, 40)
+            if u > 1.3: pill(fr, f'Rs {v:,} / month', 820, 1420, ease((u - 1.3) / 0.2), RED, WHITE, 40)
         elif o == 'glow':
             mglow(fr, W / 2, 1040, 520 + 40 * math.sin(u * 3), (255, 200, 120), 0.35)
         elif o == 'beam':
@@ -398,7 +399,7 @@ def overlay(fr, t, k):
             blend(fr, pre, a, X - a.shape[1] / 2, Y - a.shape[0] + 40)
         elif o == 'km':
             v = 10 * ease((u - 0.8) / 4.0)
-            if u > 0.7: pill(fr, f'+ {v:.1f} km error / din', W / 2, 1480, ease((u - 0.7) / 0.2), RED, WHITE, 44)
+            if u > 0.7: pill(fr, f'+ {v:.1f} km error / din', W / 2, 1420, ease((u - 0.7) / 0.2), RED, WHITE, 44)
         elif o == 'energy':
             for j in range(3):
                 p = ((u + j * 0.5) % 1.5) / 1.5; r = int(60 + 650 * ease(p))
@@ -428,7 +429,7 @@ def overlay(fr, t, k):
                 put(fr, np.clip(mr + box, 0, 1), (200, 30, 45), W / 2, 1180, min(1, (u - 0.9) / 0.06) * 0.92, s)
         elif o == 'type':
             s = 'August 2, 1939'; n = int(max(0, u - 0.6) / 0.07)
-            if n > 0: pill(fr, s[:min(n, len(s))] + ('|' if n < len(s) and int(u * 6) % 2 else ''), W / 2, 1480, 1.0, WHITE, NAVY, 46)
+            if n > 0: pill(fr, s[:min(n, len(s))] + ('|' if n < len(s) and int(u * 6) % 2 else ''), W / 2, 1420, 1.0, WHITE, NAVY, 46)
         elif o == 'blast':
             if u > 0.6:
                 p = min(1, (u - 0.6) / 1.4); mglow(fr, W / 2, 1060, 300 + 700 * ease(p), (255, 170, 80), 0.9 * (1 - p) ** 1.5)
@@ -436,8 +437,8 @@ def overlay(fr, t, k):
         elif o == 'follow':
             if u > 1.2:
                 a = ease((u - 1.2) / 0.3); s = 1 + 0.06 * math.sin(u * 6)
-                pill(fr, '+  FOLLOW', W / 2 - 170, 1480, a, (0, 110, 230), WHITE, 46)
-                pill(fr, 'SAVE', W / 2 + 200, 1480, ease((u - 1.6) / 0.3), WHITE, NAVY, 46)
+                pill(fr, '+  FOLLOW', W / 2 - 170, 1440, a, (0, 110, 230), WHITE, 46)
+                pill(fr, 'SAVE', W / 2 + 200, 1440, ease((u - 1.6) / 0.3), WHITE, NAVY, 46)
 
 
 # ------------------------------------------------------------------ scene render
@@ -472,8 +473,8 @@ def base(t):
         return img + band * 80 * np.array([1, 0.9, 0.7], np.float32) + f * 60
     a = scene(A, t); bb = scene(B, t); e = eio(p)
     if tr == 'zoom':
-        if p < 0.5: return zoomf(a, 1 + 0.6 * (p * 2) ** 2, 40 * p * 2) * (1 - 0.25 * p * 2) + 255 * 0.25 * p * 2
-        q = (p - 0.5) * 2; return zoomf(bb, 0.82 + 0.18 * ease(q), 40 * (1 - q))
+        if p < 0.5: return zoomf(a, 1 + 0.6 * (p * 2) ** 2, 22 * p * 2) * (1 - 0.25 * p * 2) + 255 * 0.25 * p * 2
+        q = (p - 0.5) * 2; return zoomf(bb, 0.82 + 0.18 * ease(q), 22 * (1 - q))
     if tr == 'whip':
         off = int(e * W); out = np.empty_like(a)
         if off < W: out[:, :W - off] = a[:, off:]
@@ -491,9 +492,9 @@ def base(t):
     if tr == 'iris':
         r = ease(p) * 1150; d = np.sqrt((xx_ - W / 2) ** 2 + (yy_ - H * 0.55) ** 2)
         m = np.clip((r - d) / 25, 0, 1)[..., None]; ring = np.exp(-((d - r) / 9) ** 2)[..., None]
-        return a * (1 - m) + bb * m + ring * 200 * np.array([1, 0.92, 0.75], np.float32)
+        return a * (1 - m) + bb * m + ring * 70 * np.array([1, 0.92, 0.75], np.float32)
     if tr == 'blur':
-        bl = 50 * math.sin(math.pi * p)
+        bl = 12 * math.sin(math.pi * p)
         mix = a * (1 - e) + bb * e
         return zoomf(mix, 1 + 0.04 * math.sin(math.pi * p), bl)
     return a * (1 - e) + bb * e
@@ -530,11 +531,11 @@ def captions(fr, t):
         idx = max([i for i, x in enumerate(ts) if x <= t] or [0]); st = (idx // 4) * 4; chunk = toks[st:st + 4]
         size = 64; f = font(ARCH, size); sp = f.getlength(' ')
         tot = sum(f.getlength(w) for w in chunk) + sp * 1.5 * (len(chunk) - 1)
-        if tot > W * 0.84: size = 52; f = font(ARCH, size); sp = f.getlength(' '); tot = sum(f.getlength(w) for w in chunk) + sp * 1.5 * (len(chunk) - 1)
-        while tot > W * 0.84 and size > 36:
+        if tot > 780: size = 52; f = font(ARCH, size); sp = f.getlength(' '); tot = sum(f.getlength(w) for w in chunk) + sp * 1.5 * (len(chunk) - 1)
+        while tot > 780 and size > 36:
             size -= 6; f = font(ARCH, size); sp = f.getlength(' '); tot = sum(f.getlength(w) for w in chunk) + sp * 1.5 * (len(chunk) - 1)
         out = 1 - ease((t - c1) / 0.2); cin = ease((t - c0) / 0.2)
-        y = 1665; bw, bh = int(tot + 80), int(size * 1.75); bx, by = int((W - bw) / 2), int(y - bh / 2)
+        y = 1585; CX = 490; bw, bh = int(tot + 70), int(size * 1.75); bx, by = int(CX - bw / 2), int(y - bh / 2)
         # frosted glass card
         reg = fr[by:by + bh, bx:bx + bw]
         if reg.size:
@@ -544,7 +545,7 @@ def captions(fr, t):
             reg[:] = reg * (1 - m) + glass * m
             edge = np.clip(rrect(bw, bh, bh // 2) - cv2.erode(rrect(bw, bh, bh // 2), np.ones((5, 5), np.uint8)), 0, 1)[..., None]
             reg[:] = reg * (1 - edge * 0.6 * out * cin) + 255 * edge * 0.6 * out * cin
-        x = (W - tot) / 2
+        x = CX - tot / 2
         for j, w in enumerate(chunk):
             gi = st + j; ww = f.getlength(w)
             if ts[gi] > t + 0.02:
@@ -617,7 +618,8 @@ def audio(out):
         s0 = int(t0 * SR); e = min(N, int((t0 + 7) * SR)); x = np.arange(e - s0) / SR; env = np.minimum(1, x / 2) * np.minimum(1, (7 - x) / 2)
         for f in chords[i % 4]: pad[s0:e] += np.sin(2 * np.pi * f * x) * env
     pad *= 0.009
-    o = vo + mix + pad; o = o / np.abs(o).max() * 0.95
+    o = vo  # voice only (Sumit: no background sounds)
+    o = o / np.abs(o).max() * 0.95
     st = (np.stack([o, o], 1) * 32767).astype(np.int16)
     w = wave.open(out, 'wb'); w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(st.tobytes()); w.close()
 
