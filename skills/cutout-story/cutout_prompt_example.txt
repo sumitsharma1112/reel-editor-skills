@@ -1,0 +1,87 @@
+EINSTEIN PART 1 – CUTOUT PACK (50 transparent PNGs) – ChatGPT prompt
+(Copy everything below this line and paste it into ChatGPT, then send the 28 images you made earlier as the style reference.)
+------------------------------------------------------------------
+
+I'm editing an Instagram biography reel about Albert Einstein (Part 1). I need a pack of 50 CUTOUT images: single subjects on a fully transparent background, which I will animate as separate layers (parallax, pop-ins, motion graphics).
+
+STYLE (same for all 50)
+- Match the art style of the 28 reference images I'm attaching: warm, soft, painterly digital illustration with gentle brush texture, soft lavender / periwinkle undertones, warm skin tones, cinematic soft light from the upper left.
+- Einstein must look like the same character in every image: the same face, hair, moustache and clothes as in the reference images. Young Einstein (about 22-26, dark bushy hair, small moustache, 1900s brown suit) unless I say "older Einstein".
+- Faces of non-famous people: simple, soft and expressive, not photoreal.
+
+TECHNICAL RULES (very important)
+- Output: PNG with a REAL transparent background (alpha channel). No white, grey or checkerboard background, no floor, no scenery, no frame.
+- Portrait canvas 1024x1536. Subject centred, the whole subject visible, about 60 px of empty margin on all sides. Nothing cut off at the edges.
+- No cast shadow on the ground, no reflections, no glow spilling onto the background (except where I say "glow").
+- No text, letters or watermarks unless the item says so. When text is requested, write it exactly as given, in English letters.
+- Clean, crisp edges (hair included), so the cutout looks good on any background.
+
+DELIVERY
+- Make them in batches of 10. After each batch, show me the images. At the end, put all 50 into ONE zip file named Einstein_P1_Cutouts.zip.
+- File names exactly as listed: c01_graduate.png, c02_cap.png and so on.
+
+THE 50 CUTOUTS
+
+INTRO – modern Indian student (NO Einstein in c01–c10)
+c01_graduate – young Indian man in black graduation gown and cap, full body, holding a rolled degree, proud but slightly anxious smile
+c02_cap – a single black graduation cap tossed in the air, tassel flying
+c03_degree – rolled degree scroll tied with a red ribbon
+c04_laptop – open laptop seen from a 3/4 angle; the screen shows an email with the big word "REJECTED" in red
+c05_offer – single sheet offer letter on paper, the visible line reads "Salary: Rs 25,000 / month"
+c06_friends – 3 young Indian friends cheering and hugging, holding offer letters (Einstein must NOT be in this image)
+c07_lonely – the same young man from c01, now in a plain shirt, sitting on a stool, head down, elbows on knees
+c08_question – three big soft 3D lavender question marks of different sizes
+c09_phone_msg – smartphone showing a chat bubble that says "Bas itni salary?"
+c10_books – a tall stack of engineering textbooks with a calculator on top
+
+YOUNG EINSTEIN – struggle
+c11_einstein_letters – young Einstein standing, holding a fan of opened rejection letters, disappointed look
+c12_envelopes – a messy pile of old 1900s envelopes with red wax seals
+c13_einstein_door – young Einstein seen from the side knocking on a closed wooden university door
+c14_patent_desk – young Einstein seated at a wooden office desk, writing, papers in front of him (desk + chair + him, nothing else)
+c15_patent_stack – stack of old patent documents with an ink stamp and a fountain pen
+c16_einstein_think – young Einstein looking upward, hand on chin, deep in thought (waist up)
+c17_light_beam – a horizontal glowing golden beam of light (glow allowed), long and thin
+c18_einstein_run – young Einstein running fast to the right, coat flying, one arm reaching forward
+c19_couple – young Einstein and Mileva Maric (1900s dress, hair in a bun) standing side by side, gentle smile
+c20_cradle – antique wooden baby cradle with a white blanket
+c21_einstein_baby – young Einstein holding a baby in one arm and writing in a notebook with the other hand
+c22_four_papers – four glowing old manuscript papers fanned out (glow allowed), handwritten equations on them
+
+1905 – TIME AND RELATIVITY
+c23_pocketwatch – open antique golden pocket watch with chain
+c24_melting_clock – a soft melting lavender clock draped as if over an invisible edge
+c25_clock_set – three different vintage clocks (wall clock, alarm clock, pocket watch) each showing a different time
+c26_einstein_chalk – young Einstein standing next to a small chalkboard on which "E = mc²" is written, chalk in his hand
+c27_smartphone_map – smartphone showing a map with a red location pin
+c28_satellite – a GPS satellite with solar panels
+c29_pin – a single glossy red map location pin
+c30_india_gate – India Gate monument in Delhi, full structure, painterly style
+
+ENERGY
+c31_atom – a glowing atom with orbiting electrons (glow allowed)
+c32_cooling_tower – one nuclear power plant cooling tower with soft white steam
+c33_bulb – a classic glowing light bulb (glow allowed)
+c34_chain_atoms – a small cluster of atoms splitting in a chain reaction, warm orange sparks (glow allowed)
+
+GRAVITY AND 1914 CRIMEA EXPEDITION
+c35_sun – a glowing sun disc with soft rays (glow allowed)
+c36_telescope – a brass 1910s telescope on a wooden tripod
+c37_freundlich – German astronomer Erwin Freundlich, 1914, round glasses, coat and hat, carrying a telescope case
+c38_eclipse – a total solar eclipse: black disc with a bright white corona (glow allowed)
+c39_glass_plate – an old photographic glass plate showing a tiny eclipse image
+c40_soldiers – two Russian WWI soldiers in 1914 uniforms and caps, walking (no weapons pointed, rifles slung on the shoulder)
+c41_astronomer_held – the same astronomer from c37, sad, his arm held by a soldier's hand, side view
+c42_steam_train – a 1914 steam locomotive with one carriage, 3/4 view, smoke puffing
+c43_einstein_confused – young Einstein scratching his head, looking at a sheet full of calculations
+
+THE LETTER (1939)
+c44_letter – an old typewritten letter with an envelope; the top line reads "August 2, 1939"
+c45_flying_envelope – an envelope with soft motion trails, flying
+c46_white_house – the White House building, painterly, full structure
+c47_president_desk – a 1930s American president seen FROM BEHIND, seated at a desk reading a letter (no face visible)
+c48_harbour – a 1930s harbour with ships and cranes, as a compact island-shaped cutout
+c49_older_einstein – older Einstein (white wild hair, grey moustache, warm cardigan), thoughtful half-smile, waist up
+c50_einstein_back – young Einstein seen from behind, walking toward a glowing doorway of light (glow allowed)
+
+Before you start, confirm the style rules, then begin with batch 1 (c01–c10).
