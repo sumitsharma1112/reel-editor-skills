@@ -121,3 +121,4 @@ Eight studied style recipes cover double exposure, scrolling lyrics, curved/type
 
 - **open-caption-styles**: 18 free HyperFrames caption blocks (incl. text behind the speaker) + remotion-captioneer & remotion-subtitle (14+14 styles).
 - **wall-glass-styles**: free wall-text (wall-perspective, wall-projection), liquid-glass cards/graphs and text-behind-head styles from 6 creator repos, with preview.
+- **story-ama**: animated Ask Me Anything story with a slot for the question sticker.
