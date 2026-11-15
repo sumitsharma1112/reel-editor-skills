@@ -1,0 +1,70 @@
+ASK ME ANYTHING STORY - CUTOUT PROMPTS (@aitricksbysumit)
+==========================================================
+
+HOW TO USE
+- Generate every image at 1080x1920 (9:16) on a plain white background, one image per prompt.
+- For prompts 1 to 6, attach your old avatar image (01_avatar_wave.png from the intro assets) as the reference, so the character stays the same.
+- Add this STYLE LINE to the end of every prompt:
+  "3D Pixar-style cartoon render, soft cinematic studio lighting, warm golden key light with a cyan rim light, high detail, isolated on a plain pure white background, full figure visible, no text, no logos, no watermark."
+
+----------------------------------------------------------
+PART A - AI AVATAR (same character as before)
+----------------------------------------------------------
+CHARACTER (paste at the start of prompts 1-6):
+"The same cartoon character as the reference image: a friendly young Indian man with big curly black hair, big brown eyes, a warm smile, a black bomber jacket over a burnt-orange t-shirt, dark blue jeans and white sneakers."
+
+1. avatar_point_side.png
+CHARACTER + "standing, full body, turned slightly to his right, pointing with his right index finger to the side at an empty space, excited open-mouth smile, eyebrows raised, inviting pose." + STYLE LINE
+
+2. avatar_thinking_question.png
+CHARACTER + "standing, full body, one hand on his chin in a thinking pose, looking up, a big glowing golden question mark floating above his head, playful curious expression." + STYLE LINE
+
+3. avatar_mic_voiceover.png
+CHARACTER + "standing, full body, holding a professional studio microphone with a pop filter close to his mouth, wearing over-ear headphones around his neck, speaking with an expressive face, glowing cyan sound waves coming from the microphone." + STYLE LINE
+
+4. avatar_reading_book.png
+CHARACTER + "standing, full body, holding an open hardcover book in both hands, looking over the book at the camera with a small smile, a few golden sparkles rising from the pages." + STYLE LINE
+
+5. avatar_phone_recording.png
+CHARACTER + "standing, full body, holding a smartphone up in selfie-recording position, a small red record dot on the phone, confident creator smile, one thumb up with the other hand." + STYLE LINE
+
+6. avatar_laptop_ai.png
+CHARACTER + "sitting cross-legged on the floor, full body, a glowing laptop on his lap, a small cute AI robot assistant hovering beside his shoulder, both looking at the camera and smiling." + STYLE LINE
+
+----------------------------------------------------------
+PART B - TOPIC PROPS (one per question chip)
+----------------------------------------------------------
+7. prop_storybook.png  (Stories)
+"An old open storybook with a magical warm glow and tiny floating golden particles rising from the pages, slight 3/4 angle." + STYLE LINE
+
+8. prop_book_stack.png  (Books I read)
+"A neat stack of four colourful hardcover books with a pair of round reading glasses and a cup of masala chai on top." + STYLE LINE
+
+9. prop_retro_tv_play.png  (YouTube channel recommendations)
+"A retro rounded TV set with a big red play-button triangle shape on its screen, small antenna, slight tilt to the left." + STYLE LINE
+
+10. prop_phone_tripod.png  (Mera content creation journey)
+"A smartphone on a mini tripod with a small ring light, recording, little glowing heart and thumbs-up icons floating around it." + STYLE LINE
+
+11. prop_studio_mic.png  (Voice over kaha se banata hu)
+"A professional studio condenser microphone on a stand with a round pop filter and glowing cyan sound waves around it." + STYLE LINE
+
+----------------------------------------------------------
+PART C - AI LOOK ELEMENTS
+----------------------------------------------------------
+12. prop_ai_robot.png
+"A small cute round glowing AI robot assistant with big friendly screen-eyes, floating, holding a big glowing golden question mark in both hands." + STYLE LINE
+
+13. prop_ai_chip.png
+"A glowing futuristic AI microchip with the two letters AI engraved on top, cyan circuit lines lighting up around it, floating at a slight angle." + STYLE LINE
+(This one may show the letters AI. Keep every other prompt text-free.)
+
+14. prop_question_marks.png
+"Three glossy 3D question marks of different sizes, in gold, cyan and pink, floating at different angles." + STYLE LINE
+
+15. prop_chat_bubble.png
+"A glossy 3D speech bubble with three dots inside, frosted glass material, soft pink and cyan reflections." + STYLE LINE
+
+----------------------------------------------------------
+After generating: put all 15 PNGs in one zip and send them.
+Background removal, placement next to each chip, wall text and AI glow will be done in the edit.
