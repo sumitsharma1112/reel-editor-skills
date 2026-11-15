@@ -32,6 +32,7 @@ Made by [@sumitsharma1112](https://github.com/sumitsharma1112) with Claude.
 | `skills/collage-explainer` | Faceless explainer with Sumit's cartoon avatar in the paper-collage + app-window style: chapter cards, typing windows, notifications, departure board, film strip, stickers, pixel mascot, 1-2 word italic captions |
 | `skills/cutout-story` | Premium biography reel: transparent cutouts animated as layers on a periwinkle stage, painted B-roll, frosted word-by-word Hinglish captions, beat motion graphics (counters, stamps, beams, pins), varied transitions |
 | `skills/creator-templates` | Four creator-style scene templates from a plan JSON: RAW vs EDITED compare board, stats proof card, chat `/command` mock that opens the result full screen, newspaper with highlighter sweep |
+| `skills/series-thumbnails` | Consistent covers for biography / sant katha / book summary reels: tag pill, big outlined title, subtitle pill, PART badge |
 | `skills/storyboard` | One-page storyboard of an edit: numbered beat cards with still, spoken words, on-screen element, two alternative ideas and a notes box; 'done, run my notes' changes only the noted beats |
 | `skills/vibha-free-skills` | Installer for Vibha's free masterclass skills (nate-herk-style-edit, free-sfx-finder) straight from her repo |
 | `skills/hyperframes-setup` | Installs HeyGen's HyperFrames skills (HTML -> MP4 motion graphics) |
