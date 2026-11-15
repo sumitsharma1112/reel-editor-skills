@@ -1,0 +1,6 @@
+{"scenes":[
+ {"template":"compare","dur":4,"title":["How AI edits","my reels"],"labels":["RAW","EDITED BY AI"],"strip":"all by Claude · 1 skill · 1 hour","clips":{"raw":"raw.mp4","edited":"edited.mp4"}},
+ {"template":"proof","dur":4,"card_title":"Summary","stats":[["Views","1881311"],["Viewers","1395658"],["Avg watch time","9.6"],["Follows","17708"]],"hot":0,"headline":["How to get 1M views","with AI editing your reels"],"words":[[0.4,0.9,"and"],[0.9,1.5,"this"],[1.5,2.2,"works"]],"clips":{"speaker":"edited.mp4"}},
+ {"template":"chatcmd","dur":5,"app":"AI Editor","greeting":"How can I help you?","command":"/animate map-route","working":"Animating","clips":{"result":"edited.mp4"}},
+ {"template":"news","dur":5,"paper":"The Morning Cut","dateline":"SUNDAY 15 NOVEMBER 2026 · CREATOR EDITION","headline":"The video studio that lives inside your chat","body":"Creators can now try out this exact video studio that edited this whole reel. You film one take, pick a look, and the AI drafts the cuts, adds captions and sound. Every frame waits for your approval.","highlight":"this exact video studio that edited this whole reel","clips":{"photo":"photo.jpg"}}
+]}
