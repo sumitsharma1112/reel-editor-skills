@@ -14,3 +14,9 @@ Her paid plugin "Hop Studio" (220+ effects, 47 caption styles) is sold on vibha.
 The masterclass skills are not copied into this repo (her masterclass repo has no licence file). Run `bash install.sh` to fetch them straight from her repo into `~/.claude/skills/`.
 In the Claude app, `free-sfx-finder` is already saved as a personal skill (script inlined in its SKILL.md).
 Note: the cloud workspace blocks api.openverse.org; run the finder on your own computer.
+
+## Vibha's caption styles: what is free (checked 15 Nov 2026)
+- `captions` (claude-caption-styles): 7 free styles: editorial-highlight, pop-sticker, paper-plane, smoke-exit, explosive-breakup, rolodex-flip, retro-typer.
+- `nate-herk-style-edit` v2 (masterclass zip, updated 12 Nov 2026): ALL-CAPS Montserrat ExtraBold caption with a lowercase serif key line underneath in mint/green, sitting on the split-screen seam; dark pill on busy media.
+- The other ~40 styles (words behind your head, liquid glass, text on the room walls) are only in her paid Hop Studio plugin, not on GitHub.
+- `install.sh` always pulls the latest versions of all of these.
