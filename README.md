@@ -118,3 +118,5 @@ Eight studied style recipes cover double exposure, scrolling lyrics, curved/type
 - **effectcraft/** — beat-synced reel prototype on the EffectCraft engine (beats.py → make_reel.py → JSX → effectcraft-cli render).
 
 - Native EffectCraft prototype: [tested CLI workflow](skills/reel-editor/references/effectcraft-native-prototype.md) and [manifest-driven project builder](skills/reel-editor/scripts/effectcraft_reel_test.py).
+
+- **open-caption-styles**: 18 free HyperFrames caption blocks (incl. text behind the speaker) + remotion-captioneer & remotion-subtitle (14+14 styles).
