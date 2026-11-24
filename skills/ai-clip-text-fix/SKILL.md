@@ -33,3 +33,8 @@ Built for the Faridkot Postal Division International Speed Post reel (Nov 2026).
 - Glass CTA end card.
 - Cuts: 0.12 s white flash plus a 1.06 → 1.0 punch-in.
 - Hook text is on frame 0; no fade-in.
+
+## 5. Board replacement v2 + voice-over sync (added later)
+- `sign_plate()` now covers the WHOLE tracked panel. It is a glossy maroon acrylic board with a gold double frame, a drawn gold three-stripe swoosh mark at the left, gold Gurmukhi on top and white English below, raised-letter shadows, and a diagonal light sweep (`shine()`).
+- `vo_fit.py`: cut the narrator's wav into speech chunks (−40 dB, 10 ms hop), group the chunks into script lines, cap pauses at 0.38 s (speed never changed), and place each line at its scene start. It writes `timing.json` with per-chunk anchors.
+- `reel_vo_sync.py`: scene length comes from the VO. Source clips are retimed piecewise (`pw()`) so key visuals land on words (stamp on "ਡਾਕਘਰ ਹੈ ਨਾ"). Pills, ticks and country names pop on their chunk anchors.

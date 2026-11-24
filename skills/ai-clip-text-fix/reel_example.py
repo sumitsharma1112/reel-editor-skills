@@ -76,25 +76,62 @@ def stamp(text,size):
     return out.rotate(-4,resample=Image.BICUBIC,expand=True)
 @functools.lru_cache(None)
 def sign_plate(w,h):
-    im=Image.new('RGBA',(w,h)); d=ImageDraw.Draw(im)
-    d.rectangle([0,0,w,h],fill=(206,32,39,255))
-    l1=render('ਭਾਰਤੀ  ਡਾਕ  ·  INDIA POST','head',100,fill=WHITE)
-    l2=render('FARIDKOT POSTAL DIVISION','head',100,fill=WHITE)
-    gap=int(l1.height*0.22)
-    s=min((w*0.9)/max(l1.width,l2.width),(h*0.84)/(l1.height+l2.height+gap))
-    l1=l1.resize((int(l1.width*s),int(l1.height*s)),Image.LANCZOS); l2=l2.resize((int(l2.width*s),int(l2.height*s)),Image.LANCZOS)
-    g=int(gap*s); y=(h-l1.height-l2.height-g)//2
-    im.alpha_composite(l1,((w-l1.width)//2,y)); im.alpha_composite(l2,((w-l2.width)//2,y+l1.height+g))
-    return im
+    """full board: glossy maroon-red acrylic, gold frame, gold swoosh mark at left, gold Gurmukhi + white English"""
+    S2=2; W2,H2=w*S2,h*S2
+    yy=np.linspace(0,1,H2)[:,None]; top=np.array([196,28,36]); bot=np.array([128,12,22]); col=top*(1-yy)+bot*yy
+    g=np.zeros((H2,W2,4),np.uint8)
+    for k in range(3): g[...,k]=np.repeat(col[:,k:k+1],W2,1)
+    g[...,3]=255
+    im=Image.fromarray(g,'RGBA'); d=ImageDraw.Draw(im)
+    sh=Image.new('RGBA',im.size); ImageDraw.Draw(sh).rectangle([0,0,W2,int(H2*0.42)],fill=(255,255,255,38)); im.alpha_composite(sh)
+    bw=max(3,int(H2*0.045))
+    d.rectangle([bw//2,bw//2,W2-bw//2-1,H2-bw//2-1],outline=(232,186,80,255),width=bw)
+    d.rectangle([bw*2,bw*2,W2-bw*2-1,H2-bw*2-1],outline=(232,186,80,140),width=max(1,bw//3))
+    # swoosh mark on the left
+    lw=int(H2*1.25); lh=int(H2*0.62); L=Image.new('RGBA',(lw*4,lh*4)); dl=ImageDraw.Draw(L)
+    for k in range(3):
+        off=k*lh*4*0.2; th=int(lh*4*0.09)
+        pts=[(lw*4*0.04+off*0.5, lh*4*0.30+off),(lw*4*0.35+off*0.3, lh*4*0.62+off*0.6),(lw*4*0.62, lh*4*0.55+off*0.4),(lw*4*0.98, lh*4*0.06+off*0.25)]
+        # smooth via many points (quadratic-ish polyline)
+        import numpy as _n
+        ts=_n.linspace(0,1,60); P=_n.array(pts)
+        curve=[(float(((1-t)**3)*P[0,0]+3*((1-t)**2)*t*P[1,0]+3*(1-t)*t*t*P[2,0]+t**3*P[3,0]), float(((1-t)**3)*P[0,1]+3*((1-t)**2)*t*P[1,1]+3*(1-t)*t*t*P[2,1]+t**3*P[3,1])) for t in ts]
+        dl.line(curve,fill=(246,196,72,255),width=th,joint='curve')
+    L=L.resize((lw,lh),Image.LANCZOS)
+    left_w=int(W2*0.24)
+    im.alpha_composite(L,(bw*3+max(0,(left_w-lw)//2),(H2-lh)//2))
+    d.line([(left_w+bw*2,int(H2*0.22)),(left_w+bw*2,int(H2*0.78))],fill=(232,186,80,170),width=max(1,bw//3))
+    l1=render('ਭਾਰਤੀ  ਡਾਕ','head',140,fill=(255,214,102,255))
+    l2=render('FARIDKOT POSTAL DIVISION','head',90,fill=WHITE)
+    area_x0=left_w+bw*3; area_w=W2-area_x0-bw*3
+    inner_w=area_w*0.92; inner_h=H2*0.80
+    s1=min(inner_h*0.50/l1.height, inner_w/l1.width); s2=min(inner_h*0.36/l2.height, inner_w/l2.width)
+    l1=l1.resize((int(l1.width*s1),int(l1.height*s1)),Image.LANCZOS); l2=l2.resize((int(l2.width*s2),int(l2.height*s2)),Image.LANCZOS)
+    gp=int(inner_h*0.1); y=(H2-l1.height-l2.height-gp)//2
+    for Lt,yy0 in [(l1,y),(l2,y+l1.height+gp)]:
+        xx=area_x0+(area_w-Lt.width)//2
+        shd=Image.new('RGBA',im.size); blk=Image.new('RGBA',Lt.size,(40,0,0,255)); blk.putalpha(Lt.split()[3])
+        shd.alpha_composite(blk,(xx+3,yy0+5)); shd=shd.filter(ImageFilter.GaussianBlur(3)); im.alpha_composite(shd); im.alpha_composite(Lt,(xx,yy0))
+    return im.resize((w,h),Image.LANCZOS)
+def shine(pl,p):
+    """diagonal light sweep at progress p (0..1)"""
+    if p<=0 or p>=1: return pl
+    w,h=pl.size; sw=Image.new('L',(w,h),0); d=ImageDraw.Draw(sw)
+    x=int(-0.3*w+p*1.6*w); band=int(w*0.12)
+    d.polygon([(x,0),(x+band,0),(x+band-h,h),(x-h,h)],fill=110)
+    sw=sw.filter(ImageFilter.GaussianBlur(band/5))
+    m=Image.composite(Image.new('L',(w,h),0),sw,pl.split()[3].point(lambda v:255-v))
+    wh=Image.new('RGBA',(w,h),(255,255,255,0)); wh.putalpha(m)
+    out=pl.copy(); out.alpha_composite(wh); return out
 @functools.lru_cache(None)
 def checklist_card(n_checked):
-    w,h=860,470
+    w,h=900,575
     im=Image.new('RGBA',(w+40,h+40)); d=ImageDraw.Draw(im)
     sh=Image.new('RGBA',im.size); ImageDraw.Draw(sh).rounded_rectangle([20,30,20+w,30+h],44,fill=(0,0,0,150)); sh=sh.filter(ImageFilter.GaussianBlur(12)); im.alpha_composite(sh)
     d.rounded_rectangle([20,20,20+w,20+h],44,fill=(255,253,247,245))
     tt=render("ਡਾਕਘਰ  ਕਾਊਂਟਰ  'ਤੇ","head",58,fill=RED); im.alpha_composite(tt,(70,48))
     d.line([(70,48+tt.height+14),(20+w-50,48+tt.height+14)],fill=(230,220,205,255),width=3)
-    rows=['ਵਜ਼ਨ','ਰਸੀਦ','ਟ੍ਰੈਕਿੰਗ  ਨੰਬਰ']
+    rows=['ਵਜ਼ਨ','ਰਸੀਦ','ਟ੍ਰੈਕਿੰਗ  ਨੰਬਰ','ਪੈਕਿੰਗ  ਦੀ  ਸਹੂਲਤ  ਵੀ  📦']
     y=48+tt.height+40
     for i,r in enumerate(rows):
         on=i<n_checked
@@ -106,7 +143,7 @@ def checklist_card(n_checked):
         else:
             d.ellipse([cx-30,cy-30,cx+30,cy+30],outline=(190,180,170,255),width=5)
         t=render(r,'head',62,fill=DARK if on else (120,110,100,255)); im.alpha_composite(t,(165,y+42-t.height//2-4))
-        y+=104
+        y+=100
     return im
 
 def paste(canvas,img,cx,cy,scale=1.0,alpha=1.0,rot=0):
@@ -159,9 +196,9 @@ def scene_family(t,dur):
     return c
 def scene_building(t,dur):
     i=min(119,int(round(t*24))); f=SRC['c_postal'].frame(t)
-    Hm=Hs[i]; rect=np.float32([[[216,426]],[[566,426]],[[566,508]],[[216,508]]])
+    Hm=Hs[i]; rect=np.float32([[[216,431]],[[560,431]],[[560,503]],[[216,503]]])
     p=cv2.perspectiveTransform(rect,Hm).reshape(-1,2)*S
-    x0,y0=p[:,0].min(),p[:,1].min(); x1,y1=p[:,0].max(),p[:,1].max(); x1=min(x1,x0+(x1-x0)*0.93)
+    x0,y0=p[:,0].min(),p[:,1].min(); x1,y1=p[:,0].max(),p[:,1].max(); x1=min(x1,x0+(x1-x0)*0.95)
     lt=B(80,950,640,1135)
     f=glass(f,lt,r=36,dark=0.62)
     z=kb(t,dur,1.0,1.04); f=zoom(f,z)
@@ -170,7 +207,8 @@ def scene_building(t,dur):
     a0=zp((x0+(x1-x0)*0.25,y0),z); a1=zp((x1,y1),z)
     w,h=int(a1[0]-a0[0]),int(a1[1]-a0[1])
     if w>20 and h>10:
-        pl=sign_plate(max(40,w//4*4),max(20,h//2*2)).resize((w,h),Image.LANCZOS)
+        pl=sign_plate(max(40,w//8*8),max(20,h//4*4)).resize((w,h),Image.LANCZOS)
+        pl=shine(pl,(t-1.2)/1.1) if t<2.5 else shine(pl,(t-3.6)/1.1)
         c.alpha_composite(pl,(int(a0[0]),int(a0[1])))
     cx,cy=zp(((lt[0]+lt[2])/2,(lt[1]+lt[3])/2),z)
     pop(c,T('ਇੰਟਰਨੈਸ਼ਨਲ ਸਪੀਡ ਪੋਸਟ ✈️',70,GOLD),cx,cy-50,t,0.15)
@@ -194,7 +232,7 @@ def scene_counter(t,dur):
     f=glass(f,(band[0]-10,band[1],band[2]+10,band[3]),r=0,dark=0.35,border=False,feather=8)
     z=kb(t,dur,1.0,1.04); f=zoom(f,z); c=Image.fromarray(cv2.cvtColor(f,cv2.COLOR_BGR2RGB)).convert('RGBA')
     cx,cy=zp(((band[0]+band[2])/2,(band[1]+band[3])/2),z)
-    n=0 if t<0.7 else 1 if t<1.6 else 2 if t<2.5 else 3
+    n=0 if t<0.6 else 1 if t<1.3 else 2 if t<2.0 else 3 if t<2.9 else 4
     p=clamp(t/0.3); paste(c,checklist_card(n),cx,cy+(1-ease_out(p))*120,1.0,p)
     return c
 def scene_globe(t,dur):
