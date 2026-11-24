@@ -122,3 +122,6 @@ Eight studied style recipes cover double exposure, scrolling lyrics, curved/type
 - **open-caption-styles**: 18 free HyperFrames caption blocks (incl. text behind the speaker) + remotion-captioneer & remotion-subtitle (14+14 styles).
 - **wall-glass-styles**: free wall-text (wall-perspective, wall-projection), liquid-glass cards/graphs and text-behind-head styles from 6 creator repos, with preview.
 - **story-ama**: animated Ask Me Anything story with a slot for the question sticker.
+
+### ai-clip-text-fix (Nov 2026)
+Cover the wrong text that Gemini/Veo burns into AI clips with frosted-glass caption cards, replace signboards on push-in shots using feature tracking, and render correct Gurmukhi with merged Fontsource fonts. See `skills/ai-clip-text-fix/`.
