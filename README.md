@@ -115,3 +115,6 @@ Eight studied style recipes cover double exposure, scrolling lyrics, curved/type
 - **effectcraft/** — beat-synced reel prototype on the EffectCraft engine (beats.py → make_reel.py → JSX → effectcraft-cli render).
 
 - Native EffectCraft prototype: [tested CLI workflow](skills/reel-editor/references/effectcraft-native-prototype.md) and [manifest-driven project builder](skills/reel-editor/scripts/effectcraft_reel_test.py).
+
+### ai-clip-text-fix (Nov 2026)
+Cover the wrong text that Gemini/Veo burns into AI clips with frosted-glass caption cards, replace signboards on push-in shots using feature tracking, and render correct Gurmukhi with merged Fontsource fonts. See `skills/ai-clip-text-fix/`.
